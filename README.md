@@ -5,21 +5,13 @@
 ### Import
 
 - [ ] Add `Import Declaration` (Named / Namespce / Default).
-
 - [ ] Add `Named Import` members.
-
 - [ ] Modify value of `Default Import`.
-
 - [ ] Modify value of `Namespace Import.`
-
 - [ ] Modify `Module Specifier` of `Import Declaration`.
-
 - [ ] Remove `Import Declaration` by `Module Specifier`.
-
 - [ ] Remove `Import Declaration` by `Import Type`.
-
 - [ ] Find `Import Declaration` / `Import Module Specifier` (by `Module Specifier`).
-
 - [ ] Judge type of `Import Declaration` (Named / Namespce / Default).
 
 ### Export
@@ -35,26 +27,16 @@
 ### Class
 
 - [ ] Find Class `Method Declaration` / `Method Identifier`.
-
 - [ ] Find Class `Prop Declaration` / `Prop Identifier`.
-
 - [ ] Add `Method Declaration` for class.
-
 - [ ] Add `Props Declaration` for class.
-
 - [ ] Find `Class Declaration` .
-
 - [ ] Ensure Class `Method Declaration`.
-
 - [ ] Ensure Class `Prop Declaration` .
-
 - [ ] Ensure `Class Declaration` with `Decorator Declaration`
-
-- [ ] Ensure Class `Method Declaration` with `Arguments Declaration `
-
-- [ ] Ensure Class `Method Declaration` with `Decorator Declaration `
-
-- [ ] Ensure Class `Prop Declaration` with `Decorator Declaration `
+- [ ] Ensure Class `Method Declaration` with `Arguments Declaration `.
+- [ ] Ensure Class `Method Declaration` with `Decorator Declaration `.
+- [ ] Ensure Class `Prop Declaration` with `Decorator Declaration `.
 
 ### Function
 
