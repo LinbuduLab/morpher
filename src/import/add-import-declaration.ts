@@ -67,7 +67,7 @@ export function addImportDeclaration(
 
     default:
       importDebugger("Invalid ImportType, Skipped.");
-      process.exit(0);
+      return;
   }
 
   apply && source.saveSync();
