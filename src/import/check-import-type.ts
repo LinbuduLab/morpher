@@ -1,16 +1,47 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
+import { getImportDeclaration } from "./get-import-declaration";
 
-// 检查是否是默认导入
-export function isDefaultImport(importSpec: ImportDeclaration): boolean {
-  return Boolean(importSpec.getDefaultImport());
+export function checkIsDefaultImportByModuleSpecifier(
+  source: SourceFile,
+  specifier: string
+): boolean {
+  return checkIsDefaultImportByDeclaration(
+    getImportDeclaration(source, specifier)
+  );
 }
 
-// 检查是否是命名空间导入
-export function isNamespaceImport(importSpec: ImportDeclaration): boolean {
-  return Boolean(importSpec.getNamespaceImport());
+export function checkIsNamespaceImportByModuleSpecifier(
+  source: SourceFile,
+  specifier: string
+): boolean {
+  return checkIsNamespaceImportByDeclaration(
+    getImportDeclaration(source, specifier)
+  );
 }
 
-// 检查是否是具名导入
-export function isNamedImport(importSpec: ImportDeclaration): boolean {
-  return Boolean(importSpec.getNamedImports().length);
+export function checkIsNamedImportByModuleSpecifier(
+  source: SourceFile,
+  specifier: string
+): boolean {
+  return checkIsNamedImportByDeclaration(
+    getImportDeclaration(source, specifier)
+  );
+}
+
+export function checkIsDefaultImportByDeclaration(
+  importSpec: ImportDeclaration | undefined
+): boolean {
+  return Boolean(importSpec?.getDefaultImport());
+}
+
+export function checkIsNamespaceImportByDeclaration(
+  importSpec: ImportDeclaration | undefined
+): boolean {
+  return Boolean(importSpec?.getNamespaceImport());
+}
+
+export function checkIsNamedImportByDeclaration(
+  importSpec: ImportDeclaration | undefined
+): boolean {
+  return Boolean(importSpec?.getNamedImports().length);
 }

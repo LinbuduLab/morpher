@@ -1,11 +1,16 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
+import {
+  getImportDeclaration,
+  getImportDeclarationModuleSpecifier,
+} from "./get-import-declaration";
 
-// export function hasImportDeclaration(source: SourceFile): boolean {
-//   const imports = source
-//     .getFirstChildByKind(SyntaxKind.SyntaxList)
-//     ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
+export function importDeclarationExist(
+  source: SourceFile,
+  moduleSpecifier: string
+): boolean {
+  return getImportDeclarationModuleSpecifier(source).includes(moduleSpecifier);
+}
 
-//   return Boolean(imports?.length);
-// }
-
-// export function hasDefaultImport(source: SourceFile): boolean {}
+export function hasImportDeclaration(source: SourceFile): boolean {
+  return Boolean(getImportDeclaration(source).length);
+}
