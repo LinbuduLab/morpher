@@ -4,10 +4,9 @@
 
 ### Import
 
-- [ ] Add `Import Declaration` (Named / Namespce / Default).
-- [ ] Add `Named Import` members.
-- [ ] Modify value of `Default Import`.
-- [ ] Modify value of `Namespace Import.`
+- [x] Add `Import Declaration` (Named / Namespce / Default).
+- [x] Add `Named Import` members.
+- [x] Modify `Import Clause` of `Default Import` / `Namespace Import`.
 - [ ] Modify `Module Specifier` of `Import Declaration`.
 - [ ] Remove `Import Declaration` by `Module Specifier`.
 - [ ] Remove `Import Declaration` by `Import Type`.

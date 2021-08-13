@@ -1,6 +1,10 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
-import { getModuleSpecifierText } from "./get-import-declaration";
+import {
+  getImportDeclaration,
+  getModuleSpecifierText,
+} from "./get-import-declaration";
 import { addImportDeclaration } from "./add-import-declaration";
+import { importDeclarationExist } from "./has-import-declaration";
 import { ImportType } from "../typings/import";
 
 export function addNamedImportsMember(
@@ -55,6 +59,42 @@ export function addNamedImportsMember(
   }
 
   targetImportDec.addNamedImports(namedImportsCanBeAdded);
+
+  apply && source.saveSync();
+}
+
+// TODO: test
+export function removeNamedImportsMember(
+  source: SourceFile,
+  importSpec: string,
+  members: string[],
+  apply = true
+): void {
+  if (!importDeclarationExist(source, importSpec)) {
+    return;
+  }
+
+  const targetImportDec = getImportDeclaration(source, importSpec)!;
+
+  const importClause = targetImportDec.getImportClause()!;
+  const namedImports = importClause
+    .getNamedImports()
+    .map((namedImport) => namedImport.getText());
+
+  const namedImportsCanBeRemoved = members.filter(
+    (mem) => !namedImports.includes(mem)
+  );
+
+  const updatedNamedImports = namedImports.filter(
+    (member) => !namedImportsCanBeRemoved.includes(member)
+  );
+
+  if (!namedImportsCanBeRemoved.length) {
+    return;
+  }
+
+  targetImportDec.removeNamedImports();
+  targetImportDec.addNamedImports(updatedNamedImports);
 
   apply && source.saveSync();
 }
