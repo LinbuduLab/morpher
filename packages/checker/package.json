@@ -1,0 +1,29 @@
+{
+  "name": "@ts-morpher/checker",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linbudu599/morpher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/linbudu599/morpher.git"
+  },
+  "author": "linbudu599",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "scripts": {
+    "test": "jest",
+    "dev": "tsnd --respawn --transpile-only ./demo.ts",
+    "build": "tsc",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ts-morpher/helper": "^0.0.1",
+    "@ts-morpher/types": "^0.0.1",
+    "ts-morph": "^11.0.3"
+  }
+}
