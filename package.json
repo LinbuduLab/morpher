@@ -1,8 +1,14 @@
 {
-  "name": "morpher",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "ts-morpher",
+  "version": "0.0.1",
+  "main": "dist/index.js",
   "license": "MIT",
+  "author": "linbudu599",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "prettier": "^2.3.2",
+    "ts-morph": "^11.0.3"
+  },
   "devDependencies": {
     "@types/debug": "^4.1.7",
     "@types/fs-extra": "^9.0.12",
@@ -13,11 +19,6 @@
     "ts-jest": "^27.0.4",
     "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "fs-extra": "^10.0.0",
-    "prettier": "^2.3.2",
-    "ts-morph": "^11.0.3"
   },
   "scripts": {
     "test": "jest"

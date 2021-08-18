@@ -1,11 +1,8 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
-import {
-  getImportDeclaration,
-  getModuleSpecifierText,
-} from "./get-import-declaration";
-import { addImportDeclaration } from "./add-import-declaration";
-import { importDeclarationExist } from "./has-import-declaration";
-import { ImportType } from "../typings/import";
+import { getImportDeclaration, getModuleSpecifierText } from "./import-get";
+import { importDeclarationExist } from "./import-check";
+import { addImportDeclaration } from "./import-create";
+import { ImportType } from "../typings";
 
 export function addNamedImportsMember(
   source: SourceFile,
@@ -63,7 +60,6 @@ export function addNamedImportsMember(
   apply && source.saveSync();
 }
 
-// TODO: test
 export function removeNamedImportsMember(
   source: SourceFile,
   importSpec: string,
@@ -95,6 +91,64 @@ export function removeNamedImportsMember(
 
   targetImportDec.removeNamedImports();
   targetImportDec.addNamedImports(updatedNamedImports);
+
+  apply && source.saveSync();
+}
+
+export function updateImportSpecifier(
+  source: SourceFile,
+  prevSpec: string,
+  updatedSpec: string,
+  apply = true
+) {
+  if (!importDeclarationExist(source, prevSpec)) {
+    return;
+  }
+
+  const targetImport = getImportDeclaration(source, prevSpec)!;
+
+  targetImport.setModuleSpecifier(updatedSpec);
+
+  apply && source.saveSync();
+}
+
+export function updateDefaultImportClause(
+  source: SourceFile,
+  specifier: string,
+  updatedClause: string,
+  apply = true
+) {
+  if (!importDeclarationExist(source, specifier)) {
+    return;
+  }
+  const targetImport = getImportDeclaration(source, specifier);
+
+  if (!targetImport?.getDefaultImport()) {
+    return;
+  }
+
+  targetImport.setDefaultImport(updatedClause);
+
+  apply && source.saveSync();
+}
+
+export function updateNamespaceImportClause(
+  source: SourceFile,
+  specifier: string,
+  updatedNamespace: string,
+  apply = true
+) {
+  if (!importDeclarationExist(source, specifier)) {
+    return;
+  }
+
+  const targetImport = getImportDeclaration(source, specifier);
+
+  if (!targetImport?.getNamespaceImport()) {
+    return;
+  }
+
+  targetImport.setNamespaceImport(updatedNamespace);
 
   apply && source.saveSync();
 }

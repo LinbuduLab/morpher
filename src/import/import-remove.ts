@@ -1,14 +1,12 @@
 import { SourceFile } from "ts-morph";
-import { getImportDeclaration } from "./get-import-declaration";
+import { getImportDeclaration } from "./import-get";
 import {
   importDeclarationExist,
   hasImportDeclaration,
-} from "./has-import-declaration";
-import {
   checkIsDefaultImportByDeclaration,
   checkIsNamespaceImportByDeclaration,
   checkIsNamedImportByDeclaration,
-} from "./check-import-type";
+} from "./import-check";
 
 export function removeImportDeclaration(
   source: SourceFile,

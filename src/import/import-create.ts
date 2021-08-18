@@ -1,6 +1,8 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
 import debug from "debug";
+
 import { ensureArray } from "../utils/helper";
+
 import { ImportType } from "../typings/import";
 
 const importDebugger = debug("import");

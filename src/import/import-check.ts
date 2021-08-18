@@ -1,5 +1,19 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
-import { getImportDeclaration } from "./get-import-declaration";
+import {
+  getImportDeclaration,
+  getImportDeclarationModuleSpecifier,
+} from "./import-get";
+
+export function importDeclarationExist(
+  source: SourceFile,
+  moduleSpecifier: string
+): boolean {
+  return getImportDeclarationModuleSpecifier(source).includes(moduleSpecifier);
+}
+
+export function hasImportDeclaration(source: SourceFile): boolean {
+  return Boolean(getImportDeclaration(source).length);
+}
 
 export function checkIsDefaultImportByModuleSpecifier(
   source: SourceFile,
