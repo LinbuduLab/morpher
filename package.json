@@ -39,7 +39,7 @@
     "lerna": "^4.0.0",
     "oao": "^2.0.2",
     "ts-jest": "^27.0.5",
-    "ts-node": "^10.2.0",
+    "ts-node": "^10.2.1",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5",
     "ultra-runner": "^3.10.5"
