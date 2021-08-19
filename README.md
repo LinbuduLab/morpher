@@ -2,6 +2,15 @@
 
 WIP...
 
+## Packages Deps
+
+- checker -> helper & types
+- creator -> helper & types & checker
+- cleaner -> helper & types & checker
+- helper -> types & checker
+- modifier -> helper & types & checker
+- types
+
 ## API
 
 ### Import

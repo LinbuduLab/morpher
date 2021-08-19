@@ -22,6 +22,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "@ts-morpher/checker": "^0.0.2",
     "@ts-morpher/helper": "^0.0.2",
     "@ts-morpher/types": "^0.0.2",
     "ts-morph": "^11.0.3"
