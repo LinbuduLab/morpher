@@ -1,19 +1,18 @@
 import { ImportDeclaration, SourceFile, SyntaxKind, Project } from "ts-morph";
-import path from "path";
 
-export function getImportDeclaration(source: SourceFile): ImportDeclaration[];
+export function getImportDec(source: SourceFile): ImportDeclaration[];
 
-export function getImportDeclaration(
+export function getImportDec(
   source: SourceFile,
   moduleSpecifier: string
 ): ImportDeclaration | undefined;
 
-export function getImportDeclaration(
+export function getImportDec(
   source: SourceFile,
   moduleSpecifier: string[]
 ): ImportDeclaration[];
 
-export function getImportDeclaration(
+export function getImportDec(
   source: SourceFile,
   moduleSpecifier?: string | string[]
 ): undefined | ImportDeclaration | ImportDeclaration[] {
@@ -34,9 +33,7 @@ export function getImportDeclaration(
     : result;
 }
 
-export function getImportDeclarationModuleSpecifier(
-  source: SourceFile
-): string[] {
+export function getImportDecModSpecList(source: SourceFile): string[] {
   const importDeclarations = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
@@ -53,12 +50,3 @@ export function getModuleSpecifierText(importDec: ImportDeclaration): string {
     .replace('"', "")
     .replace('"', "")!;
 }
-
-const project = new Project();
-
-const source = project.addSourceFileAtPath(
-  path.resolve(__dirname, "./base.ts")
-);
-
-const x = getImportDeclaration(source, ["chalk"]);
-console.log(x.map((x) => x.getText()));

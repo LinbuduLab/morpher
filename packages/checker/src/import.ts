@@ -1,8 +1,5 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
-import {
-  getImportDeclaration,
-  getImportDeclarationModuleSpecifier,
-} from "@ts-morpher/helper";
+import { getImportDec, getImportDecModSpecList } from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
 
 /**
@@ -11,11 +8,11 @@ import { ImportType } from "@ts-morpher/types";
  * @param moduleSpecifier
  * @example
  */
-export function checkImportDeclarationExistBySpecifier(
+export function checkImportExistByModSpec(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean {
-  return getImportDeclarationModuleSpecifier(source).includes(moduleSpecifier);
+  return getImportDecModSpecList(source).includes(moduleSpecifier);
 }
 
 /**
@@ -28,7 +25,7 @@ export function checkImportExistByDec(
   source: SourceFile,
   declaration: ImportDeclaration
 ): boolean {
-  return getImportDeclaration(source).includes(declaration);
+  return getImportDec(source).includes(declaration);
 }
 
 /**
@@ -37,8 +34,8 @@ export function checkImportExistByDec(
  * @param moduleSpecifier
  * @example
  */
-export function hasImportDeclaration(source: SourceFile): boolean {
-  return Boolean(getImportDeclaration(source).length);
+export function hasImportDec(source: SourceFile): boolean {
+  return Boolean(getImportDec(source).length);
 }
 
 /**
@@ -47,13 +44,11 @@ export function hasImportDeclaration(source: SourceFile): boolean {
  * @param moduleSpecifier
  * @example
  */
-export function checkIsDefaultImportByModuleSpecifier(
+export function checkIsDefaultImportByModSpec(
   source: SourceFile,
   specifier: string
 ): boolean {
-  return checkIsDefaultImportByDeclaration(
-    getImportDeclaration(source, specifier)
-  );
+  return checkIsDefaultImportByDec(getImportDec(source, specifier));
 }
 
 /**
@@ -62,13 +57,11 @@ export function checkIsDefaultImportByModuleSpecifier(
  * @param moduleSpecifier
  * @example
  */
-export function checkIsNamespaceImportByModuleSpecifier(
+export function checkIsNamespaceImportByModSpec(
   source: SourceFile,
   specifier: string
 ): boolean {
-  return checkIsNamespaceImportByDeclaration(
-    getImportDeclaration(source, specifier)
-  );
+  return checkIsNamespaceImportByDec(getImportDec(source, specifier));
 }
 
 /**
@@ -77,13 +70,11 @@ export function checkIsNamespaceImportByModuleSpecifier(
  * @param moduleSpecifier
  * @example
  */
-export function checkIsNamedImportByModuleSpecifier(
+export function checkIsNamedImportByModSpec(
   source: SourceFile,
   specifier: string
 ): boolean {
-  return checkIsNamedImportByDeclaration(
-    getImportDeclaration(source, specifier)
-  );
+  return checkIsNamedImportByDec(getImportDec(source, specifier));
 }
 
 /**
@@ -92,7 +83,7 @@ export function checkIsNamedImportByModuleSpecifier(
  * @param moduleSpecifier
  * @example
  */
-export function checkIsDefaultImportByDeclaration(
+export function checkIsDefaultImportByDec(
   importSpec: ImportDeclaration | undefined
 ): boolean {
   return Boolean(importSpec?.getDefaultImport());
@@ -104,7 +95,7 @@ export function checkIsDefaultImportByDeclaration(
  * @param moduleSpecifier
  * @example
  */
-export function checkIsNamespaceImportByDeclaration(
+export function checkIsNamespaceImportByDec(
   importSpec: ImportDeclaration | undefined
 ): boolean {
   return Boolean(importSpec?.getNamespaceImport());
@@ -116,7 +107,7 @@ export function checkIsNamespaceImportByDeclaration(
  * @param moduleSpecifier
  * @example
  */
-export function checkIsNamedImportByDeclaration(
+export function checkIsNamedImportByDec(
   importSpec: ImportDeclaration | undefined
 ): boolean {
   return Boolean(importSpec?.getNamedImports().length);
@@ -128,13 +119,13 @@ export function checkIsNamedImportByDeclaration(
  * @param specifier
  * @returns ImportType
  */
-export function checkImportTypeByModuleSpecifier(
+export function checkImportTypeByModSpec(
   source: SourceFile,
   specifier: string
 ): ImportType {
-  return checkIsDefaultImportByModuleSpecifier(source, specifier)
+  return checkIsDefaultImportByModSpec(source, specifier)
     ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportByModuleSpecifier(source, specifier)
+    : checkIsNamedImportByModSpec(source, specifier)
     ? ImportType.NAMED_IMPORTS
     : ImportType.NAMESPACE_IMPORT;
 }
@@ -148,9 +139,9 @@ export function checkImportTypeByModuleSpecifier(
 export function checkImportTypeByDec(
   declaration: ImportDeclaration
 ): ImportType {
-  return checkIsDefaultImportByDeclaration(declaration)
+  return checkIsDefaultImportByDec(declaration)
     ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportByDeclaration(declaration)
+    : checkIsNamedImportByDec(declaration)
     ? ImportType.NAMED_IMPORTS
     : ImportType.NAMESPACE_IMPORT;
 }
@@ -165,9 +156,9 @@ export function checkIsTypeOnlyImportBySpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean | undefined {
-  if (!getImportDeclarationModuleSpecifier(source).includes(moduleSpecifier)) {
+  if (!getImportDecModSpecList(source).includes(moduleSpecifier)) {
     return undefined;
   }
 
-  return getImportDeclaration(source, moduleSpecifier).isTypeOnly();
+  return getImportDec(source, moduleSpecifier).isTypeOnly();
 }

@@ -1,9 +1,6 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
-import {
-  getImportDeclaration,
-  getModuleSpecifierText,
-} from "@ts-morpher/helper";
-import { importDeclarationExist } from "@ts-morpher/checker";
+import { getImportDec, getModuleSpecifierText } from "@ts-morpher/helper";
+import { checkImportExistByModSpec } from "@ts-morpher/checker";
 import { addImportDeclaration } from "@ts-morpher/creator";
 import { ImportType } from "@ts-morpher/types";
 
@@ -69,11 +66,11 @@ export function removeNamedImportsMember(
   members: string[],
   apply = true
 ): void {
-  if (!importDeclarationExist(source, importSpec)) {
+  if (!checkImportExistByModSpec(source, importSpec)) {
     return;
   }
 
-  const targetImportDec = getImportDeclaration(source, importSpec)!;
+  const targetImportDec = getImportDec(source, importSpec)!;
 
   const importClause = targetImportDec.getImportClause()!;
   const namedImports = importClause
@@ -104,11 +101,11 @@ export function updateImportSpecifier(
   updatedSpec: string,
   apply = true
 ) {
-  if (!importDeclarationExist(source, prevSpec)) {
+  if (!checkImportExistByModSpec(source, prevSpec)) {
     return;
   }
 
-  const targetImport = getImportDeclaration(source, prevSpec)!;
+  const targetImport = getImportDec(source, prevSpec)!;
 
   targetImport.setModuleSpecifier(updatedSpec);
 
@@ -121,10 +118,10 @@ export function updateDefaultImportClause(
   updatedClause: string,
   apply = true
 ) {
-  if (!importDeclarationExist(source, specifier)) {
+  if (!checkImportExistByModSpec(source, specifier)) {
     return;
   }
-  const targetImport = getImportDeclaration(source, specifier);
+  const targetImport = getImportDec(source, specifier);
 
   if (!targetImport?.getDefaultImport()) {
     return;
@@ -141,11 +138,11 @@ export function updateNamespaceImportClause(
   updatedNamespace: string,
   apply = true
 ) {
-  if (!importDeclarationExist(source, specifier)) {
+  if (!checkImportExistByModSpec(source, specifier)) {
     return;
   }
 
-  const targetImport = getImportDeclaration(source, specifier);
+  const targetImport = getImportDec(source, specifier);
 
   if (!targetImport?.getNamespaceImport()) {
     return;

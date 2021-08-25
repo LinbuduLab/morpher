@@ -1,11 +1,11 @@
 import { SourceFile } from "ts-morph";
-import { getImportDeclaration } from "@ts-morpher/helper";
+import { getImportDec } from "@ts-morpher/helper";
 import {
-  importDeclarationExist,
-  hasImportDeclaration,
-  checkIsDefaultImportByDeclaration,
-  checkIsNamespaceImportByDeclaration,
-  checkIsNamedImportByDeclaration,
+  checkImportExistByModSpec,
+  hasImportDec,
+  checkIsDefaultImportByDec,
+  checkIsNamespaceImportByDec,
+  checkIsNamedImportByDec,
 } from "@ts-morpher/checker";
 
 export function removeImportDeclaration(
@@ -14,11 +14,11 @@ export function removeImportDeclaration(
   apply = true
 ) {
   const validSpecToRemove = specifiers.filter((spec) =>
-    importDeclarationExist(source, spec)
+    checkImportExistByModSpec(source, spec)
   );
 
   validSpecToRemove.forEach((spec) => {
-    const targetImport = getImportDeclaration(source, spec)!;
+    const targetImport = getImportDec(source, spec)!;
 
     targetImport.remove();
   });
@@ -31,23 +31,23 @@ export function removeImportDeclarationByTypes(
   removeByTypes?: Partial<Record<"namespace" | "default" | "named", boolean>>,
   apply = true
 ) {
-  if (!hasImportDeclaration(source)) {
+  if (!hasImportDec(source)) {
     return;
   }
-  const sourceImports = getImportDeclaration(source);
+  const sourceImports = getImportDec(source);
 
   sourceImports.forEach((imp) => {
-    if (removeByTypes?.default && checkIsDefaultImportByDeclaration(imp)) {
+    if (removeByTypes?.default && checkIsDefaultImportByDec(imp)) {
       imp.remove();
       return;
     }
 
-    if (removeByTypes?.named && checkIsNamedImportByDeclaration(imp)) {
+    if (removeByTypes?.named && checkIsNamedImportByDec(imp)) {
       imp.remove();
       return;
     }
 
-    if (removeByTypes?.namespace && checkIsNamespaceImportByDeclaration(imp)) {
+    if (removeByTypes?.namespace && checkIsNamespaceImportByDec(imp)) {
       imp.remove();
       return;
     }
