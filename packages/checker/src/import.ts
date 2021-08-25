@@ -154,3 +154,20 @@ export function checkImportTypeByDec(
     ? ImportType.NAMED_IMPORTS
     : ImportType.NAMESPACE_IMPORT;
 }
+
+/**
+ * Check is Import Declaration type only - by module specifier
+ * @param source
+ * @param moduleSpecifier
+ * @returns
+ */
+export function checkIsTypeOnlyImportBySpecifier(
+  source: SourceFile,
+  moduleSpecifier: string
+): boolean | undefined {
+  if (!getImportDeclarationModuleSpecifier(source).includes(moduleSpecifier)) {
+    return undefined;
+  }
+
+  return getImportDeclaration(source, moduleSpecifier).isTypeOnly();
+}
