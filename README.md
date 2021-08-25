@@ -16,9 +16,10 @@ WIP...
 ### Checker
 
 - import
-  - Check `Import Declaration` exist by `Module Specifier`.
-  - Check `Import Declaration` type(namespace / named / default) by `Module Specifier`.
-  - Check is `Import Declaration` required type by `Module Specifier`.
+  - [x] Check `Import Declaration` exist in `Source File` by `Module Specifier` / `Import Declaration`.
+  - [x] Check `Import Declaration` type(namespace / named / default) by `Module Specifier` / `Import Declaration`.
+  - [x] Check is `Import Declaration` prompted type by `Module Specifier` / `Import Declaration`.
+  - [ ] Check is `Import Declaration` type-only import by `Module Specifier`.
 - export
   - Check `Export Declaration` exist by `Module Specifier`.
   - Check `Export Declaration` type( redirect export / direct export ) by `Module Specifier`.
