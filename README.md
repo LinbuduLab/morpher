@@ -11,6 +11,59 @@ WIP...
 - modifier -> helper & types & checker
 - types
 
+## Packages
+
+### Checker
+
+- import
+  - Check `Import Declaration` exist by `Module Specifier`.
+  - Check `Import Declaration` type(namespace / named / default) by `Module Specifier`.
+  - Check is `Import Declaration` required type by `Module Specifier`.
+- export
+  - Check `Export Declaration` exist by `Module Specifier`.
+  - Check `Export Declaration` type( redirect export / direct export ) by `Module Specifier`.
+- class
+  - Check `Class Declaration` exist by `Class Specifier`.
+  - Check `Class Method Declaration` exist by `Method Specifier`.
+  - Check `Class Declaration` Decorators.
+- function
+  - Check `Function Declaration` exist by `Function Specifier`.
+  - Check `Function Args` exist.
+  - Check `Function` type (is arrow func)?
+- interface / type alias
+
+### Creator
+
+- import
+- export
+- class
+- function
+- interface / type alias
+
+### Helper
+
+- import
+- export
+- class
+- function
+- interface / type alias
+
+### Modifier
+
+- import
+- export
+- class
+- function
+- interface / type alias
+
+### Cleaner
+
+- import
+- export
+- class
+- function
+- interface / type alias
+
 ## API
 
 ### Import
