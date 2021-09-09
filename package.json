@@ -35,7 +35,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
     "debug": "^4.3.2",
-    "jest": "^27.0.6",
+    "jest": "^27.1.1",
     "lerna": "^4.0.0",
     "oao": "^2.0.2",
     "ts-jest": "^27.0.5",
