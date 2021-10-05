@@ -1,20 +1,31 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
-import { getImportDec, getModuleSpecifierText } from "@ts-morpher/helper";
-import { checkImportExistByModSpec } from "@ts-morpher/checker";
+import {
+  getImportDeclarations,
+  getDeclarationIdentifier,
+} from "@ts-morpher/helper";
+import { checkImportExistBySpecifier } from "@ts-morpher/checker";
 import { addImportDeclaration } from "@ts-morpher/creator";
 import { ImportType } from "@ts-morpher/types";
 
-export function addNamedImportsMember(
+/**
+ * Add new members to the namespace import
+ * @param source
+ * @param importSpec namespace import specifier
+ * @param members import clause members to add
+ * @param createOnInexist create a namespace import declaration when target import not found
+ * @param apply save source file
+ * @returns
+ */
+export function addNamedImportMembers(
   source: SourceFile,
   importSpec: string,
   members: string[],
+  createOnInexist = false,
   apply = true
 ): void {
-  const importDecs = source
-    .getFirstChildByKind(SyntaxKind.SyntaxList)
-    ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
+  const targetImport = getImportDeclarations(source, importSpec);
 
-  if (!importDecs?.length) {
+  if (!targetImport && createOnInexist) {
     addImportDeclaration(
       source,
       members,
@@ -26,23 +37,7 @@ export function addNamedImportsMember(
     return;
   }
 
-  const targetImportDec = importDecs.find(
-    (dec) => getModuleSpecifierText(dec) === importSpec
-  );
-
-  if (!targetImportDec) {
-    addImportDeclaration(
-      source,
-      members,
-      importSpec,
-      ImportType.NAMED_IMPORTS,
-      apply
-    );
-
-    return;
-  }
-
-  const importClause = targetImportDec.getImportClause()!;
+  const importClause = targetImport.getImportClause()!;
   const namedImports = importClause
     .getNamedImports()
     .map((namedImport) => namedImport.getText());
@@ -55,75 +50,101 @@ export function addNamedImportsMember(
     return;
   }
 
-  targetImportDec.addNamedImports(namedImportsCanBeAdded);
+  targetImport.addNamedImports(namedImportsCanBeAdded);
 
   apply && source.saveSync();
 }
 
-export function removeNamedImportsMember(
+/**
+ * Remove members in the namespace import
+ * @param source
+ * @param importSpec namespace import specifier
+ * @param members import clause members to remove
+ * @param apply save source file
+ * @returns
+ */
+export function removeNamedImportMember(
   source: SourceFile,
   importSpec: string,
   members: string[],
   apply = true
 ): void {
-  if (!checkImportExistByModSpec(source, importSpec)) {
+  if (!checkImportExistBySpecifier(source, importSpec)) {
     return;
   }
 
-  const targetImportDec = getImportDec(source, importSpec)!;
+  const targetImport = getImportDeclarations(source, importSpec)!;
 
-  const importClause = targetImportDec.getImportClause()!;
+  const importClause = targetImport.getImportClause()!;
+
   const namedImports = importClause
     .getNamedImports()
     .map((namedImport) => namedImport.getText());
 
-  const namedImportsCanBeRemoved = members.filter(
-    (mem) => !namedImports.includes(mem)
-  );
-
-  const updatedNamedImports = namedImports.filter(
-    (member) => !namedImportsCanBeRemoved.includes(member)
+  const namedImportsCanBeRemoved = members.filter((mem) =>
+    namedImports.includes(mem)
   );
 
   if (!namedImportsCanBeRemoved.length) {
     return;
   }
 
-  targetImportDec.removeNamedImports();
-  targetImportDec.addNamedImports(updatedNamedImports);
+  const updatedNamedImports = namedImports.filter(
+    (member) => !namedImportsCanBeRemoved.includes(member)
+  );
+
+  targetImport.removeNamedImports();
+  targetImport.addNamedImports(updatedNamedImports);
 
   apply && source.saveSync();
 }
 
+/**
+ *
+ * @param source
+ * @param moduleSpecifier import specifier
+ * @param updatedModuleSpecifier updated import specifier
+ * @param apply save source file
+ * @returns
+ */
 export function updateImportSpecifier(
   source: SourceFile,
-  prevSpec: string,
-  updatedSpec: string,
+  moduleSpecifier: string,
+  updatedModuleSpecifier: string,
   apply = true
 ) {
-  if (!checkImportExistByModSpec(source, prevSpec)) {
+  if (!checkImportExistBySpecifier(source, moduleSpecifier)) {
     return;
   }
 
-  const targetImport = getImportDec(source, prevSpec)!;
+  const targetImport = getImportDeclarations(source, moduleSpecifier);
 
-  targetImport.setModuleSpecifier(updatedSpec);
+  targetImport.setModuleSpecifier(updatedModuleSpecifier);
 
   apply && source.saveSync();
 }
 
+/**
+ * Set import clause of default import directly
+ * @param source
+ * @param specifier import specifier
+ * @param updatedClause import clause to set
+ * @param apply save source file
+ * @returns
+ */
 export function updateDefaultImportClause(
   source: SourceFile,
   specifier: string,
   updatedClause: string,
   apply = true
 ) {
-  if (!checkImportExistByModSpec(source, specifier)) {
+  if (!checkImportExistBySpecifier(source, specifier)) {
     return;
   }
-  const targetImport = getImportDec(source, specifier);
 
-  if (!targetImport?.getDefaultImport()) {
+  const targetImport = getImportDeclarations(source, specifier);
+
+  if (!targetImport || !targetImport?.getDefaultImport()) {
     return;
   }
 
@@ -132,19 +153,27 @@ export function updateDefaultImportClause(
   apply && source.saveSync();
 }
 
+/**
+ * Set import clause of namespace import directly
+ * @param source
+ * @param specifier import specifier
+ * @param updatedNamespace import clause to set
+ * @param apply save source file
+ * @returns
+ */
 export function updateNamespaceImportClause(
   source: SourceFile,
   specifier: string,
   updatedNamespace: string,
   apply = true
 ) {
-  if (!checkImportExistByModSpec(source, specifier)) {
+  if (!checkImportExistBySpecifier(source, specifier)) {
     return;
   }
 
-  const targetImport = getImportDec(source, specifier);
+  const targetImport = getImportDeclarations(source, specifier);
 
-  if (!targetImport?.getNamespaceImport()) {
+  if (!targetImport || !targetImport?.getNamespaceImport()) {
     return;
   }
 

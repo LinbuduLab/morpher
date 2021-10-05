@@ -1,131 +1,121 @@
-import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
-import { getImportDec, getImportDecModSpecList } from "@ts-morpher/helper";
+import { ImportDeclaration, SourceFile } from "ts-morph";
+import {
+  getImportDeclarations,
+  getImportModuleSpecifiers,
+} from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
 
 /**
- * Check does `Import Declaration` exist in current source file(by `Module Specifier`)
+ * Check does `Import Declaration` exist - by `Module Specifier`
  * @param source
  * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  * @example
  */
-export function checkImportExistByModSpec(
+export function checkImportExistBySpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean {
-  return getImportDecModSpecList(source).includes(moduleSpecifier);
+  return getImportModuleSpecifiers(source).includes(moduleSpecifier);
 }
 
 /**
- * Check does Import Declaration exist in current source file - by Import Declaration
+ * Check dose Source File has `Import Declaration`
  * @param source
- * @param moduleSpecifier
  * @example
  */
-export function checkImportExistByDec(
+export function hasImports(source: SourceFile): boolean {
+  return Boolean(getImportDeclarations(source).length);
+}
+
+/**
+ * Check is Import Declaration default import - by `Module Specifier`
+ * @param source
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ */
+export function checkIsDefaultImportBySpecifier(
   source: SourceFile,
-  declaration: ImportDeclaration
+  moduleSpecifier: string
 ): boolean {
-  return getImportDec(source).includes(declaration);
+  return checkIsDefaultImportDeclaration(
+    getImportDeclarations(source, moduleSpecifier)
+  );
 }
 
 /**
- * Check dose Source File has Import Declaration
+ * Check is Import Declaration namespace import - by Module Specifier
  * @param source
- * @param moduleSpecifier
- * @example
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
-export function hasImportDec(source: SourceFile): boolean {
-  return Boolean(getImportDec(source).length);
-}
-
-/**
- * Check is Import Declaration default import - by module specifier
- * @param source
- * @param moduleSpecifier
- * @example
- */
-export function checkIsDefaultImportByModSpec(
+export function checkIsNamespaceImportBySpecifier(
   source: SourceFile,
-  specifier: string
+  moduleSpecifier: string
 ): boolean {
-  return checkIsDefaultImportByDec(getImportDec(source, specifier));
+  return checkIsNamespaceImportDeclaration(
+    getImportDeclarations(source, moduleSpecifier)
+  );
 }
 
 /**
- * Check is Import Declaration namespace import - by module specifier
+ * Check is Import Declaration named import - by Module Specifier
  * @param source
- * @param moduleSpecifier
- * @example
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
-export function checkIsNamespaceImportByModSpec(
+export function checkIsNamedImportBySpecifier(
   source: SourceFile,
-  specifier: string
+  moduleSpecifier: string
 ): boolean {
-  return checkIsNamespaceImportByDec(getImportDec(source, specifier));
-}
-
-/**
- * Check is Import Declaration named import - by module specifier
- * @param source
- * @param moduleSpecifier
- * @example
- */
-export function checkIsNamedImportByModSpec(
-  source: SourceFile,
-  specifier: string
-): boolean {
-  return checkIsNamedImportByDec(getImportDec(source, specifier));
+  return checkIsNamedImportDeclaration(
+    getImportDeclarations(source, moduleSpecifier)
+  );
 }
 
 /**
  * Check is Import Declaration default import - by Import Declaration
  * @param source
- * @param moduleSpecifier
- * @example
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
-export function checkIsDefaultImportByDec(
-  importSpec: ImportDeclaration | undefined
+export function checkIsDefaultImportDeclaration(
+  importSpec: ImportDeclaration
 ): boolean {
-  return Boolean(importSpec?.getDefaultImport());
+  return Boolean(importSpec.getDefaultImport());
 }
 
 /**
  * Check is Import Declaration namespace import - by Import Declaration
  * @param source
- * @param moduleSpecifier
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  * @example
  */
-export function checkIsNamespaceImportByDec(
-  importSpec: ImportDeclaration | undefined
+export function checkIsNamespaceImportDeclaration(
+  importSpec: ImportDeclaration
 ): boolean {
-  return Boolean(importSpec?.getNamespaceImport());
+  return Boolean(importSpec.getNamespaceImport());
 }
-
 /**
  * Check is Import Declaration named import - by Import Declaration
  * @param source
  * @param moduleSpecifier
  * @example
  */
-export function checkIsNamedImportByDec(
-  importSpec: ImportDeclaration | undefined
+export function checkIsNamedImportDeclaration(
+  importSpec: ImportDeclaration
 ): boolean {
-  return Boolean(importSpec?.getNamedImports().length);
+  return Boolean(importSpec.getNamedImports().length);
 }
 
 /**
- * Get Import Type  - by module specifier
+ * Get Import Type  - by Module Specifier
  * @param source
- * @param specifier
+ * @param moduleSpecifier
  * @returns ImportType
  */
-export function checkImportTypeByModSpec(
+export function checkImportTypeBySpecifier(
   source: SourceFile,
-  specifier: string
+  moduleSpecifier: string
 ): ImportType {
-  return checkIsDefaultImportByModSpec(source, specifier)
+  return checkIsDefaultImportBySpecifier(source, moduleSpecifier)
     ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportByModSpec(source, specifier)
+    : checkIsNamedImportBySpecifier(source, moduleSpecifier)
     ? ImportType.NAMED_IMPORTS
     : ImportType.NAMESPACE_IMPORT;
 }
@@ -133,21 +123,20 @@ export function checkImportTypeByModSpec(
 /**
  * Get Import Type  - by Import Declaration
  * @param source
- * @param specifier
  * @returns
  */
 export function checkImportTypeByDec(
   declaration: ImportDeclaration
 ): ImportType {
-  return checkIsDefaultImportByDec(declaration)
+  return checkIsDefaultImportDeclaration(declaration)
     ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportByDec(declaration)
+    : checkIsNamedImportDeclaration(declaration)
     ? ImportType.NAMED_IMPORTS
     : ImportType.NAMESPACE_IMPORT;
 }
 
 /**
- * Check is Import Declaration type only - by module specifier
+ * Check is Import Declaration type only - by Module Specifier
  * @param source
  * @param moduleSpecifier
  * @returns
@@ -156,9 +145,9 @@ export function checkIsTypeOnlyImportBySpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean | undefined {
-  if (!getImportDecModSpecList(source).includes(moduleSpecifier)) {
+  if (!getImportModuleSpecifiers(source).includes(moduleSpecifier)) {
     return undefined;
   }
 
-  return getImportDec(source, moduleSpecifier).isTypeOnly();
+  return getImportDeclarations(source, moduleSpecifier).isTypeOnly();
 }

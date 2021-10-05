@@ -1,4 +1,4 @@
-import { ImportDeclaration, SourceFile, SyntaxKind, Project } from "ts-morph";
+import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
 import { getDeclarationIdentifier, MaybyArray } from "./util";
 
 /**

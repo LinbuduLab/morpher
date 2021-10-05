@@ -1,55 +1,75 @@
 import { SourceFile } from "ts-morph";
-import { getImportDec } from "@ts-morpher/helper";
 import {
-  checkImportExistByModSpec,
-  hasImportDec,
-  checkIsDefaultImportByDec,
-  checkIsNamespaceImportByDec,
-  checkIsNamedImportByDec,
+  getDeclarationIdentifier,
+  getImportDeclarations,
+} from "@ts-morpher/helper";
+import {
+  checkImportExistBySpecifier,
+  hasImports,
+  checkIsDefaultImportDeclaration,
+  checkIsNamespaceImportDeclaration,
+  checkIsNamedImportDeclaration,
+  checkImportTypeBySpecifier,
 } from "@ts-morpher/checker";
+import { ImportType } from "@ts-morpher/types";
 
+/**
+ * Remove imports by `Module Specifier`
+ * @param source
+ * @param specifiers specifiers of imports to remove
+ * @param apply save source file
+ */
 export function removeImportDeclaration(
   source: SourceFile,
   specifiers: string[],
   apply = true
 ) {
-  const validSpecToRemove = specifiers.filter((spec) =>
-    checkImportExistByModSpec(source, spec)
+  const validImportSpecToRemove = specifiers.filter((spec) =>
+    checkImportExistBySpecifier(source, spec)
   );
 
-  validSpecToRemove.forEach((spec) => {
-    const targetImport = getImportDec(source, spec)!;
-
-    targetImport.remove();
+  validImportSpecToRemove.forEach((spec) => {
+    const targetImport = getImportDeclarations(source, spec);
+    targetImport?.remove();
   });
 
   apply && source.saveSync();
 }
 
+/**
+ * Remove imports by `Import Type`
+ * @param source
+ * @param removeTypes types of imports to remove: "namespace" | "default" | "named"
+ * @param apply save source file
+ * @returns
+ */
 export function removeImportDeclarationByTypes(
   source: SourceFile,
-  removeByTypes?: Partial<Record<"namespace" | "default" | "named", boolean>>,
+  removeTypes?: Partial<Record<"namespace" | "default" | "named", boolean>>,
   apply = true
 ) {
-  if (!hasImportDec(source)) {
+  if (!hasImports(source)) {
     return;
   }
-  const sourceImports = getImportDec(source);
+
+  const sourceImports = getImportDeclarations(source);
 
   sourceImports.forEach((imp) => {
-    if (removeByTypes?.default && checkIsDefaultImportByDec(imp)) {
-      imp.remove();
-      return;
-    }
+    switch (checkImportTypeBySpecifier(source, getDeclarationIdentifier(imp))) {
+      case ImportType.DEFAULT_IMPORT:
+        removeTypes?.default && imp.remove();
+        break;
 
-    if (removeByTypes?.named && checkIsNamedImportByDec(imp)) {
-      imp.remove();
-      return;
-    }
+      case ImportType.NAMED_IMPORTS:
+        removeTypes?.named && imp.remove();
+        break;
 
-    if (removeByTypes?.namespace && checkIsNamespaceImportByDec(imp)) {
-      imp.remove();
-      return;
+      case ImportType.NAMESPACE_IMPORT:
+        removeTypes?.namespace && imp.remove();
+        break;
+
+      default:
+        break;
     }
   });
 
