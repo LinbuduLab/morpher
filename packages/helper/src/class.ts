@@ -1,111 +1,152 @@
 import {
   SourceFile,
   SyntaxKind,
-  DecoratorStructure,
-  StructureKind,
   MethodDeclaration,
   PropertyDeclaration,
 } from "ts-morph";
 
-export function getExistClassMethodsDeclaration(
+import { getDeclarationIdentifier, MaybyArray } from "./util";
+
+/**
+ * Return all method declarations inside class `className`
+ * specify `methodName` to return only matched one.
+ * @param source
+ * @param className
+ * @param methodName
+ * @returns MethodDeclaration | MethodDeclaration[] | undefined
+ */
+export function getClassMethodDeclarations(
   source: SourceFile,
   className: string
-): MethodDeclaration[];
+): MethodDeclaration[] | undefined;
 
-export function getExistClassMethodsDeclaration(
+/**
+ * Return all method declarations inside class `className`
+ * specify `methodName` to return only matched one.
+ * @param source
+ * @param className
+ * @param methodName
+ * @returns MethodDeclaration | MethodDeclaration[] | undefined
+ */
+export function getClassMethodDeclarations(
   source: SourceFile,
   className: string,
   methodName: string
-): MethodDeclaration;
+): MethodDeclaration | undefined;
 
-// 获得类的方法声明，可根据方法名查找
-export function getExistClassMethodsDeclaration(
+/**
+ * Return all method declarations inside class `className`
+ * specify `methodName` to return only matched one.
+ * @param source
+ * @param className
+ * @param methodName
+ * @returns MethodDeclaration | MethodDeclaration[] | undefined
+ */
+export function getClassMethodDeclarations(
   source: SourceFile,
   className: string,
   methodName?: string
-) {
-  const classDeclarations = source
+): MaybyArray<MethodDeclaration> | undefined {
+  const classDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.ClassDeclaration);
 
-  const targetClass = classDeclarations.filter(
-    (classDecs) =>
-      classDecs.getFirstChildByKind(SyntaxKind.Identifier).getText() ===
-      className
+  const targetClass = classDeclarationList.find(
+    (classDec) => getDeclarationIdentifier(classDec) === className
   );
 
-  if (!targetClass.length) {
+  if (!targetClass) {
     return;
   }
 
-  const targetClassItem = targetClass[0];
+  const methods = targetClass.getMethods();
 
-  const methods = targetClassItem.getMethods();
-
-  if (methodName) {
-    return methods.filter(
-      (m) =>
-        m.getFirstChildByKind(SyntaxKind.Identifier).getText() === methodName
-    )[0];
-  } else {
-    return methods;
-  }
+  return methodName
+    ? methods.find((m) => getDeclarationIdentifier(m) === methodName)
+    : methods;
 }
 
-// 获取类的所有方法名称
-export function getExistClassMethods(source: SourceFile, className: string) {
-  return getExistClassMethodsDeclaration(source, className).map((m) =>
-    m.getName()
-  );
+/**
+ * Return all method identifiers inside class.
+ * @param source
+ * @param className
+ * @returns string[]
+ */
+export function getExistClassMethodIdentifiers(
+  source: SourceFile,
+  className: string
+): string[] {
+  return getClassMethodDeclarations(source, className).map((m) => m.getName());
 }
 
-export function getExistClassPropDeclarations(
+/**
+ * Return all prop declarations inside class `className`
+ * specify `propName` to return only matched one.
+ * @param source
+ * @param className
+ * @param propName
+ * @returns PropertyDeclaration | PropertyDeclaration[] | undefined
+ */
+export function getClassPropDeclarations(
   source: SourceFile,
   className: string
 ): PropertyDeclaration[];
 
-export function getExistClassPropDeclarations(
+/**
+ * Return all prop declarations inside class `className`
+ * specify `propName` to return only matched one.
+ * @param source
+ * @param className
+ * @param propName
+ * @returns PropertyDeclaration | PropertyDeclaration[] | undefined
+ */
+export function getClassPropDeclarations(
   source: SourceFile,
   className: string,
   propName: string
 ): PropertyDeclaration[];
 
-// 获取类的属性声明，可根据属性名查找
-export function getExistClassPropDeclarations(
+/**
+ * Return all prop declarations inside class `className`
+ * specify `propName` to return only matched one.
+ * @param source
+ * @param className
+ * @param propName
+ * @returns PropertyDeclaration | PropertyDeclaration[] | undefined
+ */
+export function getClassPropDeclarations(
   source: SourceFile,
   className: string,
   propName?: string
-): PropertyDeclaration | PropertyDeclaration[] {
-  const classDeclarations = source
+): PropertyDeclaration | PropertyDeclaration[] | undefined {
+  const classDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.ClassDeclaration);
 
-  const targetClass = classDeclarations.filter(
-    (classDecs) =>
-      classDecs.getFirstChildByKind(SyntaxKind.Identifier).getText() ===
-      className
+  const targetClass = classDeclarationList.find(
+    (classDec) => getDeclarationIdentifier(classDec) === className
   );
 
-  if (!targetClass.length) {
+  if (!targetClass) {
     return;
   }
 
-  const targetClassItem = targetClass[0];
+  const props = targetClass.getProperties();
 
-  const props = targetClassItem.getProperties();
-
-  if (propName) {
-    return props.filter(
-      (m) => m.getFirstChildByKind(SyntaxKind.Identifier).getText() === propName
-    )[0];
-  } else {
-    return props;
-  }
+  return propName
+    ? props.find((p) => getDeclarationIdentifier(p) === propName)
+    : props;
 }
 
-// 获取类的属性名
-export function getExistClassProps(source: SourceFile, className: string) {
-  return getExistClassPropDeclarations(source, className).map((m) =>
-    m.getName()
-  );
+/**
+ * Return all prop identifiers inside class.
+ * @param source
+ * @param className
+ * @returns string[]
+ */
+export function getExistClassPropIdentifiers(
+  source: SourceFile,
+  className: string
+): string[] {
+  return getClassPropDeclarations(source, className).map((p) => p.getName());
 }

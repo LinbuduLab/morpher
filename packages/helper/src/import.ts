@@ -1,52 +1,66 @@
 import { ImportDeclaration, SourceFile, SyntaxKind, Project } from "ts-morph";
+import { getDeclarationIdentifier, MaybyArray } from "./util";
 
-export function getImportDec(source: SourceFile): ImportDeclaration[];
+/**
+ * Return all import declarations, specify `moduleSpecifier` to return only matched.
+ * @param source
+ * @param moduleSpecifier
+ * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ */
+export function getImportDeclarations(source: SourceFile): ImportDeclaration[];
 
-export function getImportDec(
+/**
+ * Return all import declarations, specify `moduleSpecifier` to return only matched.
+ * @param source
+ * @param moduleSpecifier
+ * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ */
+export function getImportDeclarations(
   source: SourceFile,
   moduleSpecifier: string
 ): ImportDeclaration | undefined;
 
-export function getImportDec(
+/**
+ * Return all import declarations, specify `moduleSpecifier` to return only matched.
+ * @param source
+ * @param moduleSpecifier
+ * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ */
+export function getImportDeclarations(
   source: SourceFile,
   moduleSpecifier: string[]
-): ImportDeclaration[];
+): ImportDeclaration[] | undefined;
 
-export function getImportDec(
+/**
+ * Return all import declarations, specify `moduleSpecifier` to return only matched.
+ * @param source
+ * @param moduleSpecifier
+ * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ */
+export function getImportDeclarations(
   source: SourceFile,
   moduleSpecifier?: string | string[]
-): undefined | ImportDeclaration | ImportDeclaration[] {
+): MaybyArray<ImportDeclaration> | undefined {
   const importDeclarations = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
-
-  const result = importDeclarations ?? [];
 
   return moduleSpecifier
     ? Array.isArray(moduleSpecifier)
-      ? result.filter((dec) =>
-          moduleSpecifier.includes(getModuleSpecifierText(dec))
+      ? importDeclarations.filter((dec) =>
+          moduleSpecifier.includes(getDeclarationIdentifier(dec))
         )
-      : result.find((dec) =>
-          moduleSpecifier.includes(getModuleSpecifierText(dec))
+      : importDeclarations.find((dec) =>
+          moduleSpecifier.includes(getDeclarationIdentifier(dec))
         )
-    : result;
+    : importDeclarations;
 }
 
-export function getImportDecModSpecList(source: SourceFile): string[] {
-  const importDeclarations = source
-    .getFirstChildByKind(SyntaxKind.SyntaxList)
-    ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
-
-  return (importDeclarations ?? []).map(getModuleSpecifierText);
-}
-
-export function getModuleSpecifierText(importDec: ImportDeclaration): string {
-  return importDec
-    .getFirstChildByKind(SyntaxKind.StringLiteral)
-    ?.getText()
-    .replace("'", "")
-    .replace("'", "")
-    .replace('"', "")
-    .replace('"', "")!;
+/**
+ * Return all import module specifiers.
+ * @param source
+ * @returns string[]
+ */
+export function getImportModuleSpecifiers(source: SourceFile): string[] {
+  return getImportDeclarations(source).map((i) => i.getModuleSpecifierValue());
 }

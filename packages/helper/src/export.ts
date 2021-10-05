@@ -1,27 +1,50 @@
-import {
-  SourceFile,
-  SyntaxKind,
-  VariableDeclarationKind,
-  VariableStatement,
-  ts,
-  TypeNode,
-} from "ts-morph";
+import { SourceFile, SyntaxKind, VariableStatement } from "ts-morph";
+import { getVariableIdentifier, MaybyArray } from "./util";
 
+/**
+ * Return all export statements, specify `varIdentifier` to return only matched
+ * @param source
+ * @param varIdentifier
+ * @returns
+ */
+export function getExportVariableStatements(
+  source: SourceFile
+): VariableStatement[];
+
+/**
+ * Return all export statements, specify `varIdentifier` to return only matched
+ * @param source
+ * @param varIdentifier
+ * @returns
+ */
 export function getExportVariableStatements(
   source: SourceFile,
   varIdentifier: string
 ): VariableStatement;
 
-export function getExportVariableStatements(
-  source: SourceFile
-): VariableStatement[];
-
-// 获取所有的导出语句（可根据export的identifier查找）
+/**
+ * Return all export statements, specify `varIdentifier` to return only matched
+ * @param source
+ * @param varIdentifier
+ * @returns
+ */
 export function getExportVariableStatements(
   source: SourceFile,
-  varIdentifier?: string
-): VariableStatement | VariableStatement[] {
+  varIdentifier: string[]
+): VariableStatement;
+
+/**
+ * Return all export statements, specify `varIdentifier` to return only matched
+ * @param source
+ * @param varIdentifier
+ * @returns
+ */
+export function getExportVariableStatements(
+  source: SourceFile,
+  varIdentifier?: string | string[]
+): MaybyArray<VariableStatement> | undefined {
   const topLevelVarStatements = source
+
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.VariableStatement);
 
@@ -30,41 +53,27 @@ export function getExportVariableStatements(
       SyntaxKind.SyntaxList
     );
 
-    return (
-      syntaxBeforeVarIdentifier &&
-      syntaxBeforeVarIdentifier.getText() &&
-      syntaxBeforeVarIdentifier.getText() === "export"
-    );
+    return syntaxBeforeVarIdentifier?.getText() === "export";
   });
 
-  if (varIdentifier) {
-    return exportVarStatements.find((statement) => {
-      return (
-        statement
-          .getFirstChildByKind(SyntaxKind.VariableDeclarationList)
-          .getFirstChildByKind(SyntaxKind.SyntaxList)
-          .getFirstChildByKind(SyntaxKind.VariableDeclaration)
-          .getFirstChildByKind(SyntaxKind.Identifier)
-          .getText() === varIdentifier
-      );
-    });
-  }
-
-  return exportVarStatements;
+  return varIdentifier
+    ? Array.isArray(varIdentifier)
+      ? exportVarStatements.filter((statement) =>
+          varIdentifier.includes(getVariableIdentifier(statement))
+        )
+      : exportVarStatements.find(
+          (statement) => getVariableIdentifier(statement) === varIdentifier
+        )
+    : exportVarStatements;
 }
 
-// 获取所有的导出语句的变量值
+/**
+ * Return all export var statementss identifiers.
+ * @param source
+ * @returns string[]
+ */
 export function getExportVariableIdentifiers(source: SourceFile): string[] {
-  const exportVarStatements = getExportVariableStatements(source);
-  const exportVars = exportVarStatements.map((v) =>
-    v
-      .getFirstChildByKind(SyntaxKind.VariableDeclarationList)
-      .getFirstChildByKind(SyntaxKind.SyntaxList)
-      .getFirstChildByKind(SyntaxKind.VariableDeclaration)
-      // [ 'Identifier', 'EqualsToken', 'ObjectLiteralExpression' ]
-      .getFirstChildByKind(SyntaxKind.Identifier)
-      .getText()
+  return getExportVariableStatements(source).map((statement) =>
+    getVariableIdentifier(statement)
   );
-
-  return exportVars;
 }

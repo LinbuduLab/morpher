@@ -1,5 +1,52 @@
-import { SourceFile, SyntaxKind } from "ts-morph";
+import { SourceFile, SyntaxKind, Project } from "ts-morph";
+import path from "path";
 import { getExistClassMethods } from "@ts-morpher/helper";
+
+// TODO: 更新函数名、函数参数
+
+export function createClassDec(source: SourceFile, identifier: string) {
+  console.log("111");
+  source.addClass({
+    name: identifier,
+    decorators: [
+      {
+        name: "ObjectType",
+        arguments: [],
+      },
+    ],
+    properties: [
+      {
+        name: "foo",
+        type: "number",
+        decorators: [
+          {
+            name: "Field",
+            // create arrow func .getText() ""
+            arguments: ["() => Int"],
+          },
+        ],
+      },
+    ],
+    methods: [],
+  });
+
+  source.saveSync();
+}
+
+export function createClassDecorator(
+  source: SourceFile,
+  identifier: string,
+  decoratorName: string
+) {}
+
+const test = new Project().addSourceFileAtPath(
+  path.join(__dirname, "./sample.ts")
+);
+
+createClassDec(test, "Foo");
+
+export function createClassProp(identifier: string, prop: string) {}
+
 // 为类新增方法
 export function createClassMethods(
   source: SourceFile,

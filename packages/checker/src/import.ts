@@ -3,9 +3,9 @@ import { getImportDec, getImportDecModSpecList } from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
 
 /**
- * Check does Import Declaration exist in current source file - by module specifier
+ * Check does `Import Declaration` exist in current source file(by `Module Specifier`)
  * @param source
- * @param moduleSpecifier
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  * @example
  */
 export function checkImportExistByModSpec(

@@ -38,6 +38,7 @@ WIP...
 - import
 - export
 - class
+  - 创建 Class、
 - function
 - interface / type alias
 
