@@ -1,11 +1,17 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
-import debug from "debug";
-
-import { ensureArray } from "@ts-morpher/helper";
+import { ensureArray, MaybyArray } from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
+import ow from "ow";
 
-const importDebugger = debug("import");
-
+/**
+ * Add a namespace import declaration
+ * @param source
+ * @param namespace import namespace
+ * @param moduleSpecifier import specifier
+ * @param importType ImportType.NAMESPACE_IMPORT
+ * @param apply save source file
+ * @returns void
+ */
 export function addImportDeclaration(
   source: SourceFile,
   namespace: string,
@@ -14,14 +20,32 @@ export function addImportDeclaration(
   apply?: boolean
 ): void;
 
+/**
+ * Add a named import declaration
+ * @param source
+ * @param namedImports named imports member
+ * @param moduleSpecifier import specifier
+ * @param importType ImportType.NAMED_IMPORTS
+ * @param apply save source file
+ * @returns void
+ */
 export function addImportDeclaration(
   source: SourceFile,
-  namedImports: string[],
+  namedImports: MaybyArray<string>,
   moduleSpecifier: string,
   importType: ImportType.NAMED_IMPORTS,
   apply?: boolean
 ): void;
 
+/**
+ * Add a default import declaration
+ * @param source
+ * @param importClause import clause
+ * @param moduleSpecifier import specifier
+ * @param importType ImportType.DEFAULT_IMPORT
+ * @param apply save source file
+ * @returns void
+ */
 export function addImportDeclaration(
   source: SourceFile,
   defaultImport: string,
@@ -30,16 +54,25 @@ export function addImportDeclaration(
   apply?: boolean
 ): void;
 
+/**
+ * Add a new import declaration of specified type
+ * @param source
+ * @param importClause namespace / named imports / default import depends on importType
+ * @param moduleSpecifier import specifier
+ * @param importType import type to create
+ * @param apply save source file
+ * @returns void
+ */
 export function addImportDeclaration(
   source: SourceFile,
-  importClause: string | string[],
+  importClause: MaybyArray<string>,
   moduleSpecifier: string,
   importType: ImportType,
   apply?: boolean
-) {
+): void {
   switch (importType) {
     case ImportType.DEFAULT_IMPORT:
-      if (typeof importClause !== "string") throw new Error();
+      ow(importClause, ow.string);
 
       source.addImportDeclaration({
         defaultImport: importClause,
@@ -57,17 +90,16 @@ export function addImportDeclaration(
       break;
 
     case ImportType.NAMESPACE_IMPORT:
-      if (typeof importClause !== "string") throw new Error();
+      ow(importClause, ow.string);
 
       source.addImportDeclaration({
-        namespaceImport: importClause as string,
+        namespaceImport: importClause,
         moduleSpecifier: moduleSpecifier,
       });
 
       break;
 
     default:
-      importDebugger("Invalid ImportType, Skipped.");
       return;
   }
 

@@ -4,7 +4,14 @@ import {
   getExportVariableStatements,
 } from "@ts-morpher/helper";
 
-export function removeConstExport(
+/**
+ * Remove export statements from source file, specifier identifier to remove specified one.
+ * @param source
+ * @param identifier 'foo' in export const foo = 1;
+ * @param apply save source file
+ * @returns
+ */
+export function removeExportStatements(
   source: SourceFile,
   identifier?: string,
   apply = true

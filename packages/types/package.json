@@ -22,6 +22,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "ow": "^0.28.1",
     "ts-morph": "^11.0.3"
   }
 }
