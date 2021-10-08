@@ -1,9 +1,11 @@
 import {
   ClassDeclaration,
   ImportDeclaration,
+  InterfaceDeclaration,
   MethodDeclaration,
   PropertyDeclaration,
   SyntaxKind,
+  TypeAliasDeclaration,
   VariableStatement,
 } from "ts-morph";
 
@@ -30,4 +32,10 @@ export function getVariableIdentifier(statement: VariableStatement): string {
     .getFirstChildByKind(SyntaxKind.VariableDeclaration)
     .getFirstChildByKind(SyntaxKind.Identifier)
     .getText();
+}
+
+export function getTypeOrInterfaceIdentifier(
+  declaration: TypeAliasDeclaration | InterfaceDeclaration
+): string {
+  return declaration.getFirstChildByKind(SyntaxKind.Identifier).getText();
 }

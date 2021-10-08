@@ -11,7 +11,7 @@ import { ImportType } from "@ts-morpher/types";
  * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  * @example
  */
-export function checkImportExistBySpecifier(
+export function checkImportExistByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean {
@@ -32,7 +32,7 @@ export function hasImports(source: SourceFile): boolean {
  * @param source
  * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
-export function checkIsDefaultImportBySpecifier(
+export function checkIsDefaultImportByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean {
@@ -46,7 +46,7 @@ export function checkIsDefaultImportBySpecifier(
  * @param source
  * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
-export function checkIsNamespaceImportBySpecifier(
+export function checkIsNamespaceImportByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean {
@@ -60,7 +60,7 @@ export function checkIsNamespaceImportBySpecifier(
  * @param source
  * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
-export function checkIsNamedImportBySpecifier(
+export function checkIsNamedImportByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean {
@@ -109,13 +109,13 @@ export function checkIsNamedImportDeclaration(
  * @param moduleSpecifier
  * @returns ImportType
  */
-export function checkImportTypeBySpecifier(
+export function checkImportTypeByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): ImportType {
-  return checkIsDefaultImportBySpecifier(source, moduleSpecifier)
+  return checkIsDefaultImportByModuleSpecifier(source, moduleSpecifier)
     ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportBySpecifier(source, moduleSpecifier)
+    : checkIsNamedImportByModuleSpecifier(source, moduleSpecifier)
     ? ImportType.NAMED_IMPORTS
     : ImportType.NAMESPACE_IMPORT;
 }
@@ -125,7 +125,7 @@ export function checkImportTypeBySpecifier(
  * @param source
  * @returns
  */
-export function checkImportTypeByDec(
+export function checkImportTypeByDeclaration(
   declaration: ImportDeclaration
 ): ImportType {
   return checkIsDefaultImportDeclaration(declaration)
@@ -141,7 +141,7 @@ export function checkImportTypeByDec(
  * @param moduleSpecifier
  * @returns
  */
-export function checkIsTypeOnlyImportBySpecifier(
+export function checkIsTypeOnlyImportByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean | undefined {

@@ -1,2 +1,2 @@
 export * from "./import";
-export * from "./class";
+export * from "./statements";
