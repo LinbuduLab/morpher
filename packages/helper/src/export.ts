@@ -5,8 +5,21 @@ import {
   TypeAliasDeclaration,
   VariableStatement,
 } from "ts-morph";
-import { getTypeOrInterfaceIdentifier } from ".";
-import { getVariableIdentifier, MaybyArray } from "./util";
+import {
+  getVariableIdentifier,
+  MaybyArray,
+  getTypeOrInterfaceIdentifier,
+} from "./util";
+
+/**
+ * Return all export var statementss identifiers.
+ * @param source
+ */
+export function getExportVariableIdentifiers(source: SourceFile): string[] {
+  return getExportVariableStatements(source).map((statement) =>
+    getVariableIdentifier(statement)
+  );
+}
 
 /**
  * Return all export statements, specify `varIdentifier` to return only matched
@@ -52,59 +65,61 @@ export function getExportVariableStatements(
 ): MaybyArray<VariableStatement> | undefined {
   const topLevelVarStatements = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.VariableStatement);
-
-  const exportVarStatements = topLevelVarStatements.filter((v) =>
-    v.isExported()
-  );
+    .getChildrenOfKind(SyntaxKind.VariableStatement)
+    .filter((v) => v.isExported());
 
   return varIdentifier
     ? Array.isArray(varIdentifier)
-      ? exportVarStatements.filter((statement) =>
+      ? topLevelVarStatements.filter((statement) =>
           varIdentifier.includes(getVariableIdentifier(statement))
         )
-      : exportVarStatements.find(
+      : topLevelVarStatements.find(
           (statement) => getVariableIdentifier(statement) === varIdentifier
         )
-    : exportVarStatements;
+    : topLevelVarStatements;
 }
 
 /**
- * Return all identifier of type alias exported
+ * Get exported TypeAliasDeclaration, specify identifier to return only matched.
  * @param source
- * @returns
  */
-export function getTypeExportIdentifiers(source: SourceFile) {
-  const typeAliasDeclarationList = source
-    .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.TypeAliasDeclaration);
-
-  return typeAliasDeclarationList.map((declaration) =>
-    declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
-  );
-}
-
 export function getTypeExportDeclaration(
   source: SourceFile
 ): TypeAliasDeclaration[];
 
+/**
+ * Get exported TypeAliasDeclaration, specify identifier to return only matched.
+ * @param source
+ * @param identifier 'Foo' in export type Foo = string;
+ */
 export function getTypeExportDeclaration(
   source: SourceFile,
   identifier: string
 ): TypeAliasDeclaration;
 
+/**
+ * Get exported TypeAliasDeclaration, specify identifier to return only matched.
+ * @param source
+ * @param identifier 'Foo' in export type Foo = string;
+ */
 export function getTypeExportDeclaration(
   source: SourceFile,
   identifiers: string[]
 ): TypeAliasDeclaration[];
 
+/**
+ * Get exported TypeAliasDeclaration, specify identifier to return only matched.
+ * @param source
+ * @param identifier 'Foo' in export type Foo = string;
+ */
 export function getTypeExportDeclaration(
   source: SourceFile,
   identifier?: MaybyArray<string>
 ): MaybyArray<TypeAliasDeclaration> | undefined {
   const typeAliasDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.TypeAliasDeclaration);
+    .getChildrenOfKind(SyntaxKind.TypeAliasDeclaration)
+    .filter((type) => type.isExported());
 
   return identifier
     ? Array.isArray(identifier)
@@ -118,27 +133,58 @@ export function getTypeExportDeclaration(
     : typeAliasDeclarationList;
 }
 
+/**
+ * Return all identifier of type alias exported
+ * @param source
+ * @returns
+ */
+export function getTypeExportIdentifiers(source: SourceFile) {
+  return getInterfaceExportDeclaration(source).map((declaration) =>
+    declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
+  );
+}
+
+/**
+ * Get exported InterfaceDeclaration, specify identifier to return only matched.
+ * @param source
+ */
 export function getInterfaceExportDeclaration(
   source: SourceFile
 ): InterfaceDeclaration[];
 
+/**
+ * Get exported InterfaceDeclaration, specify identifier to return only matched.
+ * @param source
+ * @param identifier 'Foo' in export interface Foo {};
+ */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
   identifier: string
 ): InterfaceDeclaration;
 
+/**
+ * Get exported InterfaceDeclaration, specify identifier to return only matched.
+ * @param source
+ * @param identifier 'Foo' in export interface Foo {};
+ */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
   identifiers: string[]
 ): InterfaceDeclaration[];
 
+/**
+ * Get exported InterfaceDeclaration, specify identifier to return only matched.
+ * @param source
+ * @param identifier 'Foo' in export interface Foo {};
+ */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
   identifier?: MaybyArray<string>
 ): MaybyArray<InterfaceDeclaration> | undefined {
   const interfaceDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.InterfaceDeclaration);
+    .getChildrenOfKind(SyntaxKind.InterfaceDeclaration)
+    .filter((inf) => inf.isExported());
 
   return identifier
     ? Array.isArray(identifier)
@@ -158,26 +204,7 @@ export function getInterfaceExportDeclaration(
  * @returns
  */
 export function getInterfaceExportIdentifiers(source: SourceFile) {
-  const interfaceDeclarationList = source
-    .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.InterfaceDeclaration);
-
-  return interfaceDeclarationList.map((declaration) =>
+  return getInterfaceExportDeclaration(source).map((declaration) =>
     declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
   );
 }
-
-/**
- * Return all export var statementss identifiers.
- * @param source
- * @returns string[]
- */
-export function getExportVariableIdentifiers(source: SourceFile): string[] {
-  return getExportVariableStatements(source).map((statement) =>
-    getVariableIdentifier(statement)
-  );
-}
-
-// export function getTypeExportIdentifiers(source: SourceFile): string[] {
-//   return
-// }

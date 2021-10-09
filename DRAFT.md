@@ -21,6 +21,15 @@
 
 ## Helper
 
+- 获取 import 声明
+- 获取所有仅类型声明
+- 获取所有 import specifier
+- 获取所有仅类型声明的 specifier
+- 获取所有 export 的 identifiers
+- 获取所有 type / interface export 的 identifier
+- 获取所有 export statements
+- 获取所有 type / interface 的 declaration
+
 ## Cleaner
 
 ## Creator
