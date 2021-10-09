@@ -4,14 +4,31 @@ import {
   getImportDeclarations,
 } from "@ts-morpher/helper";
 import {
-  checkImportExistBySpecifier,
+  checkImportExistByModuleSpecifier,
   hasImports,
-  checkIsDefaultImportDeclaration,
-  checkIsNamespaceImportDeclaration,
-  checkIsNamedImportDeclaration,
-  checkImportTypeBySpecifier,
+  checkImportTypeByModuleSpecifier,
 } from "@ts-morpher/checker";
 import { ImportType } from "@ts-morpher/types";
+
+/**
+ * Remove all imports
+ * @param source
+ * @param apply save source file
+ */
+export function removeAllImports(source: SourceFile, apply = true) {
+  getImportDeclarations(source).forEach((i) => i.remove());
+  apply && source.saveSync();
+}
+
+/**
+ * Remove all type-only imports
+ * @param source
+ * @param apply save source file
+ */
+export function removeAllTypeOnlyImports(source: SourceFile, apply = true) {
+  getImportDeclarations(source).forEach((i) => i.isTypeOnly() && i.remove());
+  apply && source.saveSync();
+}
 
 /**
  * Remove imports by `Module Specifier`
@@ -19,13 +36,13 @@ import { ImportType } from "@ts-morpher/types";
  * @param specifiers specifiers of imports to remove
  * @param apply save source file
  */
-export function removeImportDeclaration(
+export function removeImportDeclarationByModuleSpecifier(
   source: SourceFile,
   specifiers: string[],
   apply = true
 ) {
   const validImportSpecToRemove = specifiers.filter((spec) =>
-    checkImportExistBySpecifier(source, spec)
+    checkImportExistByModuleSpecifier(source, spec)
   );
 
   validImportSpecToRemove.forEach((spec) => {
@@ -43,7 +60,7 @@ export function removeImportDeclaration(
  * @param apply save source file
  * @returns
  */
-export function removeImportDeclarationByTypes(
+export function removeImportDeclarationByType(
   source: SourceFile,
   removeTypes?: Partial<Record<"namespace" | "default" | "named", boolean>>,
   apply = true
@@ -55,7 +72,9 @@ export function removeImportDeclarationByTypes(
   const sourceImports = getImportDeclarations(source);
 
   sourceImports.forEach((imp) => {
-    switch (checkImportTypeBySpecifier(source, getDeclarationIdentifier(imp))) {
+    switch (
+      checkImportTypeByModuleSpecifier(source, getDeclarationIdentifier(imp))
+    ) {
       case ImportType.DEFAULT_IMPORT:
         removeTypes?.default && imp.remove();
         break;

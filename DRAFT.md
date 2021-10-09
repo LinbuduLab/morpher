@@ -4,8 +4,11 @@
 
 ## Checker
 
-- 检查 import 类型
+- 基于 ms 检查 import 类型
+- 基于 dec 检查 import 类型
 - 检查是否是 xx 导入
+- 检查是否有导入存在
+- 检查指定导入是否存在
 - 检查是否是仅类型导入
 - 检查 export 类型 （var let const）
 - 检查 export 是否存在
@@ -31,6 +34,13 @@
 - 获取所有 type / interface 的 declaration
 
 ## Cleaner
+
+- 基于 ms 移除导入
+- 移除所有导入
+- 移除所有仅类型导入
+- 基于 var 移除导出
+- 基于 export type 移除导出
+- 移除 type interface 导出
 
 ## Creator
 

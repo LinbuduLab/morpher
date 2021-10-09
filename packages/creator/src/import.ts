@@ -1,7 +1,8 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
+import ow from "ow";
+
 import { ensureArray, MaybyArray } from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
-import ow from "ow";
 
 /**
  * Add a namespace import declaration

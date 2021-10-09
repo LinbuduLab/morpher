@@ -125,14 +125,16 @@ export function checkImportTypeByModuleSpecifier(
  * @param source
  * @returns
  */
-export function checkImportTypeByDeclaration(
+export function checkImportType(
   declaration: ImportDeclaration
-): ImportType {
+): ImportType | undefined {
   return checkIsDefaultImportDeclaration(declaration)
     ? ImportType.DEFAULT_IMPORT
     : checkIsNamedImportDeclaration(declaration)
     ? ImportType.NAMED_IMPORTS
-    : ImportType.NAMESPACE_IMPORT;
+    : checkIsNamespaceImportDeclaration(declaration)
+    ? ImportType.NAMESPACE_IMPORT
+    : undefined;
 }
 
 /**

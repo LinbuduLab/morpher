@@ -3,8 +3,21 @@ import {
   getExportVariableStatements,
   getExportVariableIdentifiers,
   getVariableIdentifier,
+  getTypeExportDeclaration,
+  getInterfaceExportDeclaration,
+  getTypeExportIdentifiers,
+  getInterfaceExportIdentifiers,
 } from "@ts-morpher/helper";
 import { ExportType } from "@ts-morpher/types";
+
+/**
+ * Check dose Source File has `Export Variable Statement`
+ * @param source
+ * @example
+ */
+export function hasExports(source: SourceFile): boolean {
+  return Boolean(getExportVariableStatements(source).length);
+}
 
 /**
  * Check export statements exist by export identifier
@@ -66,11 +79,6 @@ export function checkExportTypeByStatement(
     SyntaxKind.VariableDeclarationList
   );
 
-  console.log(
-    "declareList: ",
-    declareList.getChildren().map((x) => x.getKindName())
-  );
-
   return declareList.getFirstChildIfKind(SyntaxKind.LetKeyword)
     ? ExportType.LET
     : declareList.getFirstChildIfKind(SyntaxKind.ConstKeyword)
@@ -78,4 +86,30 @@ export function checkExportTypeByStatement(
     : declareList.getFirstChildIfKind(SyntaxKind.VarKeyword)
     ? ExportType.VAR
     : undefined;
+}
+
+/**
+ * Check type alias export exist
+ * @param source
+ * @param identifier
+ * @returns
+ */
+export function checkTypeExportExistByIdentifier(
+  source: SourceFile,
+  identifier: string
+) {
+  return getTypeExportIdentifiers(source).includes(identifier);
+}
+
+/**
+ * Check interface export exist
+ * @param source
+ * @param identifier
+ * @returns
+ */
+export function checkInterfaceExportExistByIdentifier(
+  source: SourceFile,
+  identifier: string
+) {
+  return getInterfaceExportIdentifiers(source).includes(identifier);
 }

@@ -1,9 +1,6 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
-import {
-  getImportDeclarations,
-  getDeclarationIdentifier,
-} from "@ts-morpher/helper";
-import { checkImportExistBySpecifier } from "@ts-morpher/checker";
+import { getImportDeclarations } from "@ts-morpher/helper";
+import { checkImportExistByModuleSpecifier } from "@ts-morpher/checker";
 import { addImportDeclaration } from "@ts-morpher/creator";
 import { ImportType } from "@ts-morpher/types";
 
@@ -69,7 +66,7 @@ export function removeNamedImportMember(
   members: string[],
   apply = true
 ): void {
-  if (!checkImportExistBySpecifier(source, importSpec)) {
+  if (!checkImportExistByModuleSpecifier(source, importSpec)) {
     return;
   }
 
@@ -113,7 +110,7 @@ export function updateImportSpecifier(
   updatedModuleSpecifier: string,
   apply = true
 ) {
-  if (!checkImportExistBySpecifier(source, moduleSpecifier)) {
+  if (!checkImportExistByModuleSpecifier(source, moduleSpecifier)) {
     return;
   }
 
@@ -138,7 +135,7 @@ export function updateDefaultImportClause(
   updatedClause: string,
   apply = true
 ) {
-  if (!checkImportExistBySpecifier(source, specifier)) {
+  if (!checkImportExistByModuleSpecifier(source, specifier)) {
     return;
   }
 
@@ -167,7 +164,7 @@ export function updateNamespaceImportClause(
   updatedNamespace: string,
   apply = true
 ) {
-  if (!checkImportExistBySpecifier(source, specifier)) {
+  if (!checkImportExistByModuleSpecifier(source, specifier)) {
     return;
   }
 
