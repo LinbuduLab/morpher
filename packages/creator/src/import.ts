@@ -10,14 +10,16 @@ import { ImportType } from "@ts-morpher/types";
  * @param namespace import namespace
  * @param moduleSpecifier import specifier
  * @param importType ImportType.NAMESPACE_IMPORT
+ * @param isTypeOnly create type only import
  * @param apply save source file
  * @returns void
  */
-export function addImportDeclaration(
+export function createImportDeclaration(
   source: SourceFile,
   namespace: string,
   moduleSpecifier: string,
   importType: ImportType.NAMESPACE_IMPORT,
+  isTypeOnly?: boolean,
   apply?: boolean
 ): void;
 
@@ -27,14 +29,16 @@ export function addImportDeclaration(
  * @param namedImports named imports member
  * @param moduleSpecifier import specifier
  * @param importType ImportType.NAMED_IMPORTS
+ * @param isTypeOnly create type only import
  * @param apply save source file
  * @returns void
  */
-export function addImportDeclaration(
+export function createImportDeclaration(
   source: SourceFile,
   namedImports: MaybyArray<string>,
   moduleSpecifier: string,
   importType: ImportType.NAMED_IMPORTS,
+  isTypeOnly?: boolean,
   apply?: boolean
 ): void;
 
@@ -44,14 +48,16 @@ export function addImportDeclaration(
  * @param importClause import clause
  * @param moduleSpecifier import specifier
  * @param importType ImportType.DEFAULT_IMPORT
+ * @param isTypeOnly create type only import
  * @param apply save source file
  * @returns void
  */
-export function addImportDeclaration(
+export function createImportDeclaration(
   source: SourceFile,
   defaultImport: string,
   moduleSpecifier: string,
   importType: ImportType.DEFAULT_IMPORT,
+  isTypeOnly?: boolean,
   apply?: boolean
 ): void;
 
@@ -61,15 +67,17 @@ export function addImportDeclaration(
  * @param importClause namespace / named imports / default import depends on importType
  * @param moduleSpecifier import specifier
  * @param importType import type to create
+ * @param isTypeOnly create type only import
  * @param apply save source file
  * @returns void
  */
-export function addImportDeclaration(
+export function createImportDeclaration(
   source: SourceFile,
   importClause: MaybyArray<string>,
   moduleSpecifier: string,
   importType: ImportType,
-  apply?: boolean
+  isTypeOnly = false,
+  apply = true
 ): void {
   switch (importType) {
     case ImportType.DEFAULT_IMPORT:
@@ -78,6 +86,7 @@ export function addImportDeclaration(
       source.addImportDeclaration({
         defaultImport: importClause,
         moduleSpecifier,
+        isTypeOnly,
       });
 
       break;
@@ -86,6 +95,7 @@ export function addImportDeclaration(
       source.addImportDeclaration({
         namedImports: ensureArray(importClause),
         moduleSpecifier,
+        isTypeOnly,
       });
 
       break;
@@ -96,6 +106,7 @@ export function addImportDeclaration(
       source.addImportDeclaration({
         namespaceImport: importClause,
         moduleSpecifier: moduleSpecifier,
+        isTypeOnly,
       });
 
       break;
