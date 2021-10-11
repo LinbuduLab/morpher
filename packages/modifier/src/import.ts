@@ -1,7 +1,7 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
 import { getImportDeclarations } from "@ts-morpher/helper";
 import { checkImportExistByModuleSpecifier } from "@ts-morpher/checker";
-import { addImportDeclaration } from "@ts-morpher/creator";
+import { createImportDeclaration } from "@ts-morpher/creator";
 import { ImportType } from "@ts-morpher/types";
 
 /**
@@ -23,7 +23,7 @@ export function addNamedImportMembers(
   const targetImport = getImportDeclarations(source, importSpec);
 
   if (!targetImport && createOnInexist) {
-    addImportDeclaration(
+    createImportDeclaration(
       source,
       members,
       importSpec,

@@ -16,7 +16,8 @@
     "dev": "ultra -r --filter 'sample' dev",
     "pub": "yarn build && lerna publish minor",
     "build": "ultra -r --filter '@ts-morpher/*' --topology build",
-    "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild"
+    "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
+    "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check"
   },
   "dependencies": {
     "fs-extra": "^10.0.0",

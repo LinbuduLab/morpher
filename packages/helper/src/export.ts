@@ -139,7 +139,7 @@ export function getTypeExportDeclaration(
  * @returns
  */
 export function getTypeExportIdentifiers(source: SourceFile) {
-  return getInterfaceExportDeclaration(source).map((declaration) =>
+  return getTypeExportDeclaration(source).map((declaration) =>
     declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
   );
 }

@@ -7,7 +7,11 @@ import {
 } from "ts-morph";
 
 import { ensureArray, MaybyArray } from "@ts-morpher/helper";
-import { ExportType } from "@ts-morpher/types";
+import {
+  IGenericTypeParam,
+  IInterfaceIndexSignature,
+  IInterfaceProperty,
+} from "@ts-morpher/types";
 
 /**
  * Create a base export variable statement
@@ -38,12 +42,6 @@ export function createBaseVariableExport(
   apply && source.saveSync();
 }
 
-interface IGenericTypeParam {
-  name: string;
-  default?: string;
-  constraint?: string;
-}
-
 /**
  * Create base type alias export
  * @param source 
@@ -72,7 +70,7 @@ export function createBaseTypeExport(
   source: SourceFile,
   identifier: string,
   typeInitializer: string,
-  genericTypeParams?: IGenericTypeParam[],
+  genericTypeParams?: (IGenericTypeParam | string)[],
   apply = true
 ) {
   source.addTypeAlias({
@@ -83,19 +81,6 @@ export function createBaseTypeExport(
   });
 
   apply && source.saveSync();
-}
-
-interface IInterfaceIndexSignature {
-  keyName: string;
-  keyType: string;
-  returnType: string;
-  isReadonly: boolean;
-}
-
-interface IInterfaceProperty {
-  name: string;
-  hasQuestionToken?: boolean;
-  type: string;
 }
 
 /**
@@ -160,7 +145,7 @@ export function createBaseInterfaceExport(
   interfaceExtends: string[] = [],
   indexSignatures: IInterfaceIndexSignature[] = [],
   properties: IInterfaceProperty[] = [],
-  genericTypeParams: IGenericTypeParam[] = [],
+  genericTypeParams: (IGenericTypeParam | string)[] = [],
   apply = true
 ) {
   source.addInterface({
@@ -168,7 +153,6 @@ export function createBaseInterfaceExport(
     name: identifier,
     extends: interfaceExtends,
     typeParameters: genericTypeParams,
-
     indexSignatures,
     properties,
   });
