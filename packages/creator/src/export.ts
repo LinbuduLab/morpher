@@ -5,7 +5,6 @@ import {
   TryStatement,
   VariableDeclarationKind,
 } from "ts-morph";
-import ow from "ow";
 
 import { ensureArray, MaybyArray } from "@ts-morpher/helper";
 import { ExportType } from "@ts-morpher/types";
@@ -41,8 +40,8 @@ export function createBaseVariableExport(
 
 interface IGenericTypeParam {
   name: string;
-  default: string;
-  constraint: string;
+  default?: string;
+  constraint?: string;
 }
 
 /**
@@ -54,14 +53,14 @@ interface IGenericTypeParam {
  * @param apply 
  * @example
  * createBaseTypeExport(source, "Foo", "Record<T, unknown>", [
-  {
-    name: "T",
-    default: "'default_string_literal'",
-    constraint: "string",
-  },
-]);
+    {
+      name: "T",
+      default: "'default_string_literal'",
+      constraint: "string",
+    },
+  ]);
 
-create following statement:
+// create following statement:
 
 export type Foo<T extends string = "default_string_literal"> = Record<
   T,
@@ -73,18 +72,105 @@ export function createBaseTypeExport(
   source: SourceFile,
   identifier: string,
   typeInitializer: string,
-  genericTypeParams: Partial<IGenericTypeParam>[],
+  genericTypeParams?: IGenericTypeParam[],
   apply = true
 ) {
   source.addTypeAlias({
     isExported: true,
     name: identifier,
     type: typeInitializer,
-    typeParameters: genericTypeParams.map((typeParam) => ({
-      name: typeParam.name,
-      default: typeParam.default,
-      constraint: typeParam.constraint,
-    })),
+    typeParameters: genericTypeParams,
+  });
+
+  apply && source.saveSync();
+}
+
+interface IInterfaceIndexSignature {
+  keyName: string;
+  keyType: string;
+  returnType: string;
+  isReadonly: boolean;
+}
+
+interface IInterfaceProperty {
+  name: string;
+  hasQuestionToken?: boolean;
+  type: string;
+}
+
+/**
+ * Create base interface export
+ * @param source
+ * @param identifier
+ * @param interfaceExtends extra interfaces to extend
+ * @param indexSignatures specify index-signatures like [key:string]: any
+ * @param properties interface properties
+ * @param genericTypeParams generic type params to use in interface
+ * @param apply save source file
+ * @example
+ * createBaseInterfaceExport(
+    source,
+    "Foo",
+    ["Bar", "Baz"],
+    [
+      {
+        keyName: "Foo",
+        keyType: "string",
+        returnType: "unknown",
+        isReadonly: false,
+      },
+    ],
+    [
+      {
+        name: "name",
+        type: "string",
+      },
+      {
+        name: "age",
+        type: "number",
+        hasQuestionToken: true,
+      },
+      {
+        name: "other",
+        type: "T",
+      },
+    ],
+    [
+      {
+        name: "T",
+        default: "'default_string_literal'",
+        constraint: "string",
+      },
+    ]
+  );
+
+  // create following statement:
+  export interface Foo<T extends string = 'default_string_literal'> extends Bar, Baz {
+      [Foo: string]: unknown;
+      name: string;
+      age?: number;
+      other: T;
+  }
+
+
+ */
+export function createBaseInterfaceExport(
+  source: SourceFile,
+  identifier: string,
+  interfaceExtends: string[] = [],
+  indexSignatures: IInterfaceIndexSignature[] = [],
+  properties: IInterfaceProperty[] = [],
+  genericTypeParams: IGenericTypeParam[] = [],
+  apply = true
+) {
+  source.addInterface({
+    isExported: true,
+    name: identifier,
+    extends: interfaceExtends,
+    typeParameters: genericTypeParams,
+
+    indexSignatures,
+    properties,
   });
 
   apply && source.saveSync();
