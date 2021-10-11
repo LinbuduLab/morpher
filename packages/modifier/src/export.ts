@@ -1,17 +1,5 @@
-import {
-  ImportDeclaration,
-  SourceFile,
-  SyntaxKind,
-  TryStatement,
-  TypeAliasDeclarationStructure,
-  VariableDeclarationKind,
-  WriterFunction,
-} from "ts-morph";
-import { ensureArray, MaybyArray } from "@ts-morpher/helper";
-import { ExportType } from "@ts-morpher/types";
+import { SourceFile, VariableDeclarationKind, WriterFunction } from "ts-morph";
 
-import {} from "@ts-morpher/checker";
-import {} from "@ts-morpher/creator";
 import {
   getTypeExportDeclaration,
   getTypeExportIdentifiers,
@@ -20,13 +8,15 @@ import {
   getExportVariableIdentifiers,
   getExportVariableStatements,
 } from "@ts-morpher/helper";
-import {
-  IGenericTypeParam,
-  IInterfaceIndexSignature,
-  IInterfaceProperty,
-  ISharedTypeStructure,
-} from "@ts-morpher/types";
+import { ISharedTypeStructure } from "@ts-morpher/types";
 
+/**
+ * update variable export identifier
+ * @param source
+ * @param identifier previous identifier
+ * @param updatedIdentifier updated identifier
+ * @param apply save source file
+ */
 export function updateVariableExportIdentifier(
   source: SourceFile,
   identifier: string,
@@ -43,6 +33,13 @@ export function updateVariableExportIdentifier(
   );
 }
 
+/**
+ * update variable export declaration kind
+ * @param source
+ * @param identifier previous identifier
+ * @param declarationKind updated declaration kind
+ * @param apply save source file
+ */
 export function updateVariableExportKind(
   source: SourceFile,
   identifier: string,
@@ -77,6 +74,14 @@ interface IBaseVariableExportStructure {
   isDefaultExport?: boolean;
 }
 
+/**
+ * update base structure of variable export
+ * @param source
+ * @param identifier variable identifier
+ * @param structure updated structure
+ * @param apply save source file
+ * @returns
+ */
 export function updateVariableExportStructure(
   source: SourceFile,
   identifier: string,
@@ -98,6 +103,14 @@ interface IBaseTypeAliasStructure extends ISharedTypeStructure {
   type?: string | WriterFunction;
 }
 
+/**
+ * update base structure of type alias export
+ * @param source
+ * @param identifier type alias identifier
+ * @param structure updated structure
+ * @param apply save source file
+ * @returns
+ */
 export function updateTypeExportStructure(
   source: SourceFile,
   identifier: string,
@@ -119,6 +132,14 @@ interface IBaseInterfaceStructure extends ISharedTypeStructure {
   extends?: (string | WriterFunction)[] | WriterFunction;
 }
 
+/**
+ * update base structure of interface export
+ * @param source
+ * @param identifier interface identifier
+ * @param structure updated structure
+ * @param apply save source file
+ * @returns
+ */
 export function updateInterfaceExportStructure(
   source: SourceFile,
   identifier: string,

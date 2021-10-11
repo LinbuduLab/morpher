@@ -1,4 +1,4 @@
-import { SourceFile, SyntaxKind } from "ts-morph";
+import { SourceFile } from "ts-morph";
 import { getImportDeclarations } from "@ts-morpher/helper";
 import { checkImportExistByModuleSpecifier } from "@ts-morpher/checker";
 import { createImportDeclaration } from "@ts-morpher/creator";
