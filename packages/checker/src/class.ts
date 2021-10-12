@@ -18,7 +18,6 @@ import {
   ASYNC_KEYWORD,
   READONLY_KEYWORD,
 } from "@ts-morpher/helper";
-import {} from "@ts-morpher/types";
 
 /**
  * Check is there class defined in source file
