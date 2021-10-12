@@ -1,11 +1,4 @@
-import {
-  SourceFile,
-  SyntaxKind,
-  MethodDeclaration,
-  PropertyDeclaration,
-  Decorator,
-  ClassDeclaration,
-} from "ts-morph";
+import { SourceFile } from "ts-morph";
 
 import {
   getClassDeclarations,
@@ -47,6 +40,53 @@ export function checkClassExistInSourceFile(
   className: string
 ): boolean {
   return getClassIdentifiers(source).includes(className);
+}
+
+/**
+ * Check method exist in class declaration
+ * @param source
+ * @param className
+ * @param methodName
+ * @returns
+ */
+export function checkMethodExistInClass(
+  source: SourceFile,
+  className: string,
+  methodName: string
+): boolean {
+  return getClassMethodIdentifiers(source, className).includes(methodName);
+}
+
+/**
+ * Check prop exist in class declaration
+ * @param source
+ * @param className
+ * @param prop
+ * @returns
+ */
+export function checkPropExistInClass(
+  source: SourceFile,
+  className: string,
+  prop: string
+): boolean {
+  return getClassPropIdentifiers(source, className).includes(prop);
+}
+
+/**
+ * Check prop exist in class declaration
+ * @param source
+ * @param className
+ * @param decoratorName
+ * @returns
+ */
+export function checkDecoratorExistInClass(
+  source: SourceFile,
+  className: string,
+  decoratorName: string
+): boolean {
+  return getClassDecoratorIdentifiers(source, className).includes(
+    decoratorName
+  );
 }
 
 /**
