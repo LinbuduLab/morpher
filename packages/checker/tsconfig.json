@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "demo/pg.ts", "demo/fixturers.ts"],
   "exclude": ["dist", "node_modules", "tests"]
 }

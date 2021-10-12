@@ -7,7 +7,9 @@ import {
   ClassDeclaration,
 } from "ts-morph";
 
+import { ClassMemberType } from "@ts-morpher/types";
 import { getDeclarationIdentifier, MaybyArray } from "./util";
+import { ModifierFlags } from "@ts-morph/common/lib/typescript";
 
 /**
  * Return all class declarations in source file, specify `className` to return only matched
@@ -144,7 +146,7 @@ export function getClassPropDeclarations(
   source: SourceFile,
   className: string,
   propName: string
-): PropertyDeclaration[];
+): PropertyDeclaration | undefined;
 
 /**
  * Return all prop declarations of target class
@@ -249,4 +251,45 @@ export function getClassDecoratorIdentifiers(
   className: string
 ): string[] {
   return getClassDecorators(source, className).map((d) => d.getName());
+}
+
+/**
+ * Return method modifiers flags like public / static / readonly
+ * @param source
+ * @param className
+ * @param methodName
+ * @returns
+ */
+export function getClassMethodModifiers(
+  source: SourceFile,
+  className: string,
+  methodName: string
+): string[] {
+  const targetMethod = getClassMethodDeclarations(
+    source,
+    className,
+    methodName
+  );
+
+  if (!targetMethod) return;
+
+  return targetMethod.getModifiers().map((m) => m.getText());
+}
+
+/**
+ * Return prop modifiers flags like public / static / readonly
+ * @param source
+ * @param className
+ * @param propName
+ * @returns
+ */ export function getClassPropModifiers(
+  source: SourceFile,
+  className: string,
+  propName: string
+): string[] {
+  const targetProp = getClassPropDeclarations(source, className, propName);
+
+  if (!targetProp) return;
+
+  return targetProp.getModifiers().map((m) => m.getText());
 }
