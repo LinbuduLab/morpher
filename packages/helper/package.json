@@ -1,6 +1,6 @@
 {
   "name": "@ts-morpher/helper",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
@@ -26,7 +26,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@ts-morpher/types": "^0.2.2",
+    "@ts-morpher/types": "^0.2.3",
     "ow": "^0.28.1",
     "ts-morph": "^11.0.3"
   },
