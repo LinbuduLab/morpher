@@ -3,12 +3,58 @@ import {
   SyntaxKind,
   MethodDeclaration,
   PropertyDeclaration,
+  Decorator,
+  ClassDeclaration,
 } from "ts-morph";
 
 import { getDeclarationIdentifier, MaybyArray } from "./util";
 
 /**
- * Return all method declarations inside class `className`
+ * Return all class declarations in source file, specify `className` to return only matched
+ * @param source
+ * @returns
+ */
+export function getClassDeclarations(source: SourceFile): ClassDeclaration[];
+
+/**
+ * Return all class declarations in source file, specify `className` to return only matched
+ * @param source
+ * @returns
+ */
+export function getClassDeclarations(
+  source: SourceFile,
+  className?: string
+): ClassDeclaration | undefined;
+
+/**
+ * Return all class declarations in source file, specify `className` to return only matched
+ * @param source
+ * @returns
+ */
+export function getClassDeclarations(
+  source: SourceFile,
+  className?: string
+): MaybyArray<ClassDeclaration> | undefined {
+  const classDeclarationList = source
+    .getFirstChildByKind(SyntaxKind.SyntaxList)
+    .getChildrenOfKind(SyntaxKind.ClassDeclaration);
+
+  return className
+    ? classDeclarationList.find((cls) => cls.getName() === className)
+    : classDeclarationList;
+}
+
+/**
+ * Return all class identifiers in source file
+ * @param source
+ * @returns
+ */
+export function getClassIdentifiers(source: SourceFile): string[] {
+  return getClassDeclarations(source).map(getDeclarationIdentifier);
+}
+
+/**
+ * Return all method declarations of target class
  * specify `methodName` to return only matched one.
  * @param source
  * @param className
@@ -21,7 +67,7 @@ export function getClassMethodDeclarations(
 ): MethodDeclaration[] | undefined;
 
 /**
- * Return all method declarations inside class `className`
+ * Return all method declarations of target class
  * specify `methodName` to return only matched one.
  * @param source
  * @param className
@@ -35,7 +81,7 @@ export function getClassMethodDeclarations(
 ): MethodDeclaration | undefined;
 
 /**
- * Return all method declarations inside class `className`
+ * Return all method declarations of target class
  * specify `methodName` to return only matched one.
  * @param source
  * @param className
@@ -47,13 +93,7 @@ export function getClassMethodDeclarations(
   className: string,
   methodName?: string
 ): MaybyArray<MethodDeclaration> | undefined {
-  const classDeclarationList = source
-    .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.ClassDeclaration);
-
-  const targetClass = classDeclarationList.find(
-    (classDec) => getDeclarationIdentifier(classDec) === className
-  );
+  const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
     return;
@@ -67,12 +107,12 @@ export function getClassMethodDeclarations(
 }
 
 /**
- * Return all method identifiers inside class.
+ * Return all method identifiers of target class.
  * @param source
  * @param className
  * @returns string[]
  */
-export function getExistClassMethodIdentifiers(
+export function getClassMethodIdentifiers(
   source: SourceFile,
   className: string
 ): string[] {
@@ -80,7 +120,7 @@ export function getExistClassMethodIdentifiers(
 }
 
 /**
- * Return all prop declarations inside class `className`
+ * Return all prop declarations of target class
  * specify `propName` to return only matched one.
  * @param source
  * @param className
@@ -93,7 +133,7 @@ export function getClassPropDeclarations(
 ): PropertyDeclaration[];
 
 /**
- * Return all prop declarations inside class `className`
+ * Return all prop declarations of target class
  * specify `propName` to return only matched one.
  * @param source
  * @param className
@@ -107,7 +147,7 @@ export function getClassPropDeclarations(
 ): PropertyDeclaration[];
 
 /**
- * Return all prop declarations inside class `className`
+ * Return all prop declarations of target class
  * specify `propName` to return only matched one.
  * @param source
  * @param className
@@ -119,13 +159,7 @@ export function getClassPropDeclarations(
   className: string,
   propName?: string
 ): PropertyDeclaration | PropertyDeclaration[] | undefined {
-  const classDeclarationList = source
-    .getFirstChildByKind(SyntaxKind.SyntaxList)
-    .getChildrenOfKind(SyntaxKind.ClassDeclaration);
-
-  const targetClass = classDeclarationList.find(
-    (classDec) => getDeclarationIdentifier(classDec) === className
-  );
+  const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
     return;
@@ -139,14 +173,80 @@ export function getClassPropDeclarations(
 }
 
 /**
- * Return all prop identifiers inside class.
+ * Return all prop identifiers of target class.
  * @param source
  * @param className
  * @returns string[]
  */
-export function getExistClassPropIdentifiers(
+export function getClassPropIdentifiers(
   source: SourceFile,
   className: string
 ): string[] {
   return getClassPropDeclarations(source, className).map((p) => p.getName());
+}
+
+/**
+ * Return all decorator declarations of target class
+ * specify `decoratorName` to return only matched one.
+ * @param source
+ * @param className
+ * @param decoratorName
+ * @returns Decorator | Decorator[] | undefined
+ */
+export function getClassDecorators(
+  source: SourceFile,
+  className: string
+): Decorator[];
+
+/**
+ * Return all decorator declarations of target class
+ * specify `decoratorName` to return only matched one.
+ * @param source
+ * @param className
+ * @param decoratorName
+ * @returns Decorator | Decorator[] | undefined
+ */
+export function getClassDecorators(
+  source: SourceFile,
+  className: string,
+  decoratorName: string
+): Decorator | undefined;
+
+/**
+ * Return all decorator declarations of target class
+ * specify `decoratorName` to return only matched one.
+ * @param source
+ * @param className
+ * @param decoratorName
+ * @returns Decorator | Decorator[] | undefined
+ */
+export function getClassDecorators(
+  source: SourceFile,
+  className: string,
+  decoratorName?: string
+): MaybyArray<Decorator> | undefined {
+  const targetClass = getClassDeclarations(source, className);
+
+  if (!targetClass) {
+    return;
+  }
+
+  const decorators = targetClass.getDecorators();
+
+  return decoratorName
+    ? decorators.find((d) => getDeclarationIdentifier(d) === decoratorName)
+    : decorators;
+}
+
+/**
+ * Return all decorator identifiers of target class.
+ * @param source
+ * @param className
+ * @returns string[]
+ */
+export function getClassDecoratorIdentifiers(
+  source: SourceFile,
+  className: string
+): string[] {
+  return getClassDecorators(source, className).map((d) => d.getName());
 }

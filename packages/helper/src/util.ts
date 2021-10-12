@@ -1,5 +1,6 @@
 import {
   ClassDeclaration,
+  Decorator,
   ImportDeclaration,
   InterfaceDeclaration,
   MethodDeclaration,
@@ -16,13 +17,14 @@ export function ensureArray<T>(maybeArray: MaybyArray<T>): T[] {
 }
 
 export function getDeclarationIdentifier(
-  classDec:
+  dec:
     | ClassDeclaration
     | MethodDeclaration
     | PropertyDeclaration
     | ImportDeclaration
+    | Decorator
 ) {
-  return classDec.getFirstChildByKind(SyntaxKind.Identifier).getText();
+  return dec.getFirstChildByKind(SyntaxKind.Identifier).getText();
 }
 
 export function getVariableIdentifier(statement: VariableStatement): string {
