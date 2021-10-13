@@ -1,45 +1,6 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
+import { builtinModules } from "module";
 import { getDeclarationIdentifier, MaybyArray } from "./util";
-
-/**
- * Split one `Import Declaration` into common one and type-only one
- * - return undefined if no named imports exist
- * - retrun [OriginImportDeclaration] if no typeImports exist in current named imports
- * @param source
- * @param moduleSpecifier
- * @param typeImports
- * @returns
- */
-export function splitImportDeclarationBasedOnType(
-  source: SourceFile,
-  moduleSpecifier: string,
-  typeImports: string[]
-): [ImportDeclaration] | [ImportDeclaration, ImportDeclaration] | undefined {
-  const targetImport = getImportDeclarations(source, moduleSpecifier);
-  const namedImports = targetImport.getNamedImports().map((i) => i.getText());
-
-  if (!namedImports.length) return;
-
-  const existTypeOnlyImports = typeImports.filter((typeImport) =>
-    namedImports.includes(typeImport)
-  );
-
-  if (!existTypeOnlyImports.length) return [targetImport];
-
-  const getTypeOnlyImportDeclaration = source.addImportDeclaration({
-    namedImports: existTypeOnlyImports,
-    isTypeOnly: true,
-    moduleSpecifier,
-  });
-
-  targetImport.removeNamedImports();
-
-  targetImport.addNamedImports(
-    namedImports.filter((named) => !existTypeOnlyImports.includes(named))
-  );
-
-  return [targetImport, getTypeOnlyImportDeclaration];
-}
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
@@ -79,7 +40,7 @@ export function getImportDeclarations(
  */
 export function getImportDeclarations(
   source: SourceFile,
-  moduleSpecifier?: string | string[]
+  moduleSpecifier?: MaybyArray<string>
 ): MaybyArray<ImportDeclaration> | undefined {
   const importDeclarations = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
@@ -111,9 +72,39 @@ export function getImportModuleSpecifiers(source: SourceFile): string[] {
  */
 export function getTypeOnlyImportDeclarations(
   source: SourceFile
-): ImportDeclaration[] {
-  const importDeclarations = getImportDeclarations(source);
-  return importDeclarations.filter((dec) => dec.isTypeOnly());
+): ImportDeclaration[];
+
+export function getTypeOnlyImportDeclarations(
+  source: SourceFile,
+  moduleSpecifier: string
+): ImportDeclaration | undefined;
+
+export function getTypeOnlyImportDeclarations(
+  source: SourceFile,
+  moduleSpecifiers: string[]
+): ImportDeclaration[];
+
+/**
+ * Return type-only import declarations, specify `identifier` to return only matched
+ * @param source
+ */
+export function getTypeOnlyImportDeclarations(
+  source: SourceFile,
+  moduleSpecifier?: MaybyArray<string>
+): MaybyArray<ImportDeclaration> | undefined {
+  const typeOnlyImportDeclarations = getImportDeclarations(source).filter(
+    (dec) => dec.isTypeOnly()
+  );
+
+  return moduleSpecifier
+    ? Array.isArray(moduleSpecifier)
+      ? typeOnlyImportDeclarations.filter((dec) =>
+          moduleSpecifier.includes(getDeclarationIdentifier(dec))
+        )
+      : typeOnlyImportDeclarations.find((dec) =>
+          moduleSpecifier.includes(getDeclarationIdentifier(dec))
+        )
+    : typeOnlyImportDeclarations;
 }
 
 /**
@@ -125,5 +116,129 @@ export function getTypeOnlyImportModuleSpecifiers(
 ): string[] {
   return getTypeOnlyImportDeclarations(source).map((i) =>
     i.getModuleSpecifierValue()
+  );
+}
+
+/**
+ * Return all named import declarations
+ * @param source
+ * @returns
+ */
+export function getNamedImportDeclarations(
+  source: SourceFile
+): ImportDeclaration[] {
+  const importDeclarations = getImportDeclarations(source);
+
+  return importDeclarations.filter((declaration) =>
+    Boolean(declaration.getNamedImports().length)
+  );
+}
+
+/**
+ * Return all named import declarations module specifier
+ * @param source
+ * @returns
+ */
+export function getNamedImportModuleSpecifiers(source: SourceFile): string[] {
+  return getNamedImportDeclarations(source).map((i) =>
+    i.getModuleSpecifierValue()
+  );
+}
+
+/**
+ * Return all namespace import declarations
+ * @param source
+ * @returns
+ */
+export function getNamespaceImportDeclarations(
+  source: SourceFile
+): ImportDeclaration[] {
+  const importDeclarations = getImportDeclarations(source);
+
+  return importDeclarations.filter((declaration) =>
+    Boolean(declaration.getNamespaceImport()?.getText())
+  );
+}
+
+/**
+ * Return all namespace import declarations module specifier
+ * @param source
+ * @returns
+ */
+export function getNamespaceImportModuleSpecifiers(
+  source: SourceFile
+): string[] {
+  return getNamespaceImportDeclarations(source).map((i) =>
+    i.getModuleSpecifierValue()
+  );
+}
+
+/**
+ * Return all default import declarations
+ * @param source
+ * @returns
+ */
+export function getDefaultImportDeclarations(
+  source: SourceFile
+): ImportDeclaration[] {
+  const importDeclarations = getImportDeclarations(source);
+
+  return importDeclarations.filter((declaration) =>
+    Boolean(declaration.getDefaultImport()?.getText())
+  );
+}
+
+/**
+ * Return all default import declarations module specifier
+ * @param source
+ * @returns
+ */
+export function getDefaultImportModuleSpecifiers(source: SourceFile): string[] {
+  return getDefaultImportDeclarations(source).map((i) =>
+    i.getModuleSpecifierValue()
+  );
+}
+
+/**
+ * Return all built-in module import declarations
+ * @param source
+ * @returns
+ */
+export function getNodeInternalImportDeclarations(source: SourceFile) {
+  return getImportDeclarations(source).filter((i) =>
+    builtinModules.includes(i.getModuleSpecifierValue())
+  );
+}
+
+/**
+ * Return all built-in module import module specifiers
+ * @param source
+ * @returns
+ */
+export function getNodeInternalImportModuleSpecifiers(source: SourceFile) {
+  return getImportModuleSpecifiers(source).filter((spc) =>
+    builtinModules.includes(spc)
+  );
+}
+
+/**
+ * Return all non-built-in module import declarations
+ * @param source
+ * @returns
+ */
+export function getNodeModuleImportDeclarations(source: SourceFile) {
+  return getImportDeclarations(source).filter(
+    (i) => !builtinModules.includes(i.getModuleSpecifierValue())
+  );
+}
+
+/**
+ * Return all non-built-in module import module specifiers
+ * @param source
+ * @returns
+ */
+export function getNodeModuleImportModuleSpecifiers(source: SourceFile) {
+  return getImportModuleSpecifiers(source).filter(
+    (spc) => !builtinModules.includes(spc)
   );
 }

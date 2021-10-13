@@ -1,8 +1,48 @@
-import { SourceFile } from "ts-morph";
+import { ImportDeclaration, SourceFile } from "ts-morph";
 import { getImportDeclarations } from "@ts-morpher/helper";
 import { checkImportExistByModuleSpecifier } from "@ts-morpher/checker";
 import { createImportDeclaration } from "@ts-morpher/creator";
 import { ImportType } from "@ts-morpher/types";
+
+/**
+ * Split one `Import Declaration` into common one and type-only one
+ * - return undefined if no named imports exist
+ * - retrun [OriginImportDeclaration] if no typeImports exist in current named imports
+ * @param source
+ * @param moduleSpecifier
+ * @param typeImports
+ * @returns
+ */
+export function splitImportDeclarationBasedOnType(
+  source: SourceFile,
+  moduleSpecifier: string,
+  typeImports: string[]
+): [ImportDeclaration] | [ImportDeclaration, ImportDeclaration] | undefined {
+  const targetImport = getImportDeclarations(source, moduleSpecifier);
+  const namedImports = targetImport.getNamedImports().map((i) => i.getText());
+
+  if (!namedImports.length) return;
+
+  const existTypeOnlyImports = typeImports.filter((typeImport) =>
+    namedImports.includes(typeImport)
+  );
+
+  if (!existTypeOnlyImports.length) return [targetImport];
+
+  const getTypeOnlyImportDeclaration = source.addImportDeclaration({
+    namedImports: existTypeOnlyImports,
+    isTypeOnly: true,
+    moduleSpecifier,
+  });
+
+  targetImport.removeNamedImports();
+
+  targetImport.addNamedImports(
+    namedImports.filter((named) => !existTypeOnlyImports.includes(named))
+  );
+
+  return [targetImport, getTypeOnlyImportDeclaration];
+}
 
 /**
  * Add new members to the namespace import
