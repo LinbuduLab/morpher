@@ -156,7 +156,7 @@ export function getNamespaceImportDeclarations(
   const importDeclarations = getImportDeclarations(source);
 
   return importDeclarations.filter((declaration) =>
-    Boolean(declaration.getNamespaceImport()?.getText())
+    Boolean(declaration.getNamespaceImport())
   );
 }
 
@@ -184,7 +184,7 @@ export function getDefaultImportDeclarations(
   const importDeclarations = getImportDeclarations(source);
 
   return importDeclarations.filter((declaration) =>
-    Boolean(declaration.getDefaultImport()?.getText())
+    Boolean(declaration.getDefaultImport())
   );
 }
 

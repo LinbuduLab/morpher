@@ -10,7 +10,6 @@ import { ImportType } from "@ts-morpher/types";
  * @param namespace import namespace
  * @param moduleSpecifier import specifier
  * @param importType ImportType.NAMESPACE_IMPORT
- * @param isTypeOnly create type only import
  * @param apply save source file
  * @returns void
  */
@@ -19,7 +18,6 @@ export function createImportDeclaration(
   namespace: string,
   moduleSpecifier: string,
   importType: ImportType.NAMESPACE_IMPORT,
-  isTypeOnly?: boolean,
   apply?: boolean
 ): void;
 
@@ -57,7 +55,23 @@ export function createImportDeclaration(
   defaultImport: string,
   moduleSpecifier: string,
   importType: ImportType.DEFAULT_IMPORT,
-  isTypeOnly?: boolean,
+  apply?: boolean
+): void;
+
+/**
+ * Add a default with named import declaration
+ * @param source
+ * @param defaultAndNamedImports default and named imports member, the 1st item will be regarded as default
+ * @param moduleSpecifier import specifier
+ * @param importType ImportType.DEFAULT_WITH_NAMED_IMPORT
+ * @param apply save source file
+ * @returns void
+ */
+export function createImportDeclaration(
+  source: SourceFile,
+  namedImports: MaybyArray<string>,
+  moduleSpecifier: string,
+  importType: ImportType.DEFAULT_WITH_NAMED_IMPORT,
   apply?: boolean
 ): void;
 
@@ -86,7 +100,7 @@ export function createImportDeclaration(
       source.addImportDeclaration({
         defaultImport: importClause,
         moduleSpecifier,
-        isTypeOnly,
+        isTypeOnly: false,
       });
 
       break;
@@ -106,7 +120,19 @@ export function createImportDeclaration(
       source.addImportDeclaration({
         namespaceImport: importClause,
         moduleSpecifier: moduleSpecifier,
-        isTypeOnly,
+        isTypeOnly: false,
+      });
+
+      break;
+
+    case ImportType.DEFAULT_WITH_NAMED_IMPORT:
+      const [defaultImport, ...namedImports] = ensureArray(importClause);
+
+      source.addImportDeclaration({
+        defaultImport,
+        namedImports,
+        moduleSpecifier,
+        isTypeOnly: false,
       });
 
       break;

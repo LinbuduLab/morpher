@@ -5,7 +5,7 @@ import {
 } from "@ts-morpher/helper";
 import {
   checkImportExistByModuleSpecifier,
-  hasImports,
+  checkSourceFileHasImports,
   checkImportTypeByModuleSpecifier,
 } from "@ts-morpher/checker";
 import { ImportType } from "@ts-morpher/types";
@@ -65,7 +65,7 @@ export function removeImportDeclarationByType(
   removeTypes?: Partial<Record<"namespace" | "default" | "named", boolean>>,
   apply = true
 ) {
-  if (!hasImports(source)) {
+  if (!checkSourceFileHasImports(source)) {
     return;
   }
 

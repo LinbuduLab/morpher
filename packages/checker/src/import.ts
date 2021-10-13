@@ -23,7 +23,7 @@ export function checkImportExistByModuleSpecifier(
  * @param source
  * @example
  */
-export function hasImports(source: SourceFile): boolean {
+export function checkSourceFileHasImports(source: SourceFile): boolean {
   return Boolean(getImportDeclarations(source).length);
 }
 
@@ -113,11 +113,29 @@ export function checkImportTypeByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): ImportType {
-  return checkIsDefaultImportByModuleSpecifier(source, moduleSpecifier)
-    ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportByModuleSpecifier(source, moduleSpecifier)
+  const isNamespaceImport = checkIsNamespaceImportByModuleSpecifier(
+    source,
+    moduleSpecifier
+  );
+
+  if (isNamespaceImport) {
+    return ImportType.NAMESPACE_IMPORT;
+  }
+
+  const isNamedImport = checkIsNamedImportByModuleSpecifier(
+    source,
+    moduleSpecifier
+  );
+  const isDefaultImport = checkIsDefaultImportByModuleSpecifier(
+    source,
+    moduleSpecifier
+  );
+
+  return isNamedImport && isDefaultImport
+    ? ImportType.DEFAULT_WITH_NAMED_IMPORT
+    : isNamedImport
     ? ImportType.NAMED_IMPORTS
-    : ImportType.NAMESPACE_IMPORT;
+    : ImportType.DEFAULT_IMPORT;
 }
 
 /**
@@ -128,13 +146,21 @@ export function checkImportTypeByModuleSpecifier(
 export function checkImportType(
   declaration: ImportDeclaration
 ): ImportType | undefined {
-  return checkIsDefaultImportDeclaration(declaration)
-    ? ImportType.DEFAULT_IMPORT
-    : checkIsNamedImportDeclaration(declaration)
+  const isNamespaceImport = checkIsNamespaceImportDeclaration(declaration);
+
+  if (isNamespaceImport) {
+    return ImportType.NAMESPACE_IMPORT;
+  }
+
+  const isNamedImport = checkIsNamedImportDeclaration(declaration);
+
+  const isDefaultImport = checkIsDefaultImportDeclaration(declaration);
+
+  return isNamedImport && isDefaultImport
+    ? ImportType.DEFAULT_WITH_NAMED_IMPORT
+    : isNamedImport
     ? ImportType.NAMED_IMPORTS
-    : checkIsNamespaceImportDeclaration(declaration)
-    ? ImportType.NAMESPACE_IMPORT
-    : undefined;
+    : ImportType.DEFAULT_IMPORT;
 }
 
 /**
@@ -147,9 +173,5 @@ export function checkIsTypeOnlyImportByModuleSpecifier(
   source: SourceFile,
   moduleSpecifier: string
 ): boolean | undefined {
-  if (!getImportModuleSpecifiers(source).includes(moduleSpecifier)) {
-    return undefined;
-  }
-
   return getImportDeclarations(source, moduleSpecifier).isTypeOnly();
 }
