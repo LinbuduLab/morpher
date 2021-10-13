@@ -9,22 +9,20 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "ultra -r lint",
     "commit": "git add -A && git-cz",
-    "lint:fix": "ultra -r lint:fix",
+    "pub:patch": "yarn build && lerna publish patch",
+    "pub:minor": "yarn build && lerna publish minor",
     "test": "ultra -r --filter '@ts-morpher/*' test",
-    "dev": "ultra -r --filter 'sample' dev",
-    "pub": "yarn build && lerna publish minor",
     "build": "ultra -r --filter '@ts-morpher/*' --topology build",
     "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
     "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check"
   },
   "dependencies": {
-    "fs-extra": "^10.0.0",
     "ts-morph": "^12.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
+    "@changesets/cli": "^2.17.0",
+    "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "@types/debug": "^4.1.7",
     "@types/fs-extra": "^9.0.13",
@@ -32,12 +30,16 @@
     "@types/node": "^16.10.2",
     "commitizen": "^4.2.4",
     "commitlint-config-cz": "^0.13.2",
+    "conventional-changelog": "^3.1.24",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
     "debug": "^4.3.2",
+    "fs-extra": "^10.0.0",
+    "husky": "^7.0.2",
     "jest": "^27.2.4",
     "lerna": "^4.0.0",
     "oao": "^2.0.2",
+    "prettier": "^2.4.1",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "ts-node-dev": "^1.1.8",
