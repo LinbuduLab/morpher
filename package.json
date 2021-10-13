@@ -12,7 +12,7 @@
     "commit": "git add -A && git-cz",
     "pub:patch": "yarn build && lerna publish patch",
     "pub:minor": "yarn build && lerna publish minor",
-    "test": "ultra -r --filter '@ts-morpher/*' test",
+    "test": "jest",
     "build": "ultra -r --filter '@ts-morpher/*' --topology build",
     "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
     "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check"

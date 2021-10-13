@@ -1,4 +1,9 @@
-export default {
+/*
+ * For a detailed explanation regarding each configuration property and type check, visit:
+ * https://jestjs.io/docs/configuration
+ */
+
+module.exports = {
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: "coverage",
@@ -7,13 +12,6 @@ export default {
   maxWorkers: "80%",
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js", "ts"],
-  projects: [
-    "<rootDir>/packages/checker",
-    "<rootDir>/packages/creator",
-    "<rootDir>/packages/cleaner",
-    "<rootDir>/packages/modifier",
-    "<rootDir>/packages/helper",
-  ],
   preset: "ts-jest",
   globals: {
     "ts-jest": {

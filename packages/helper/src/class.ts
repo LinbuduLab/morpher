@@ -8,7 +8,7 @@ import {
 } from "ts-morph";
 
 import { ClassMemberType } from "@ts-morpher/types";
-import { getDeclarationIdentifier, MaybyArray } from "./util";
+import { getDeclarationIdentifierByKind, MaybyArray } from "./util";
 import { ModifierFlags } from "@ts-morph/common/lib/typescript";
 
 /**
@@ -52,7 +52,7 @@ export function getClassDeclarations(
  * @returns
  */
 export function getClassIdentifiers(source: SourceFile): string[] {
-  return getClassDeclarations(source).map(getDeclarationIdentifier);
+  return getClassDeclarations(source).map(getDeclarationIdentifierByKind);
 }
 
 /**
@@ -104,7 +104,7 @@ export function getClassMethodDeclarations(
   const methods = targetClass.getMethods();
 
   return methodName
-    ? methods.find((m) => getDeclarationIdentifier(m) === methodName)
+    ? methods.find((m) => getDeclarationIdentifierByKind(m) === methodName)
     : methods;
 }
 
@@ -170,7 +170,7 @@ export function getClassPropDeclarations(
   const props = targetClass.getProperties();
 
   return propName
-    ? props.find((p) => getDeclarationIdentifier(p) === propName)
+    ? props.find((p) => getDeclarationIdentifierByKind(p) === propName)
     : props;
 }
 
@@ -236,7 +236,9 @@ export function getClassDecorators(
   const decorators = targetClass.getDecorators();
 
   return decoratorName
-    ? decorators.find((d) => getDeclarationIdentifier(d) === decoratorName)
+    ? decorators.find(
+        (d) => getDeclarationIdentifierByKind(d) === decoratorName
+      )
     : decorators;
 }
 

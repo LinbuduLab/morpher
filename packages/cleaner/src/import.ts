@@ -1,6 +1,6 @@
 import { SourceFile } from "ts-morph";
 import {
-  getDeclarationIdentifier,
+  getDeclarationIdentifierByKind,
   getImportDeclarations,
 } from "@ts-morpher/helper";
 import {
@@ -73,7 +73,10 @@ export function removeImportDeclarationByType(
 
   sourceImports.forEach((imp) => {
     switch (
-      checkImportTypeByModuleSpecifier(source, getDeclarationIdentifier(imp))
+      checkImportTypeByModuleSpecifier(
+        source,
+        getDeclarationIdentifierByKind(imp)
+      )
     ) {
       case ImportType.DEFAULT_IMPORT:
         removeTypes?.default && imp.remove();

@@ -1,6 +1,6 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
 import { builtinModules } from "module";
-import { getDeclarationIdentifier, MaybyArray } from "./util";
+import { getDeclarationIdentifierByKind, MaybyArray } from "./util";
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
@@ -49,10 +49,10 @@ export function getImportDeclarations(
   return moduleSpecifier
     ? Array.isArray(moduleSpecifier)
       ? importDeclarations.filter((dec) =>
-          moduleSpecifier.includes(getDeclarationIdentifier(dec))
+          moduleSpecifier.includes(getDeclarationIdentifierByKind(dec))
         )
       : importDeclarations.find((dec) =>
-          moduleSpecifier.includes(getDeclarationIdentifier(dec))
+          moduleSpecifier.includes(getDeclarationIdentifierByKind(dec))
         )
     : importDeclarations;
 }
@@ -99,10 +99,10 @@ export function getTypeOnlyImportDeclarations(
   return moduleSpecifier
     ? Array.isArray(moduleSpecifier)
       ? typeOnlyImportDeclarations.filter((dec) =>
-          moduleSpecifier.includes(getDeclarationIdentifier(dec))
+          moduleSpecifier.includes(getDeclarationIdentifierByKind(dec))
         )
       : typeOnlyImportDeclarations.find((dec) =>
-          moduleSpecifier.includes(getDeclarationIdentifier(dec))
+          moduleSpecifier.includes(getDeclarationIdentifierByKind(dec))
         )
     : typeOnlyImportDeclarations;
 }

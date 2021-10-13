@@ -23,17 +23,6 @@ export function ensureArray<T>(maybeArray: MaybyArray<T>): T[] {
   return Array.isArray(maybeArray) ? maybeArray : [maybeArray];
 }
 
-export function getDeclarationIdentifier(
-  dec:
-    | ClassDeclaration
-    | MethodDeclaration
-    | PropertyDeclaration
-    | ImportDeclaration
-    | Decorator
-) {
-  return dec.getFirstChildByKind(SyntaxKind.Identifier).getText();
-}
-
 export function getDeclarationIdentifierByKind(
   dec:
     | ClassDeclaration
@@ -47,7 +36,7 @@ export function getDeclarationIdentifierByKind(
     case SyntaxKind.MethodDeclaration:
     case SyntaxKind.PropertyDeclaration:
     case SyntaxKind.Decorator:
-      return dec.asKind(SyntaxKind.ClassDeclaration).getName();
+      return (dec as ClassDeclaration).getName();
 
     case SyntaxKind.ImportDeclaration:
       return dec.asKind(SyntaxKind.ImportDeclaration).getModuleSpecifierValue();
