@@ -51,7 +51,7 @@ export function getExportVariableStatements(
 export function getExportVariableStatements(
   source: SourceFile,
   varIdentifier: string[]
-): VariableStatement;
+): VariableStatement[];
 
 /**
  * Return all export statements, specify `varIdentifier` to return only matched
@@ -138,9 +138,9 @@ export function getTypeExportDeclaration(
  * @param source
  * @returns
  */
-export function getTypeExportIdentifiers(source: SourceFile) {
+export function getTypeExportIdentifiers(source: SourceFile): string[] {
   return getTypeExportDeclaration(source).map((declaration) =>
-    declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
+    getTypeOrInterfaceIdentifier(declaration)
   );
 }
 
@@ -203,7 +203,7 @@ export function getInterfaceExportDeclaration(
  * @param source
  * @returns
  */
-export function getInterfaceExportIdentifiers(source: SourceFile) {
+export function getInterfaceExportIdentifiers(source: SourceFile): string[] {
   return getInterfaceExportDeclaration(source).map((declaration) =>
     declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
   );
