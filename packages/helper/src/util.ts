@@ -19,6 +19,10 @@ export const PROTECTED_KEYWORD = "protected";
 export const READONLY_KEYWORD = "readonly";
 export const ASYNC_KEYWORD = "async";
 
+export function uniqArray<T>(array: T[]): T[] {
+  return [...new Set(array)];
+}
+
 export function ensureArray<T>(maybeArray: MaybyArray<T>): T[] {
   return Array.isArray(maybeArray) ? maybeArray : [maybeArray];
 }

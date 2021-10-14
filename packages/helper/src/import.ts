@@ -1,6 +1,6 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
 import { builtinModules } from "module";
-import { getDeclarationIdentifierByKind, MaybyArray } from "./util";
+import { getDeclarationIdentifierByKind, MaybyArray, uniqArray } from "./util";
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
@@ -63,7 +63,9 @@ export function getImportDeclarations(
  * @returns string[]
  */
 export function getImportModuleSpecifiers(source: SourceFile): string[] {
-  return getImportDeclarations(source).map((i) => i.getModuleSpecifierValue());
+  return uniqArray(
+    getImportDeclarations(source).map((i) => i.getModuleSpecifierValue())
+  );
 }
 
 /**
@@ -114,8 +116,10 @@ export function getTypeOnlyImportDeclarations(
 export function getTypeOnlyImportModuleSpecifiers(
   source: SourceFile
 ): string[] {
-  return getTypeOnlyImportDeclarations(source).map((i) =>
-    i.getModuleSpecifierValue()
+  return uniqArray(
+    getTypeOnlyImportDeclarations(source).map((i) =>
+      i.getModuleSpecifierValue()
+    )
   );
 }
 
@@ -140,8 +144,8 @@ export function getNamedImportDeclarations(
  * @returns
  */
 export function getNamedImportModuleSpecifiers(source: SourceFile): string[] {
-  return getNamedImportDeclarations(source).map((i) =>
-    i.getModuleSpecifierValue()
+  return uniqArray(
+    getNamedImportDeclarations(source).map((i) => i.getModuleSpecifierValue())
   );
 }
 
@@ -168,8 +172,10 @@ export function getNamespaceImportDeclarations(
 export function getNamespaceImportModuleSpecifiers(
   source: SourceFile
 ): string[] {
-  return getNamespaceImportDeclarations(source).map((i) =>
-    i.getModuleSpecifierValue()
+  return uniqArray(
+    getNamespaceImportDeclarations(source).map((i) =>
+      i.getModuleSpecifierValue()
+    )
   );
 }
 
@@ -194,8 +200,8 @@ export function getDefaultImportDeclarations(
  * @returns
  */
 export function getDefaultImportModuleSpecifiers(source: SourceFile): string[] {
-  return getDefaultImportDeclarations(source).map((i) =>
-    i.getModuleSpecifierValue()
+  return uniqArray(
+    getDefaultImportDeclarations(source).map((i) => i.getModuleSpecifierValue())
   );
 }
 
@@ -216,8 +222,10 @@ export function getNodeInternalImportDeclarations(source: SourceFile) {
  * @returns
  */
 export function getNodeInternalImportModuleSpecifiers(source: SourceFile) {
-  return getImportModuleSpecifiers(source).filter((spc) =>
-    builtinModules.includes(spc)
+  return uniqArray(
+    getImportModuleSpecifiers(source).filter((spc) =>
+      builtinModules.includes(spc)
+    )
   );
 }
 
@@ -238,7 +246,9 @@ export function getNodeModuleImportDeclarations(source: SourceFile) {
  * @returns
  */
 export function getNodeModuleImportModuleSpecifiers(source: SourceFile) {
-  return getImportModuleSpecifiers(source).filter(
-    (spc) => !builtinModules.includes(spc)
+  return uniqArray(
+    getImportModuleSpecifiers(source).filter(
+      (spc) => !builtinModules.includes(spc)
+    )
   );
 }

@@ -12,8 +12,9 @@ import {
   getTypeOrInterfaceIdentifier,
   getExportVariableStatements,
   getTypeExportDeclaration,
+  getInterfaceExportDeclaration,
+  uniqArray,
 } from "../src";
-import { getInterfaceExportDeclaration } from "../dist";
 
 const source = new Project().addSourceFileAtPath(
   path.resolve(__dirname, "./fixtures/util.fixture.ts")
@@ -45,6 +46,10 @@ describe("package/helper-util", () => {
     expect(
       getDeclarationIdentifierByKind(getImportDeclarations(source, "fs"))
     ).toBe("fs");
+
+    expect(
+      getDeclarationIdentifierByKind(getClassDecorators(source, "Foo", "deco1"))
+    ).toBe("deco1");
   });
 
   it("should get variable identifier", () => {
@@ -61,5 +66,10 @@ describe("package/helper-util", () => {
     expect(
       getTypeOrInterfaceIdentifier(getInterfaceExportDeclaration(source, "IIn"))
     ).toBe("IIn");
+  });
+
+  it("should uniq array", () => {
+    expect(uniqArray([1, 1, 2])).toEqual([1, 2]);
+    expect(uniqArray([1, 2])).toEqual([1, 2]);
   });
 });
