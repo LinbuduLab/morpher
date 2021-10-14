@@ -266,7 +266,7 @@ export function getClassMethodModifiers(
   source: SourceFile,
   className: string,
   methodName: string
-): string[] {
+): string[] | undefined {
   const targetMethod = getClassMethodDeclarations(
     source,
     className,
@@ -288,7 +288,7 @@ export function getClassMethodModifiers(
   source: SourceFile,
   className: string,
   propName: string
-): string[] {
+): string[] | undefined {
   const targetProp = getClassPropDeclarations(source, className, propName);
 
   if (!targetProp) return;
