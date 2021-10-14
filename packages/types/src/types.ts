@@ -16,7 +16,7 @@ export interface IInterfaceIndexSignature {
   keyName: string;
   keyType: string;
   returnType: ReturnTypedNodeStructure["returnType"];
-  isReadonly: ReadonlyableNodeStructure["isReadonly"];
+  isReadonly?: ReadonlyableNodeStructure["isReadonly"];
 }
 
 export interface IInterfaceProperty {

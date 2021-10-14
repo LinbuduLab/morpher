@@ -11,7 +11,7 @@ module.exports = {
   coverageReporters: ["json", "text", "lcov", "clover"],
   maxWorkers: "80%",
   moduleDirectories: ["node_modules"],
-  moduleFileExtensions: ["js", "ts"],
+  moduleFileExtensions: ["ts"],
   preset: "ts-jest",
   globals: {
     "ts-jest": {

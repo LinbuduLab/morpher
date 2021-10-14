@@ -136,9 +136,6 @@ export function createImportDeclaration(
       });
 
       break;
-
-    default:
-      return;
   }
 
   apply && source.saveSync();

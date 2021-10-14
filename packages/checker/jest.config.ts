@@ -6,5 +6,5 @@ export default {
   collectCoverageFrom: ["/src/**/*"],
   moduleFileExtensions: ["ts", "js"],
   globals: { "ts-jest": { tsconfig: "<rootDir>/tsconfig.json" } },
-  displayName: "helper",
+  displayName: "checker",
 };

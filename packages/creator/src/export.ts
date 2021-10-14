@@ -4,6 +4,7 @@ import {
   SyntaxKind,
   TryStatement,
   VariableDeclarationKind,
+  WriterFunction,
 } from "ts-morph";
 
 import { ensureArray, MaybyArray } from "@ts-morpher/helper";
@@ -17,14 +18,14 @@ import {
  * Create a base export variable statement
  * @param source
  * @param identifier variable identifier, foo in export const foo = 'bar'
- * @param initializer initializer(only string), bar in export const foo = 'bar'
+ * @param initializer initializer, bar in export const foo = 'bar'
  * @param kind declaration kind
  * @param apply save source file
  */
 export function createBaseVariableExport(
   source: SourceFile,
   identifier: string,
-  initializer: string,
+  initializer: string | WriterFunction,
   kind: VariableDeclarationKind,
   apply = true
 ) {
@@ -69,7 +70,7 @@ export type Foo<T extends string = "default_string_literal"> = Record<
 export function createBaseTypeExport(
   source: SourceFile,
   identifier: string,
-  typeInitializer: string,
+  typeInitializer: string | WriterFunction,
   genericTypeParams?: (IGenericTypeParam | string)[],
   apply = true
 ) {
