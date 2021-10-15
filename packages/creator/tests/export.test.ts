@@ -1,5 +1,4 @@
 import { Project, SourceFile, VariableDeclarationKind } from "ts-morph";
-import path from "path";
 import tmp from "tmp";
 import {
   createBaseInterfaceExport,
@@ -7,21 +6,17 @@ import {
   createBaseVariableExport,
 } from "../src/export";
 
-import { ExportType, ImportType } from "@ts-morpher/types";
+import { ExportType } from "@ts-morpher/types";
 import {
   checkExportExistByIdentifier,
-  checkExportTypeByStatement,
   checkExportTypeByIdentifier,
   checkTypeExportExistByIdentifier,
   checkInterfaceExportExistByIdentifier,
 } from "@ts-morpher/checker";
 import {
-  getExportVariableStatements,
   getExportVariableIdentifiers,
   getTypeExportDeclaration,
-  getTypeExportIdentifiers,
   getInterfaceExportDeclaration,
-  getInterfaceExportIdentifiers,
 } from "@ts-morpher/helper";
 
 let source: SourceFile;

@@ -52,8 +52,8 @@ export function checkMethodExistInClass(
   source: SourceFile,
   className: string,
   methodName: string
-): boolean {
-  return getClassMethodIdentifiers(source, className).includes(methodName);
+): boolean | undefined {
+  return getClassMethodIdentifiers(source, className)?.includes(methodName);
 }
 
 /**
@@ -67,8 +67,8 @@ export function checkPropExistInClass(
   source: SourceFile,
   className: string,
   prop: string
-): boolean {
-  return getClassPropIdentifiers(source, className).includes(prop);
+): boolean | undefined {
+  return getClassPropIdentifiers(source, className)?.includes(prop);
 }
 
 /**
@@ -82,8 +82,8 @@ export function checkDecoratorExistInClass(
   source: SourceFile,
   className: string,
   decoratorName: string
-): boolean {
-  return getClassDecoratorIdentifiers(source, className).includes(
+): boolean | undefined {
+  return getClassDecoratorIdentifiers(source, className)?.includes(
     decoratorName
   );
 }
@@ -231,7 +231,7 @@ export function checkIsClassMethodProtected(
   );
 }
 
-export function checkIsClassMethodrAsync(
+export function checkIsClassMethodAsync(
   source: SourceFile,
   className: string,
   methodName: string

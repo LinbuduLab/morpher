@@ -117,8 +117,8 @@ export function getClassMethodDeclarations(
 export function getClassMethodIdentifiers(
   source: SourceFile,
   className: string
-): string[] {
-  return getClassMethodDeclarations(source, className).map((m) => m.getName());
+): string[] | undefined {
+  return getClassMethodDeclarations(source, className)?.map((m) => m.getName());
 }
 
 /**
@@ -183,8 +183,8 @@ export function getClassPropDeclarations(
 export function getClassPropIdentifiers(
   source: SourceFile,
   className: string
-): string[] {
-  return getClassPropDeclarations(source, className).map((p) => p.getName());
+): string[] | undefined {
+  return getClassPropDeclarations(source, className)?.map((p) => p.getName());
 }
 
 /**
@@ -251,8 +251,8 @@ export function getClassDecorators(
 export function getClassDecoratorIdentifiers(
   source: SourceFile,
   className: string
-): string[] {
-  return getClassDecorators(source, className).map((d) => d.getName());
+): string[] | undefined {
+  return getClassDecorators(source, className)?.map((d) => d.getName());
 }
 
 /**

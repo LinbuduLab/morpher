@@ -71,8 +71,8 @@ export interface IBaseMethodStruct {
   isStatic?: boolean;
   hasQuestionToken?: boolean;
   hasOverrideKeyword?: boolean;
-  paramaters?: IBaseMethodParamStruct[];
-  typeParameters: (IGenericTypeParam | string)[];
+  parameters?: IBaseMethodParamStruct[];
+  typeParameters?: (IGenericTypeParam | string)[];
   returnType?: string | WriterFunction;
   scope?: Scope;
   decorators?: IBaseDecoratorStruct[];

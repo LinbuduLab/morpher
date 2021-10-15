@@ -88,4 +88,10 @@ describe("package/helper-class", () => {
     );
     expect(getClassPropModifiers(source, "Foo", "prop599")).toBeUndefined();
   });
+
+  it("should skip when declarations inexist", () => {
+    expect(getClassMethodIdentifiers(source, "Foo111")).toBeUndefined();
+    expect(getClassPropIdentifiers(source, "Foo111")).toBeUndefined();
+    expect(getClassDecoratorIdentifiers(source, "Foo111")).toBeUndefined();
+  });
 });
