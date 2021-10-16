@@ -39,11 +39,9 @@ export function getClassDeclarations(
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.ClassDeclaration);
 
-  return classDeclarationList
-    ? className
-      ? classDeclarationList.find((cls) => cls.getName() === className)
-      : classDeclarationList
-    : [];
+  return className
+    ? classDeclarationList.find((cls) => cls.getName() === className)
+    : classDeclarationList;
 }
 
 /**
@@ -118,9 +116,7 @@ export function getClassMethodIdentifiers(
   source: SourceFile,
   className: string
 ): string[] {
-  return (getClassMethodDeclarations(source, className) ?? []).map((m) =>
-    m.getName()
-  );
+  return getClassMethodDeclarations(source, className).map((m) => m.getName());
 }
 
 /**
@@ -186,9 +182,7 @@ export function getClassPropIdentifiers(
   source: SourceFile,
   className: string
 ): string[] | undefined {
-  return (getClassPropDeclarations(source, className) ?? []).map((p) =>
-    p.getName()
-  );
+  return getClassPropDeclarations(source, className).map((p) => p.getName());
 }
 
 /**
@@ -256,7 +250,7 @@ export function getClassDecoratorIdentifiers(
   source: SourceFile,
   className: string
 ): string[] | undefined {
-  return (getClassDecorators(source, className) ?? []).map((d) => d.getName());
+  return getClassDecorators(source, className).map((d) => d.getName());
 }
 
 /**
@@ -270,14 +264,14 @@ export function getClassMethodModifiers(
   source: SourceFile,
   className: string,
   methodName: string
-): string[] | undefined {
+): string[] {
   const targetMethod = getClassMethodDeclarations(
     source,
     className,
     methodName
   );
 
-  if (!targetMethod) return methodName ? undefined : [];
+  if (!targetMethod) return [];
 
   return targetMethod.getModifiers().map((m) => m.getText());
 }
@@ -292,10 +286,10 @@ export function getClassMethodModifiers(
   source: SourceFile,
   className: string,
   propName: string
-): string[] | undefined {
+): string[] {
   const targetProp = getClassPropDeclarations(source, className, propName);
 
-  if (!targetProp) return propName ? undefined : [];
+  if (!targetProp) return [];
 
   return targetProp.getModifiers().map((m) => m.getText());
 }

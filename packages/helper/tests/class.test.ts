@@ -25,18 +25,18 @@ describe("package/helper-class", () => {
     expect(getClassDeclarations(source, "Foo1")).toBeUndefined();
 
     expect(getClassDecorators(source, "Foo").length).toBe(1);
-    expect(getClassDecorators(source, "Fo1")).toBeUndefined();
+    expect(getClassDecorators(source, "Fo1")).toEqual([]);
     expect(getClassDecorators(source, "Bar").length).toBe(0);
 
     expect(getClassMethodDeclarations(source, "Foo")!.length).toBe(5);
-    expect(getClassMethodDeclarations(source, "Foo1")).toBeUndefined();
+    expect(getClassMethodDeclarations(source, "Foo1")).toEqual([]);
     expect(getClassMethodDeclarations(source, "Foo", "method1")).toBeDefined();
     expect(
       getClassMethodDeclarations(source, "Foo", "method599")
     ).toBeUndefined();
 
     expect(getClassPropDeclarations(source, "Foo").length).toBe(5);
-    expect(getClassPropDeclarations(source, "Fo1")).toBeUndefined();
+    expect(getClassPropDeclarations(source, "Fo1")).toEqual([]);
     expect(getClassPropDeclarations(source, "Foo", "prop1")).toBeDefined();
     expect(getClassPropDeclarations(source, "Foo", "prop599")).toBeUndefined();
   });
@@ -71,7 +71,7 @@ describe("package/helper-class", () => {
       []
     );
 
-    expect(getClassMethodModifiers(source, "Foo", "method599")).toBeUndefined();
+    expect(getClassMethodModifiers(source, "Foo", "method599")).toEqual([]);
 
     expect(getClassPropModifiers(source, "Foo", "prop1")!.sort()).toEqual([]);
     expect(getClassPropModifiers(source, "Foo", "prop2")!.sort()).toEqual(
@@ -86,12 +86,38 @@ describe("package/helper-class", () => {
     expect(getClassPropModifiers(source, "Foo", "prop5")!.sort()).toEqual(
       ["protected"].sort()
     );
-    expect(getClassPropModifiers(source, "Foo", "prop599")).toBeUndefined();
+    expect(getClassPropModifiers(source, "Foo", "prop599")).toEqual([]);
   });
 
   it("should skip when declarations inexist", () => {
-    expect(getClassMethodIdentifiers(source, "Foo111")).toBeUndefined();
-    expect(getClassPropIdentifiers(source, "Foo111")).toBeUndefined();
-    expect(getClassDecoratorIdentifiers(source, "Foo111")).toBeUndefined();
+    expect(getClassMethodIdentifiers(source, "Foo111")).toEqual([]);
+    expect(getClassPropIdentifiers(source, "Foo111")).toEqual([]);
+    expect(getClassDecoratorIdentifiers(source, "Foo111")).toEqual([]);
+  });
+
+  it("should return empty", () => {
+    expect(
+      getClassMethodDeclarations(source, "Foo1", "Method111")
+    ).toBeUndefined();
+
+    expect(getClassMethodDeclarations(source, "Foo1")).toEqual([]);
+
+    expect(getClassMethodIdentifiers(source, "Foo1")).toEqual([]);
+    expect(getClassMethodModifiers(source, "Foo1", "Method111")).toEqual([]);
+    expect(getClassMethodModifiers(source, "Foo", "Method111")).toEqual([]);
+
+    expect(
+      getClassPropDeclarations(source, "Foo1", "Prop1111")
+    ).toBeUndefined();
+
+    expect(getClassPropDeclarations(source, "Foo1")).toEqual([]);
+    expect(getClassPropIdentifiers(source, "Foo1")).toEqual([]);
+    expect(getClassPropModifiers(source, "Foo1", "Prop111")).toEqual([]);
+    expect(getClassPropModifiers(source, "Foo", "Prop111")).toEqual([]);
+
+    expect(getClassDecoratorIdentifiers(source, "Foo1")).toEqual([]);
+
+    expect(getClassDecorators(source, "Foo1")).toEqual([]);
+    expect(getClassDecorators(source, "Foo1", "Deco11")).toBeUndefined();
   });
 });

@@ -46,12 +46,13 @@ export function getImportDeclarations(
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
 
-  if (!importDeclarations)
+  if (!importDeclarations.length) {
     return moduleSpecifier
       ? Array.isArray(moduleSpecifier)
         ? []
         : undefined
       : [];
+  }
 
   return moduleSpecifier
     ? Array.isArray(moduleSpecifier)

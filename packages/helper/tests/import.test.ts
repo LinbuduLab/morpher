@@ -21,11 +21,23 @@ const source = new Project().addSourceFileAtPath(
   path.resolve(__dirname, "./fixtures/import.fixture.ts")
 );
 
+const source2 = new Project().addSourceFileAtPath(
+  path.resolve(__dirname, "./fixtures/empty.fixture.ts")
+);
+
 describe("package/helper-import", () => {
+  it("should return empty", () => {
+    expect(getImportDeclarations(source2)).toEqual([]);
+    expect(getImportDeclarations(source2, "chalk")).toBeUndefined();
+    expect(getImportDeclarations(source2, ["chalk"])).toEqual([]);
+  });
+
   it("should return import declarations", () => {
     expect(getImportDeclarations(source).length).toBe(6);
-    expect(getImportDeclarations(source, "path")).not.toBeUndefined();
+
+    expect(getImportDeclarations(source, "path")).toBeDefined();
     expect(getImportDeclarations(source, "chalk")).toBeUndefined();
+    expect(getImportDeclarations(source, ["chalk"])).toEqual([]);
     expect(getImportDeclarations(source, ["fs", "typescript"]).length).toBe(3);
 
     expect(getImportDeclarations(source, ["fs", "chalk"]).length).toBe(1);
@@ -37,9 +49,7 @@ describe("package/helper-import", () => {
     expect(getNamespaceImportDeclarations(source).length).toBe(1);
     expect(getTypeOnlyImportDeclarations(source).length).toBe(2);
 
-    expect(
-      getTypeOnlyImportDeclarations(source, "typescript")
-    ).not.toBeUndefined();
+    expect(getTypeOnlyImportDeclarations(source, "typescript")).toBeDefined();
 
     expect(
       getTypeOnlyImportDeclarations(source, ["typescript", "buffer"]).length
