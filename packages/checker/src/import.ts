@@ -70,6 +70,20 @@ export function checkIsNamedImportByModuleSpecifier(
 }
 
 /**
+ * Check is Import Declaration default with named import - by Module Specifier
+ * @param source
+ * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ */
+export function checkIsDefaultWithNamedImportByModuleSpecifier(
+  source: SourceFile,
+  moduleSpecifier: string
+): boolean {
+  return checkIsDefaultWithNamedImportDeclaration(
+    getImportDeclarations(source, moduleSpecifier)
+  );
+}
+
+/**
  * Check is Import Declaration default import - by Import Declaration
  * @param source
  * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
@@ -91,6 +105,7 @@ export function checkIsNamespaceImportDeclaration(
 ): boolean {
   return Boolean(importSpec.getNamespaceImport());
 }
+
 /**
  * Check is Import Declaration named import - by Import Declaration
  * @param source
@@ -101,6 +116,21 @@ export function checkIsNamedImportDeclaration(
   importSpec: ImportDeclaration
 ): boolean {
   return Boolean(importSpec.getNamedImports().length);
+}
+
+/**
+ * Check is Import Declaration default with named import - by Import Declaration
+ * @param source
+ * @param moduleSpecifier
+ * @example
+ */
+export function checkIsDefaultWithNamedImportDeclaration(
+  importSpec: ImportDeclaration
+): boolean {
+  return (
+    Boolean(importSpec.getNamedImports().length) &&
+    Boolean(importSpec.getDefaultImport())
+  );
 }
 
 /**

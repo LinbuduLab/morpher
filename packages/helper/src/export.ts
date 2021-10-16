@@ -204,7 +204,7 @@ export function getInterfaceExportDeclaration(
  * @returns
  */
 export function getInterfaceExportIdentifiers(source: SourceFile): string[] {
-  return getInterfaceExportDeclaration(source).map((declaration) =>
-    declaration.getFirstChildByKind(SyntaxKind.Identifier).getText()
+  return getInterfaceExportDeclaration(source).map((identifier) =>
+    getTypeOrInterfaceIdentifier(identifier)
   );
 }

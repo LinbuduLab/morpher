@@ -7,9 +7,7 @@ import {
   ClassDeclaration,
 } from "ts-morph";
 
-import { ClassMemberType } from "@ts-morpher/types";
 import { getDeclarationIdentifierByKind, MaybyArray } from "./util";
-import { ModifierFlags } from "@ts-morph/common/lib/typescript";
 
 /**
  * Return all class declarations in source file, specify `className` to return only matched
@@ -41,9 +39,11 @@ export function getClassDeclarations(
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.ClassDeclaration);
 
-  return className
-    ? classDeclarationList.find((cls) => cls.getName() === className)
-    : classDeclarationList;
+  return classDeclarationList
+    ? className
+      ? classDeclarationList.find((cls) => cls.getName() === className)
+      : classDeclarationList
+    : [];
 }
 
 /**
@@ -66,7 +66,7 @@ export function getClassIdentifiers(source: SourceFile): string[] {
 export function getClassMethodDeclarations(
   source: SourceFile,
   className: string
-): MethodDeclaration[] | undefined;
+): MethodDeclaration[];
 
 /**
  * Return all method declarations of target class
@@ -94,11 +94,11 @@ export function getClassMethodDeclarations(
   source: SourceFile,
   className: string,
   methodName?: string
-): MaybyArray<MethodDeclaration> | undefined {
+): MaybyArray<MethodDeclaration> {
   const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
-    return;
+    return methodName ? undefined : [];
   }
 
   const methods = targetClass.getMethods();
@@ -117,8 +117,10 @@ export function getClassMethodDeclarations(
 export function getClassMethodIdentifiers(
   source: SourceFile,
   className: string
-): string[] | undefined {
-  return getClassMethodDeclarations(source, className)?.map((m) => m.getName());
+): string[] {
+  return (getClassMethodDeclarations(source, className) ?? []).map((m) =>
+    m.getName()
+  );
 }
 
 /**
@@ -164,7 +166,7 @@ export function getClassPropDeclarations(
   const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
-    return;
+    return propName ? undefined : [];
   }
 
   const props = targetClass.getProperties();
@@ -184,7 +186,9 @@ export function getClassPropIdentifiers(
   source: SourceFile,
   className: string
 ): string[] | undefined {
-  return getClassPropDeclarations(source, className)?.map((p) => p.getName());
+  return (getClassPropDeclarations(source, className) ?? []).map((p) =>
+    p.getName()
+  );
 }
 
 /**
@@ -230,7 +234,7 @@ export function getClassDecorators(
   const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
-    return;
+    return decoratorName ? undefined : [];
   }
 
   const decorators = targetClass.getDecorators();
@@ -252,7 +256,7 @@ export function getClassDecoratorIdentifiers(
   source: SourceFile,
   className: string
 ): string[] | undefined {
-  return getClassDecorators(source, className)?.map((d) => d.getName());
+  return (getClassDecorators(source, className) ?? []).map((d) => d.getName());
 }
 
 /**
@@ -273,7 +277,7 @@ export function getClassMethodModifiers(
     methodName
   );
 
-  if (!targetMethod) return;
+  if (!targetMethod) return methodName ? undefined : [];
 
   return targetMethod.getModifiers().map((m) => m.getText());
 }
@@ -291,7 +295,7 @@ export function getClassMethodModifiers(
 ): string[] | undefined {
   const targetProp = getClassPropDeclarations(source, className, propName);
 
-  if (!targetProp) return;
+  if (!targetProp) return propName ? undefined : [];
 
   return targetProp.getModifiers().map((m) => m.getText());
 }

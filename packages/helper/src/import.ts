@@ -30,7 +30,7 @@ export function getImportDeclarations(
 export function getImportDeclarations(
   source: SourceFile,
   moduleSpecifier: string[]
-): ImportDeclaration[] | undefined;
+): ImportDeclaration[];
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
@@ -45,6 +45,13 @@ export function getImportDeclarations(
   const importDeclarations = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
+
+  if (!importDeclarations)
+    return moduleSpecifier
+      ? Array.isArray(moduleSpecifier)
+        ? []
+        : undefined
+      : [];
 
   return moduleSpecifier
     ? Array.isArray(moduleSpecifier)

@@ -28,7 +28,7 @@ describe("package/helper-class", () => {
     expect(getClassDecorators(source, "Fo1")).toBeUndefined();
     expect(getClassDecorators(source, "Bar").length).toBe(0);
 
-    expect(getClassMethodDeclarations(source, "Foo").length).toBe(5);
+    expect(getClassMethodDeclarations(source, "Foo")!.length).toBe(5);
     expect(getClassMethodDeclarations(source, "Foo1")).toBeUndefined();
     expect(getClassMethodDeclarations(source, "Foo", "method1")).toBeDefined();
     expect(
@@ -43,47 +43,47 @@ describe("package/helper-class", () => {
 
   it("should return identifiers", () => {
     expect(getClassIdentifiers(source).sort()).toEqual(["Foo", "Bar"].sort());
-    expect(getClassMethodIdentifiers(source, "Foo").sort()).toEqual(
+    expect(getClassMethodIdentifiers(source, "Foo")!.sort()).toEqual(
       ["method1", "method2", "method3", "method4", "method5"].sort()
     );
-    expect(getClassPropIdentifiers(source, "Foo").sort()).toEqual(
+    expect(getClassPropIdentifiers(source, "Foo")!.sort()).toEqual(
       ["prop1", "prop2", "prop3", "prop4", "prop5"].sort()
     );
-    expect(getClassDecoratorIdentifiers(source, "Foo").sort()).toEqual(
+    expect(getClassDecoratorIdentifiers(source, "Foo")!.sort()).toEqual(
       ["classDeco"].sort()
     );
   });
 
   it("should return modifiers", () => {
-    expect(getClassMethodModifiers(source, "Foo", "method1").sort()).toEqual(
+    expect(getClassMethodModifiers(source, "Foo", "method1")!.sort()).toEqual(
       ["public"].sort()
     );
-    expect(getClassMethodModifiers(source, "Foo", "method2").sort()).toEqual(
+    expect(getClassMethodModifiers(source, "Foo", "method2")!.sort()).toEqual(
       ["private", "async"].sort()
     );
-    expect(getClassMethodModifiers(source, "Foo", "method3").sort()).toEqual(
+    expect(getClassMethodModifiers(source, "Foo", "method3")!.sort()).toEqual(
       ["protected", "async"].sort()
     );
-    expect(getClassMethodModifiers(source, "Foo", "method4").sort()).toEqual([
+    expect(getClassMethodModifiers(source, "Foo", "method4")!.sort()).toEqual([
       "static",
     ]);
-    expect(getClassMethodModifiers(source, "Foo", "method5").sort()).toEqual(
+    expect(getClassMethodModifiers(source, "Foo", "method5")!.sort()).toEqual(
       []
     );
 
     expect(getClassMethodModifiers(source, "Foo", "method599")).toBeUndefined();
 
-    expect(getClassPropModifiers(source, "Foo", "prop1").sort()).toEqual([]);
-    expect(getClassPropModifiers(source, "Foo", "prop2").sort()).toEqual(
+    expect(getClassPropModifiers(source, "Foo", "prop1")!.sort()).toEqual([]);
+    expect(getClassPropModifiers(source, "Foo", "prop2")!.sort()).toEqual(
       ["static"].sort()
     );
-    expect(getClassPropModifiers(source, "Foo", "prop3").sort()).toEqual(
+    expect(getClassPropModifiers(source, "Foo", "prop3")!.sort()).toEqual(
       ["private", "readonly"].sort()
     );
-    expect(getClassPropModifiers(source, "Foo", "prop4").sort()).toEqual(
+    expect(getClassPropModifiers(source, "Foo", "prop4")!.sort()).toEqual(
       ["public"].sort()
     );
-    expect(getClassPropModifiers(source, "Foo", "prop5").sort()).toEqual(
+    expect(getClassPropModifiers(source, "Foo", "prop5")!.sort()).toEqual(
       ["protected"].sort()
     );
     expect(getClassPropModifiers(source, "Foo", "prop599")).toBeUndefined();
