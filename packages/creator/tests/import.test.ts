@@ -5,10 +5,7 @@ import { createImportDeclaration } from "../src/import";
 
 import { ImportType } from "@ts-morpher/types";
 import {
-  checkImportExistByModuleSpecifier,
-  checkImportType,
   checkImportTypeByModuleSpecifier,
-  checkIsDefaultImportByModuleSpecifier,
   checkIsTypeOnlyImportByModuleSpecifier,
 } from "@ts-morpher/checker";
 import { getImportDeclarations } from "@ts-morpher/helper";

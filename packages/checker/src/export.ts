@@ -1,21 +1,23 @@
-import { SourceFile, SyntaxKind, VariableStatement } from "ts-morph";
+import {
+  SourceFile,
+  SyntaxKind,
+  VariableDeclarationKind,
+  VariableStatement,
+} from "ts-morph";
 import {
   getExportVariableStatements,
   getExportVariableIdentifiers,
   getVariableIdentifier,
-  getTypeExportDeclaration,
-  getInterfaceExportDeclaration,
   getTypeExportIdentifiers,
   getInterfaceExportIdentifiers,
 } from "@ts-morpher/helper";
-import { ExportType } from "@ts-morpher/types";
 
 /**
  * Check dose Source File has `Export Variable Statement`
  * @param source
  * @example
  */
-export function hasExports(source: SourceFile): boolean {
+export function checkSourceFileHasExports(source: SourceFile): boolean {
   return Boolean(getExportVariableStatements(source).length);
 }
 
@@ -35,30 +37,20 @@ export function checkExportExistByIdentifier(
 /**
  * Check export type by identifier
  * @param source
- * @param identifier variable statement
+ * @param identifier variable identifier
  * @returns
  */
-export function checkExportTypeByIdentifier(
+export function checkExportDeclarationKindByIdentifier(
   source: SourceFile,
   identifier: string
-): ExportType | undefined {
-  if (!checkExportExistByIdentifier(source, identifier)) {
-    return undefined;
-  }
-
+): VariableDeclarationKind | undefined {
   const statement = getExportVariableStatements(source, identifier);
 
   const declareList = statement.getFirstChildByKind(
     SyntaxKind.VariableDeclarationList
   );
 
-  return declareList.getFirstChildIfKind(SyntaxKind.LetKeyword)
-    ? ExportType.LET
-    : declareList.getFirstChildIfKind(SyntaxKind.ConstKeyword)
-    ? ExportType.CONST
-    : declareList.getFirstChildIfKind(SyntaxKind.VarKeyword)
-    ? ExportType.VAR
-    : undefined;
+  return declareList.getDeclarationKind();
 }
 
 /**
@@ -67,25 +59,14 @@ export function checkExportTypeByIdentifier(
  * @param statement variable statement
  * @returns
  */
-export function checkExportTypeByStatement(
-  source: SourceFile,
+export function checkExportDeclarationKindByStatement(
   statement: VariableStatement
-): ExportType | undefined {
-  if (!checkExportExistByIdentifier(source, getVariableIdentifier(statement))) {
-    return undefined;
-  }
-
+): VariableDeclarationKind | undefined {
   const declareList = statement.getFirstChildByKind(
     SyntaxKind.VariableDeclarationList
   );
 
-  return declareList.getFirstChildIfKind(SyntaxKind.LetKeyword)
-    ? ExportType.LET
-    : declareList.getFirstChildIfKind(SyntaxKind.ConstKeyword)
-    ? ExportType.CONST
-    : declareList.getFirstChildIfKind(SyntaxKind.VarKeyword)
-    ? ExportType.VAR
-    : undefined;
+  return declareList.getDeclarationKind();
 }
 
 /**

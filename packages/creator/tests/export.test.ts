@@ -6,10 +6,9 @@ import {
   createBaseVariableExport,
 } from "../src/export";
 
-import { ExportType } from "@ts-morpher/types";
 import {
   checkExportExistByIdentifier,
-  checkExportTypeByIdentifier,
+  checkExportDeclarationKindByIdentifier,
   checkTypeExportExistByIdentifier,
   checkInterfaceExportExistByIdentifier,
 } from "@ts-morpher/checker";
@@ -36,7 +35,9 @@ describe("package/creator-export", () => {
     );
 
     expect(checkExportExistByIdentifier(source, "foo")).toBeTruthy();
-    expect(checkExportTypeByIdentifier(source, "foo")).toBe(ExportType.VAR);
+    expect(checkExportDeclarationKindByIdentifier(source, "foo")).toBe(
+      VariableDeclarationKind.Var
+    );
     expect(getExportVariableIdentifiers(source)).toContain("foo");
   });
 
@@ -50,7 +51,9 @@ describe("package/creator-export", () => {
     );
 
     expect(checkExportExistByIdentifier(source, "foo")).toBeTruthy();
-    expect(checkExportTypeByIdentifier(source, "foo")).toBe(ExportType.LET);
+    expect(checkExportDeclarationKindByIdentifier(source, "foo")).toBe(
+      VariableDeclarationKind.Let
+    );
     expect(getExportVariableIdentifiers(source)).toContain("foo");
   });
 
@@ -64,7 +67,9 @@ describe("package/creator-export", () => {
     );
 
     expect(checkExportExistByIdentifier(source, "foo")).toBeTruthy();
-    expect(checkExportTypeByIdentifier(source, "foo")).toBe(ExportType.CONST);
+    expect(checkExportDeclarationKindByIdentifier(source, "foo")).toBe(
+      VariableDeclarationKind.Const
+    );
     expect(getExportVariableIdentifiers(source)).toContain("foo");
   });
 

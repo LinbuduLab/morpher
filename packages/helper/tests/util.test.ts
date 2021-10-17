@@ -28,27 +28,29 @@ describe("package/helper-util", () => {
 
   it("should return declaration identifier", () => {
     expect(
-      getDeclarationIdentifierByKind(getClassDeclarations(source, "Foo"))
+      getDeclarationIdentifierByKind(getClassDeclarations(source, "Foo")!)
     ).toBe("Foo");
 
     expect(
       getDeclarationIdentifierByKind(
-        getClassMethodDeclarations(source, "Foo", "method1")
+        getClassMethodDeclarations(source, "Foo", "method1")!
       )
     ).toBe("method1");
 
     expect(
       getDeclarationIdentifierByKind(
-        getClassPropDeclarations(source, "Foo", "prop1")
+        getClassPropDeclarations(source, "Foo", "prop1")!
       )
     ).toBe("prop1");
 
     expect(
-      getDeclarationIdentifierByKind(getImportDeclarations(source, "fs"))
+      getDeclarationIdentifierByKind(getImportDeclarations(source, "fs")!)
     ).toBe("fs");
 
     expect(
-      getDeclarationIdentifierByKind(getClassDecorators(source, "Foo", "deco1"))
+      getDeclarationIdentifierByKind(
+        getClassDecorators(source, "Foo", "deco1")!
+      )
     ).toBe("deco1");
   });
 

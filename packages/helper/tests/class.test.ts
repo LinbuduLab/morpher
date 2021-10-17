@@ -25,6 +25,7 @@ describe("package/helper-class", () => {
     expect(getClassDeclarations(source, "Foo1")).toBeUndefined();
 
     expect(getClassDecorators(source, "Foo").length).toBe(1);
+    expect(getClassDecorators(source, "Foo", "classDeco")).toBeDefined();
     expect(getClassDecorators(source, "Fo1")).toEqual([]);
     expect(getClassDecorators(source, "Bar").length).toBe(0);
 

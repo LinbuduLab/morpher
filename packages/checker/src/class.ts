@@ -52,8 +52,8 @@ export function checkMethodExistInClass(
   source: SourceFile,
   className: string,
   methodName: string
-): boolean | undefined {
-  return getClassMethodIdentifiers(source, className)?.includes(methodName);
+): boolean {
+  return getClassMethodIdentifiers(source, className).includes(methodName);
 }
 
 /**
@@ -67,8 +67,8 @@ export function checkPropExistInClass(
   source: SourceFile,
   className: string,
   prop: string
-): boolean | undefined {
-  return getClassPropIdentifiers(source, className)?.includes(prop);
+): boolean {
+  return getClassPropIdentifiers(source, className).includes(prop);
 }
 
 /**
@@ -82,8 +82,8 @@ export function checkDecoratorExistInClass(
   source: SourceFile,
   className: string,
   decoratorName: string
-): boolean | undefined {
-  return getClassDecoratorIdentifiers(source, className)?.includes(
+): boolean {
+  return getClassDecoratorIdentifiers(source, className).includes(
     decoratorName
   );
 }
@@ -135,210 +135,8 @@ export function checkIsDecoratorFactory(
   source: SourceFile,
   className: string,
   decoratorName: string
-): boolean | undefined {
+): boolean {
   const targetDecorator = getClassDecorators(source, className, decoratorName);
 
-  if (!targetDecorator) return;
-
-  return targetDecorator.isDecoratorFactory();
-}
-
-export function checkIsClassMethodStatic(
-  source: SourceFile,
-  className: string,
-  methodName: string
-): boolean | undefined {
-  if (!getClassMethodIdentifiers(source, className).includes(methodName)) {
-    return;
-  }
-
-  const targetMethod = getClassMethodDeclarations(
-    source,
-    className,
-    methodName
-  );
-
-  if (!targetMethod) return;
-
-  return getClassMethodModifiers(source, className, methodName).includes(
-    STATIC_KEYWORD
-  );
-}
-
-export function checkIsClassMethodPublic(
-  source: SourceFile,
-  className: string,
-  methodName: string
-): boolean | undefined {
-  if (!getClassMethodIdentifiers(source, className).includes(methodName)) {
-    return;
-  }
-
-  const targetMethod = getClassMethodDeclarations(
-    source,
-    className,
-    methodName
-  );
-
-  if (!targetMethod) return;
-
-  return getClassMethodModifiers(source, className, methodName).includes(
-    PUBLIC_KEYWORD
-  );
-}
-
-export function checkIsClassMethodPrivate(
-  source: SourceFile,
-  className: string,
-  methodName: string
-): boolean | undefined {
-  if (!getClassMethodIdentifiers(source, className).includes(methodName)) {
-    return;
-  }
-
-  const targetMethod = getClassMethodDeclarations(
-    source,
-    className,
-    methodName
-  );
-
-  if (!targetMethod) return;
-
-  return getClassMethodModifiers(source, className, methodName).includes(
-    PRIVATE_KEYWORD
-  );
-}
-
-export function checkIsClassMethodProtected(
-  source: SourceFile,
-  className: string,
-  methodName: string
-): boolean | undefined {
-  if (!getClassMethodIdentifiers(source, className).includes(methodName)) {
-    return;
-  }
-
-  const targetMethod = getClassMethodDeclarations(
-    source,
-    className,
-    methodName
-  );
-
-  if (!targetMethod) return;
-
-  return getClassMethodModifiers(source, className, methodName).includes(
-    PROTECTED_KEYWORD
-  );
-}
-
-export function checkIsClassMethodAsync(
-  source: SourceFile,
-  className: string,
-  methodName: string
-): boolean | undefined {
-  if (!getClassMethodIdentifiers(source, className).includes(methodName)) {
-    return;
-  }
-
-  const targetMethod = getClassMethodDeclarations(
-    source,
-    className,
-    methodName
-  );
-
-  if (!targetMethod) return;
-
-  return getClassMethodModifiers(source, className, methodName).includes(
-    ASYNC_KEYWORD
-  );
-}
-
-export function checkIsClassPropStatic(
-  source: SourceFile,
-  className: string,
-  prop: string
-): boolean | undefined {
-  if (!getClassPropIdentifiers(source, className).includes(prop)) {
-    return;
-  }
-
-  const targetProp = getClassPropDeclarations(source, className, prop);
-
-  if (!targetProp) return;
-
-  return getClassPropModifiers(source, className, prop).includes(
-    STATIC_KEYWORD
-  );
-}
-
-export function checkIsClassPropPublic(
-  source: SourceFile,
-  className: string,
-  prop: string
-): boolean | undefined {
-  if (!getClassPropIdentifiers(source, className).includes(prop)) {
-    return;
-  }
-
-  const targetProp = getClassPropDeclarations(source, className, prop);
-
-  if (!targetProp) return;
-
-  return getClassPropModifiers(source, className, prop).includes(
-    PUBLIC_KEYWORD
-  );
-}
-
-export function checkIsClassPropPrivate(
-  source: SourceFile,
-  className: string,
-  prop: string
-): boolean | undefined {
-  if (!getClassPropIdentifiers(source, className).includes(prop)) {
-    return;
-  }
-
-  const targetProp = getClassPropDeclarations(source, className, prop);
-
-  if (!targetProp) return;
-
-  return getClassPropModifiers(source, className, prop).includes(
-    PRIVATE_KEYWORD
-  );
-}
-
-export function checkIsClassPropProtected(
-  source: SourceFile,
-  className: string,
-  prop: string
-): boolean | undefined {
-  if (!getClassPropIdentifiers(source, className).includes(prop)) {
-    return;
-  }
-
-  const targetProp = getClassPropDeclarations(source, className, prop);
-
-  if (!targetProp) return;
-
-  return getClassPropModifiers(source, className, prop).includes(
-    PROTECTED_KEYWORD
-  );
-}
-
-export function checkIsClassPropReadonly(
-  source: SourceFile,
-  className: string,
-  prop: string
-): boolean | undefined {
-  if (!getClassPropIdentifiers(source, className).includes(prop)) {
-    return;
-  }
-
-  const targetProp = getClassPropDeclarations(source, className, prop);
-
-  if (!targetProp) return;
-
-  return getClassPropModifiers(source, className, prop).includes(
-    READONLY_KEYWORD
-  );
+  return targetDecorator ? targetDecorator.isDecoratorFactory() : false;
 }

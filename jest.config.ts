@@ -8,8 +8,8 @@ export default {
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js", "ts"],
   projects: [
-    // "<rootDir>/packages/checker",
-    // "<rootDir>/packages/creator",
+    "<rootDir>/packages/checker",
+    "<rootDir>/packages/creator",
     // "<rootDir>/packages/cleaner",
     // "<rootDir>/packages/modifier",
     "<rootDir>/packages/helper",

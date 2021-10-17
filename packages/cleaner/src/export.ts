@@ -1,4 +1,8 @@
-import { SourceFile, TypeAliasDeclaration } from "ts-morph";
+import {
+  SourceFile,
+  TypeAliasDeclaration,
+  VariableDeclarationKind,
+} from "ts-morph";
 import {
   getExportVariableIdentifiers,
   getExportVariableStatements,
@@ -8,8 +12,10 @@ import {
   getInterfaceExportDeclaration,
   MaybyArray,
 } from "@ts-morpher/helper";
-import { ExportType } from "@ts-morpher/types";
-import { hasExports, checkExportTypeByStatement } from "@ts-morpher/checker";
+import {
+  checkSourceFileHasExports,
+  checkExportDeclarationKindByStatement,
+} from "@ts-morpher/checker";
 
 /**
  * Remove export statements from source file, specifier identifier to remove specified one.
@@ -50,23 +56,23 @@ export function removeExportStatementsByExportType(
   removeTypes?: Partial<Record<"var" | "let" | "const", boolean>>,
   apply = true
 ) {
-  if (!hasExports(source)) {
+  if (!checkSourceFileHasExports(source)) {
     return;
   }
 
   const sourceExportStatements = getExportVariableStatements(source);
 
   sourceExportStatements.forEach((statement) => {
-    switch (checkExportTypeByStatement(source, statement)) {
-      case ExportType.LET:
+    switch (checkExportDeclarationKindByStatement(source, statement)) {
+      case VariableDeclarationKind.Let:
         removeTypes?.let && statement.remove();
         break;
 
-      case ExportType.CONST:
+      case VariableDeclarationKind.Const:
         removeTypes?.const && statement.remove();
         break;
 
-      case ExportType.VAR:
+      case VariableDeclarationKind.Var:
         removeTypes?.var && statement.remove();
         break;
 
