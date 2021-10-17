@@ -7,6 +7,7 @@ import {
   checkExportExistByIdentifier,
   checkInterfaceExportExistByIdentifier,
   checkTypeExportExistByIdentifier,
+  checkSourceFileHasTypeExports,
 } from "../src/export";
 import { getExportVariableStatements } from "@ts-morpher/helper";
 
@@ -22,6 +23,8 @@ describe("package/checker-export", () => {
   it("should check source file", () => {
     expect(checkSourceFileHasExports(source)).toBeTruthy();
     expect(checkSourceFileHasExports(source2)).toBeFalsy();
+    expect(checkSourceFileHasTypeExports(source)).toBeTruthy();
+    expect(checkSourceFileHasTypeExports(source2)).toBeFalsy();
   });
 
   it("should check by identifier", () => {
@@ -64,12 +67,5 @@ describe("package/checker-export", () => {
         getExportVariableStatements(source, "constFoo")
       )
     ).toBe(VariableDeclarationKind.Const);
-
-    // expect(
-    //   checkExportDeclarationKindByStatement(
-    //     source,
-    //     getExportVariableStatements(source, "constFoo")
-    //   )
-    // ).toBe(VariableDeclarationKind.Const);
   });
 });

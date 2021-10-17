@@ -6,28 +6,14 @@ import {
   createBaseClassProp,
   createBaseClassDecorator,
 } from "../src/class";
-
-import { ClassMemberType } from "@ts-morpher/types";
 import {
   checkClassExistInSourceFile,
   checkClassHasMethods,
   checkClassHasDecorators,
   checkClassHasProps,
   checkDecoratorExistInClass,
-  checkIsClassMethodPrivate,
-  checkIsClassMethodProtected,
-  checkIsClassMethodPublic,
-  checkIsClassMethodStatic,
-  checkIsClassMethodAsync,
-  checkIsClassPropPrivate,
-  checkIsClassPropProtected,
-  checkIsClassPropPublic,
-  checkIsClassPropReadonly,
-  checkIsClassPropStatic,
   checkPropExistInClass,
   checkMethodExistInClass,
-  checkIsDecoratorFactory,
-  checkSourceFileHasClass,
 } from "@ts-morpher/checker";
 import {
   getClassDeclarations,
@@ -52,7 +38,7 @@ describe("package/creator-class", () => {
       true
     );
 
-    const c = getClassDeclarations(source, "Foo");
+    const c = getClassDeclarations(source, "Foo")!;
 
     expect(checkClassExistInSourceFile(source, "Foo")).toBeTruthy();
     expect(c).toBeDefined();
@@ -86,12 +72,12 @@ describe("package/creator-class", () => {
       true
     );
 
-    const c = getClassDeclarations(source, "Foo");
+    const c = getClassDeclarations(source, "Foo")!;
 
     expect(checkClassExistInSourceFile(source, "Foo")).toBeTruthy();
     expect(c).toBeDefined();
     expect(c.getName()).toBe("Foo");
-    expect(c.getExtends().getText()).toBe("FooParent");
+    expect(c.getExtends()?.getText()).toBe("FooParent");
     expect(c.getImplements().map((x) => x.getText())).toEqual(["Bar", "Baz"]);
     expect(c.isAbstract()).toBeFalsy();
     expect(c.isDefaultExport()).toBeTruthy();
@@ -121,7 +107,7 @@ describe("package/creator-class", () => {
     expect(checkClassHasMethods(source, "Foo")).toBeTruthy();
     expect(checkMethodExistInClass(source, "Foo", "method1")).toBeTruthy();
 
-    const m = getClassMethodDeclarations(source, "Foo", "method1");
+    const m = getClassMethodDeclarations(source, "Foo", "method1")!;
 
     expect(m).toBeDefined();
     expect(m.getName()).toBe("method1");
@@ -196,11 +182,11 @@ describe("package/creator-class", () => {
     expect(checkClassHasMethods(source, "Foo")).toBeTruthy();
     expect(checkMethodExistInClass(source, "Foo", "method1")).toBeTruthy();
 
-    const m = getClassMethodDeclarations(source, "Foo", "method1");
+    const m = getClassMethodDeclarations(source, "Foo", "method1")!;
 
     expect(m).toBeDefined();
     expect(m.getName()).toBe("method1");
-    expect(m.getReturnTypeNode().getText()).toBe("any");
+    expect(m.getReturnTypeNode()?.getText()).toBe("any");
     expect(m.isAbstract()).toBeFalsy();
     expect(m.isAsync()).toBeTruthy();
     expect(m.isStatic()).toBeTruthy();
@@ -229,7 +215,7 @@ describe("package/creator-class", () => {
     expect(m.getScope()).toBe(Scope.Private);
 
     expect(m.getParameters().map((x) => x.getName())).toEqual(["arg1", "arg2"]);
-    expect(m.getParameters().map((x) => x.getTypeNode().getText())).toEqual([
+    expect(m.getParameters().map((x) => x.getTypeNode()?.getText())).toEqual([
       "string",
       "boolean",
     ]);
@@ -244,8 +230,8 @@ describe("package/creator-class", () => {
     ]);
 
     expect(m.getTypeParameters()[0].getName()).toBe("T");
-    expect(m.getTypeParameters()[0].getConstraint().getText()).toBe("string");
-    expect(m.getTypeParameters()[0].getDefault().getText()).toBe(
+    expect(m.getTypeParameters()[0].getConstraint()?.getText()).toBe("string");
+    expect(m.getTypeParameters()[0].getDefault()?.getText()).toBe(
       "default_string"
     );
   });
@@ -272,7 +258,7 @@ describe("package/creator-class", () => {
     expect(checkClassHasProps(source, "Foo")).toBeTruthy();
     expect(checkPropExistInClass(source, "Foo", "prop1")).toBeTruthy();
 
-    const p = getClassPropDeclarations(source, "Foo", "prop1");
+    const p = getClassPropDeclarations(source, "Foo", "prop1")!;
 
     expect(p).toBeDefined();
     expect(p.getName()).toBe("prop1");
@@ -337,7 +323,7 @@ describe("package/creator-class", () => {
     expect(checkClassHasProps(source, "Foo")).toBeTruthy();
     expect(checkPropExistInClass(source, "Foo", "prop1")).toBeTruthy();
 
-    const p = getClassPropDeclarations(source, "Foo", "prop1");
+    const p = getClassPropDeclarations(source, "Foo", "prop1")!;
 
     expect(p).toBeDefined();
     expect(p.getName()).toBe("prop1");
@@ -346,7 +332,7 @@ describe("package/creator-class", () => {
     expect(p.isStatic()).toBeTruthy();
 
     expect(p.hasInitializer()).toBeTruthy();
-    expect(p.getInitializer().getText()).toBe("linbudu");
+    expect(p.getInitializer()?.getText()).toBe("linbudu");
 
     expect(p.getScope()).toBe(Scope.Private);
     expect(p.hasQuestionToken()).toBeFalsy();
@@ -396,9 +382,7 @@ describe("package/creator-class", () => {
     expect(checkClassHasDecorators(source, "Foo")).toBeTruthy();
     expect(checkDecoratorExistInClass(source, "Foo", "deco1")).toBeTruthy();
 
-    const d = getClassDecorators(source, "Foo", "deco1");
-
-    console.log(d.getText());
+    const d = getClassDecorators(source, "Foo", "deco1")!;
 
     expect(d).toBeDefined();
     expect(d.getName()).toBe("deco1");
@@ -431,9 +415,7 @@ describe("package/creator-class", () => {
     expect(checkClassHasDecorators(source, "Foo")).toBeTruthy();
     expect(checkDecoratorExistInClass(source, "Foo", "deco1")).toBeTruthy();
 
-    const d = getClassDecorators(source, "Foo", "deco1");
-
-    console.log(d.getText());
+    const d = getClassDecorators(source, "Foo", "deco1")!;
 
     expect(d).toBeDefined();
     expect(d.getName()).toBe("deco1");

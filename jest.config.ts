@@ -10,7 +10,7 @@ export default {
   projects: [
     "<rootDir>/packages/checker",
     "<rootDir>/packages/creator",
-    // "<rootDir>/packages/cleaner",
+    "<rootDir>/packages/cleaner",
     // "<rootDir>/packages/modifier",
     "<rootDir>/packages/helper",
   ],

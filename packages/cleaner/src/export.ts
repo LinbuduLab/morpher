@@ -1,14 +1,8 @@
-import {
-  SourceFile,
-  TypeAliasDeclaration,
-  VariableDeclarationKind,
-} from "ts-morph";
+import { SourceFile, VariableDeclarationKind } from "ts-morph";
 import {
   getExportVariableIdentifiers,
   getExportVariableStatements,
-  getTypeExportIdentifiers,
   getTypeExportDeclaration,
-  getInterfaceExportIdentifiers,
   getInterfaceExportDeclaration,
   MaybyArray,
 } from "@ts-morpher/helper";
@@ -63,20 +57,17 @@ export function removeExportStatementsByExportType(
   const sourceExportStatements = getExportVariableStatements(source);
 
   sourceExportStatements.forEach((statement) => {
-    switch (checkExportDeclarationKindByStatement(source, statement)) {
+    switch (checkExportDeclarationKindByStatement(statement)) {
       case VariableDeclarationKind.Let:
-        removeTypes?.let && statement.remove();
+        removeTypes.let && statement.remove();
         break;
 
       case VariableDeclarationKind.Const:
-        removeTypes?.const && statement.remove();
+        removeTypes.const && statement.remove();
         break;
 
       case VariableDeclarationKind.Var:
-        removeTypes?.var && statement.remove();
-        break;
-
-      default:
+        removeTypes.var && statement.remove();
         break;
     }
   });
@@ -92,7 +83,7 @@ export function removeExportStatementsByExportType(
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
-  identifier: undefined,
+  identifier: null,
   apply?: boolean
 ): void;
 
@@ -104,19 +95,7 @@ export function removeTypeExportByIdentifier(
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
-  identifier: string,
-  apply?: boolean
-): void;
-
-/**
- * Remove all type alias export statements, specify identifier to remove only matched
- * @param source
- * @param identifier type alias
- * @param apply
- */
-export function removeTypeExportByIdentifier(
-  source: SourceFile,
-  identifier: string[],
+  identifier: MaybyArray<string>,
   apply?: boolean
 ): void;
 
@@ -155,7 +134,7 @@ export function removeTypeExportByIdentifier(
  */
 export function removeInterfaceExportByIdentifier(
   source: SourceFile,
-  identifier: undefined,
+  identifier: null,
   apply?: boolean
 ): void;
 

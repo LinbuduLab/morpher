@@ -47,7 +47,7 @@ export function removeImportDeclarationByModuleSpecifier(
 
   validImportSpecToRemove.forEach((spec) => {
     const targetImport = getImportDeclarations(source, spec);
-    targetImport?.remove();
+    targetImport.remove();
   });
 
   apply && source.saveSync();
@@ -79,15 +79,15 @@ export function removeImportDeclarationByType(
       )
     ) {
       case ImportType.DEFAULT_IMPORT:
-        removeTypes?.default && imp.remove();
+        removeTypes.default && imp.remove();
         break;
 
       case ImportType.NAMED_IMPORTS:
-        removeTypes?.named && imp.remove();
+        removeTypes.named && imp.remove();
         break;
 
       case ImportType.NAMESPACE_IMPORT:
-        removeTypes?.namespace && imp.remove();
+        removeTypes.namespace && imp.remove();
         break;
 
       default:

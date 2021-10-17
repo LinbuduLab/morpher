@@ -22,6 +22,18 @@ export function checkSourceFileHasExports(source: SourceFile): boolean {
 }
 
 /**
+ * Check dose Source File has `Export Variable Statement`
+ * @param source
+ * @example
+ */
+export function checkSourceFileHasTypeExports(source: SourceFile): boolean {
+  return (
+    Boolean(getTypeExportIdentifiers(source).length) ||
+    Boolean(getInterfaceExportIdentifiers(source).length)
+  );
+}
+
+/**
  * Check export statements exist by export identifier
  * @param source
  * @param identifier `foo` in `export const foo = 123`;
