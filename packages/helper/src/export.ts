@@ -7,7 +7,7 @@ import {
 } from "ts-morph";
 import {
   getVariableIdentifier,
-  MaybyArray,
+  MaybeArray,
   getTypeOrInterfaceIdentifier,
 } from "./util";
 
@@ -62,7 +62,7 @@ export function getExportVariableStatements(
 export function getExportVariableStatements(
   source: SourceFile,
   varIdentifier?: string | string[]
-): MaybyArray<VariableStatement> | undefined {
+): MaybeArray<VariableStatement> | undefined {
   const topLevelVarStatements = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.VariableStatement)
@@ -114,8 +114,8 @@ export function getTypeExportDeclaration(
  */
 export function getTypeExportDeclaration(
   source: SourceFile,
-  identifier?: MaybyArray<string>
-): MaybyArray<TypeAliasDeclaration> | undefined {
+  identifier?: MaybeArray<string>
+): MaybeArray<TypeAliasDeclaration> | undefined {
   const typeAliasDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.TypeAliasDeclaration)
@@ -179,8 +179,8 @@ export function getInterfaceExportDeclaration(
  */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
-  identifier?: MaybyArray<string>
-): MaybyArray<InterfaceDeclaration> | undefined {
+  identifier?: MaybeArray<string>
+): MaybeArray<InterfaceDeclaration> | undefined {
   const interfaceDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.InterfaceDeclaration)

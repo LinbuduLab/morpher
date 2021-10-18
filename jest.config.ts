@@ -3,6 +3,14 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
   coverageReporters: ["json", "text", "lcov", "clover", "html"],
   maxWorkers: "80%",
   moduleDirectories: ["node_modules"],
@@ -11,7 +19,7 @@ export default {
     "<rootDir>/packages/checker",
     "<rootDir>/packages/creator",
     "<rootDir>/packages/cleaner",
-    // "<rootDir>/packages/modifier",
+    "<rootDir>/packages/modifier",
     "<rootDir>/packages/helper",
   ],
   preset: "ts-jest",

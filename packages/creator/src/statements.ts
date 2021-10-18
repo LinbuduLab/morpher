@@ -1,5 +1,5 @@
 import { SourceFile, SyntaxKind } from "ts-morph";
-import { ensureArray, MaybyArray } from "@ts-morpher/helper";
+import { ensureArray, MaybeArray } from "@ts-morpher/helper";
 
 /**
  * Append statements after import declarations with new line,
@@ -10,7 +10,7 @@ import { ensureArray, MaybyArray } from "@ts-morpher/helper";
  */
 export function appendStatementAfterImportDeclarations(
   source: SourceFile,
-  appendStatement: MaybyArray<string>,
+  appendStatement: MaybeArray<string>,
   apply = true
 ) {
   const importDeclarationList = source

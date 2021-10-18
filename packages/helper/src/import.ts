@@ -1,6 +1,6 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
 import { builtinModules } from "module";
-import { getDeclarationIdentifierByKind, MaybyArray, uniqArray } from "./util";
+import { getDeclarationIdentifierByKind, MaybeArray, uniqArray } from "./util";
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
@@ -40,8 +40,8 @@ export function getImportDeclarations(
  */
 export function getImportDeclarations(
   source: SourceFile,
-  moduleSpecifier?: MaybyArray<string>
-): MaybyArray<ImportDeclaration> | undefined {
+  moduleSpecifier?: MaybeArray<string>
+): MaybeArray<ImportDeclaration> | undefined {
   const importDeclarations = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
@@ -100,8 +100,8 @@ export function getTypeOnlyImportDeclarations(
  */
 export function getTypeOnlyImportDeclarations(
   source: SourceFile,
-  moduleSpecifier?: MaybyArray<string>
-): MaybyArray<ImportDeclaration> | undefined {
+  moduleSpecifier?: MaybeArray<string>
+): MaybeArray<ImportDeclaration> | undefined {
   const typeOnlyImportDeclarations = getImportDeclarations(source).filter(
     (dec) => dec.isTypeOnly()
   );

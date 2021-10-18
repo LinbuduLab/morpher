@@ -1,7 +1,7 @@
 import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
 import ow from "ow";
 
-import { ensureArray, MaybyArray } from "@ts-morpher/helper";
+import { ensureArray, MaybeArray } from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
 
 /**
@@ -33,7 +33,7 @@ export function createImportDeclaration(
  */
 export function createImportDeclaration(
   source: SourceFile,
-  namedImports: MaybyArray<string>,
+  namedImports: MaybeArray<string>,
   moduleSpecifier: string,
   importType: ImportType.NAMED_IMPORTS,
   isTypeOnly?: boolean,
@@ -69,7 +69,7 @@ export function createImportDeclaration(
  */
 export function createImportDeclaration(
   source: SourceFile,
-  namedImports: MaybyArray<string>,
+  namedImports: MaybeArray<string>,
   moduleSpecifier: string,
   importType: ImportType.DEFAULT_WITH_NAMED_IMPORT,
   apply?: boolean
@@ -87,7 +87,7 @@ export function createImportDeclaration(
  */
 export function createImportDeclaration(
   source: SourceFile,
-  importClause: MaybyArray<string>,
+  importClause: MaybeArray<string>,
   moduleSpecifier: string,
   importType: ImportType,
   isTypeOnly = false,

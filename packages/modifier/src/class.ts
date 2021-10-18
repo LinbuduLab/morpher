@@ -26,7 +26,7 @@ export function updateClassIdentifier(
   classIdentifier: string,
   updatedIdentifier: string,
   apply = true
-) {
+): void {
   const targetClass = getClassDeclarations(source, classIdentifier);
 
   if (!targetClass) return;

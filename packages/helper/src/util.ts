@@ -10,7 +10,7 @@ import {
   VariableStatement,
 } from "ts-morph";
 
-export type MaybyArray<T> = T | T[];
+export type MaybeArray<T> = T | T[];
 
 export const STATIC_KEYWORD = "static";
 export const PUBLIC_KEYWORD = "public";
@@ -23,7 +23,7 @@ export function uniqArray<T>(array: T[]): T[] {
   return [...new Set(array)];
 }
 
-export function ensureArray<T>(maybeArray: MaybyArray<T>): T[] {
+export function ensureArray<T>(maybeArray: MaybeArray<T>): T[] {
   return Array.isArray(maybeArray) ? maybeArray : [maybeArray];
 }
 

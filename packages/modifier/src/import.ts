@@ -4,45 +4,45 @@ import { checkImportExistByModuleSpecifier } from "@ts-morpher/checker";
 import { createImportDeclaration } from "@ts-morpher/creator";
 import { ImportType } from "@ts-morpher/types";
 
-/**
- * Split one `Import Declaration` into common one and type-only one
- * - return undefined if no named imports exist
- * - retrun [OriginImportDeclaration] if no typeImports exist in current named imports
- * @param source
- * @param moduleSpecifier
- * @param typeImports
- * @returns
- */
-export function splitImportDeclarationBasedOnType(
-  source: SourceFile,
-  moduleSpecifier: string,
-  typeImports: string[]
-): [ImportDeclaration] | [ImportDeclaration, ImportDeclaration] | undefined {
-  const targetImport = getImportDeclarations(source, moduleSpecifier);
-  const namedImports = targetImport.getNamedImports().map((i) => i.getText());
+// /**
+//  * Split one `Import Declaration` into common one and type-only one
+//  * - return undefined if no named imports exist
+//  * - retrun [OriginImportDeclaration] if no typeImports exist in current named imports
+//  * @param source
+//  * @param moduleSpecifier
+//  * @param typeImports
+//  * @returns
+//  */
+// export function splitTypeOnlyImportDeclaration(
+//   source: SourceFile,
+//   moduleSpecifier: string,
+//   typeImports: string[]
+// ): [ImportDeclaration] | [ImportDeclaration, ImportDeclaration] | undefined {
+//   const targetImport = getImportDeclarations(source, moduleSpecifier);
+//   const namedImports = targetImport.getNamedImports().map((i) => i.getText());
 
-  if (!namedImports.length) return;
+//   if (!namedImports.length) return;
 
-  const existTypeOnlyImports = typeImports.filter((typeImport) =>
-    namedImports.includes(typeImport)
-  );
+//   const existTypeOnlyImports = typeImports.filter((typeImport) =>
+//     namedImports.includes(typeImport)
+//   );
 
-  if (!existTypeOnlyImports.length) return [targetImport];
+//   if (!existTypeOnlyImports.length) return [targetImport];
 
-  const getTypeOnlyImportDeclaration = source.addImportDeclaration({
-    namedImports: existTypeOnlyImports,
-    isTypeOnly: true,
-    moduleSpecifier,
-  });
+//   const getTypeOnlyImportDeclaration = source.addImportDeclaration({
+//     namedImports: existTypeOnlyImports,
+//     isTypeOnly: true,
+//     moduleSpecifier,
+//   });
 
-  targetImport.removeNamedImports();
+//   targetImport.removeNamedImports();
 
-  targetImport.addNamedImports(
-    namedImports.filter((named) => !existTypeOnlyImports.includes(named))
-  );
+//   targetImport.addNamedImports(
+//     namedImports.filter((named) => !existTypeOnlyImports.includes(named))
+//   );
 
-  return [targetImport, getTypeOnlyImportDeclaration];
-}
+//   return [targetImport, getTypeOnlyImportDeclaration];
+// }
 
 /**
  * Add new members to the namespace import
@@ -62,16 +62,16 @@ export function addNamedImportMembers(
 ): void {
   const targetImport = getImportDeclarations(source, importSpec);
 
-  if (!targetImport && createOnInexist) {
-    createImportDeclaration(
-      source,
-      members,
-      importSpec,
-      ImportType.NAMED_IMPORTS,
-      apply
-    );
-
-    return;
+  if (!targetImport) {
+    return createOnInexist
+      ? createImportDeclaration(
+          source,
+          members,
+          importSpec,
+          ImportType.NAMED_IMPORTS,
+          apply
+        )
+      : void 0;
   }
 
   const importClause = targetImport.getImportClause()!;
@@ -100,17 +100,17 @@ export function addNamedImportMembers(
  * @param apply save source file
  * @returns
  */
-export function removeNamedImportMember(
+export function removeNamedImportMembers(
   source: SourceFile,
   importSpec: string,
   members: string[],
   apply = true
 ): void {
-  if (!checkImportExistByModuleSpecifier(source, importSpec)) {
+  const targetImport = getImportDeclarations(source, importSpec);
+
+  if (!targetImport) {
     return;
   }
-
-  const targetImport = getImportDeclarations(source, importSpec)!;
 
   const importClause = targetImport.getImportClause()!;
 
@@ -150,11 +150,11 @@ export function updateImportSpecifier(
   updatedModuleSpecifier: string,
   apply = true
 ) {
-  if (!checkImportExistByModuleSpecifier(source, moduleSpecifier)) {
+  const targetImport = getImportDeclarations(source, moduleSpecifier);
+
+  if (!targetImport) {
     return;
   }
-
-  const targetImport = getImportDeclarations(source, moduleSpecifier);
 
   targetImport.setModuleSpecifier(updatedModuleSpecifier);
 
@@ -175,13 +175,9 @@ export function updateDefaultImportClause(
   updatedClause: string,
   apply = true
 ) {
-  if (!checkImportExistByModuleSpecifier(source, specifier)) {
-    return;
-  }
-
   const targetImport = getImportDeclarations(source, specifier);
 
-  if (!targetImport || !targetImport?.getDefaultImport()) {
+  if (!(targetImport && targetImport.getDefaultImport())) {
     return;
   }
 
@@ -204,13 +200,9 @@ export function updateNamespaceImportClause(
   updatedNamespace: string,
   apply = true
 ) {
-  if (!checkImportExistByModuleSpecifier(source, specifier)) {
-    return;
-  }
-
   const targetImport = getImportDeclarations(source, specifier);
 
-  if (!targetImport || !targetImport?.getNamespaceImport()) {
+  if (!(targetImport && targetImport.getNamespaceImport())) {
     return;
   }
 

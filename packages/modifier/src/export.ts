@@ -23,11 +23,16 @@ export function updateVariableExportIdentifier(
   updatedIdentifier: string,
   apply = true
 ) {
+  const initializer = getExportVariableStatements(source, identifier)
+    ?.getDeclarations()[0]
+    ?.getInitializer()
+    ?.getText();
+
   updateVariableExportStructure(
     source,
     identifier,
     {
-      name: updatedIdentifier,
+      declarations: [{ name: updatedIdentifier, initializer }],
     },
     apply
   );
@@ -50,7 +55,6 @@ export function updateVariableExportKind(
     source,
     identifier,
     {
-      name: identifier,
       declarationKind,
     },
     apply
@@ -65,8 +69,6 @@ interface IBaseDeclarationStructure {
 }
 
 interface IBaseVariableExportStructure {
-  name: string;
-
   declarationKind?: VariableDeclarationKind;
   declarations?: IBaseDeclarationStructure[];
 

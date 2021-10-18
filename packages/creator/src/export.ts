@@ -7,7 +7,7 @@ import {
   WriterFunction,
 } from "ts-morph";
 
-import { ensureArray, MaybyArray } from "@ts-morpher/helper";
+import { ensureArray, MaybeArray } from "@ts-morpher/helper";
 import {
   IGenericTypeParam,
   IInterfaceIndexSignature,

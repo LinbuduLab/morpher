@@ -4,7 +4,7 @@ import {
   getExportVariableStatements,
   getTypeExportDeclaration,
   getInterfaceExportDeclaration,
-  MaybyArray,
+  MaybeArray,
 } from "@ts-morpher/helper";
 import {
   checkSourceFileHasExports,
@@ -95,7 +95,7 @@ export function removeTypeExportByIdentifier(
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
-  identifier: MaybyArray<string>,
+  identifier: MaybeArray<string>,
   apply?: boolean
 ): void;
 
@@ -107,7 +107,7 @@ export function removeTypeExportByIdentifier(
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
-  identifier?: MaybyArray<string>,
+  identifier?: MaybeArray<string>,
   apply = true
 ): void {
   if (!identifier) {
@@ -170,7 +170,7 @@ export function removeInterfaceExportByIdentifier(
  */
 export function removeInterfaceExportByIdentifier(
   source: SourceFile,
-  identifier?: MaybyArray<string>,
+  identifier?: MaybeArray<string>,
   apply = true
 ): void {
   if (!identifier) {

@@ -7,7 +7,7 @@ import {
   ClassDeclaration,
 } from "ts-morph";
 
-import { getDeclarationIdentifierByKind, MaybyArray } from "./util";
+import { getDeclarationIdentifierByKind, MaybeArray } from "./util";
 
 /**
  * Return all class declarations in source file, specify `className` to return only matched
@@ -23,7 +23,7 @@ export function getClassDeclarations(source: SourceFile): ClassDeclaration[];
  */
 export function getClassDeclarations(
   source: SourceFile,
-  className?: string
+  className: string
 ): ClassDeclaration | undefined;
 
 /**
@@ -34,7 +34,7 @@ export function getClassDeclarations(
 export function getClassDeclarations(
   source: SourceFile,
   className?: string
-): MaybyArray<ClassDeclaration> | undefined {
+): MaybeArray<ClassDeclaration> | undefined {
   const classDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
     .getChildrenOfKind(SyntaxKind.ClassDeclaration);
@@ -92,7 +92,7 @@ export function getClassMethodDeclarations(
   source: SourceFile,
   className: string,
   methodName?: string
-): MaybyArray<MethodDeclaration> {
+): MaybeArray<MethodDeclaration> {
   const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
@@ -224,7 +224,7 @@ export function getClassDecorators(
   source: SourceFile,
   className: string,
   decoratorName?: string
-): MaybyArray<Decorator> | undefined {
+): MaybeArray<Decorator> | undefined {
   const targetClass = getClassDeclarations(source, className);
 
   if (!targetClass) {
