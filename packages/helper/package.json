@@ -2,6 +2,7 @@
   "name": "@ts-morpher/helper",
   "version": "0.3.1",
   "main": "dist/index.js",
+  "typedocMain": "src/index.ts",
   "license": "MIT",
   "private": false,
   "publishConfig": {

@@ -77,7 +77,7 @@ export function updateClassDecoratorIdentifier(
  * Update base class structure
  * @param source
  * @param classIdentifier
- * @param baseClassStruct
+ * @param baseClassStruct {@link IBaseClassStructure}
  * @param apply
  * @returns
  */
@@ -101,7 +101,7 @@ export function updateBaseClassStructure(
  * @param source
  * @param classIdentifier
  * @param methodIdentifier
- * @param baseMethodStruct
+ * @param baseMethodStruct {@link IBaseMethodStruct}
  * @param apply
  * @returns
  */
@@ -134,7 +134,7 @@ export function updateBaseClassMethodStructure(
  * @param source
  * @param classIdentifier
  * @param propIdentifier
- * @param basePropStruct
+ * @param basePropStruct {@link IBasePropStruct}
  * @param apply
  * @returns
  */
@@ -167,7 +167,7 @@ export function updateBaseClassPropStructure(
  * @param source
  * @param classIdentifier
  * @param decoratorIdentifier
- * @param baseDecoratorStruct
+ * @param baseDecoratorStruct {@link IBaseDecoratorStruct}
  * @param apply
  * @returns
  */

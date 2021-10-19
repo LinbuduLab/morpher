@@ -17,7 +17,7 @@ import {
 /**
  * Create base class structure
  * @param source
- * @param baseClassStruct
+ * @param baseClassStruct {@link IBaseClassStructure}
  * @param apply save source file
  * @returns
  */
@@ -44,7 +44,7 @@ export function createBaseClass(
  * Create method declaration for target class
  * @param source
  * @param className
- * @param baseMethodStruct
+ * @param baseMethodStruct {@link IBaseMethodStruct}
  * @param apply save source file
  * @returns
  */
@@ -73,7 +73,7 @@ export function createBaseClassMethod(
  * Create prop declaration for target class
  * @param source
  * @param className
- * @param basePropStruct
+ * @param basePropStruct {@link IBasePropStruct}
  * @param apply save source file
  * @returns
  */
@@ -102,7 +102,7 @@ export function createBaseClassProp(
  * Create decorator declaration target class
  * @param source
  * @param className
- * @param baseDecoratorStruct
+ * @param baseDecoratorStruct {@link IBaseDecoratorStruct}
  * @param apply
  * @returns
  */

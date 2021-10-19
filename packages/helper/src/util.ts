@@ -10,23 +10,28 @@ import {
   VariableStatement,
 } from "ts-morph";
 
+/**
+ * @private
+ */
 export type MaybeArray<T> = T | T[];
 
-export const STATIC_KEYWORD = "static";
-export const PUBLIC_KEYWORD = "public";
-export const PRIVATE_KEYWORD = "private";
-export const PROTECTED_KEYWORD = "protected";
-export const READONLY_KEYWORD = "readonly";
-export const ASYNC_KEYWORD = "async";
-
+/**
+ * @private
+ */
 export function uniqArray<T>(array: T[]): T[] {
   return [...new Set(array)];
 }
 
+/**
+ * @private
+ */
 export function ensureArray<T>(maybeArray: MaybeArray<T>): T[] {
   return Array.isArray(maybeArray) ? maybeArray : [maybeArray];
 }
 
+/**
+ * @private
+ */
 export function getDeclarationIdentifierByKind(
   dec:
     | ClassDeclaration
@@ -34,7 +39,7 @@ export function getDeclarationIdentifierByKind(
     | PropertyDeclaration
     | ImportDeclaration
     | Decorator
-) {
+): string {
   switch (dec.getKind()) {
     case SyntaxKind.ClassDeclaration:
     case SyntaxKind.MethodDeclaration:
@@ -47,6 +52,9 @@ export function getDeclarationIdentifierByKind(
   }
 }
 
+/**
+ * @private
+ */
 export function getVariableIdentifier(statement: VariableStatement): string {
   return statement
     .getFirstChildByKind(SyntaxKind.VariableDeclarationList)
@@ -56,6 +64,9 @@ export function getVariableIdentifier(statement: VariableStatement): string {
     .getText();
 }
 
+/**
+ * @private
+ */
 export function getTypeOrInterfaceIdentifier(
   declaration: TypeAliasDeclaration | InterfaceDeclaration
 ): string {

@@ -1,0 +1,17 @@
+{
+  "entryPoints": [
+    "packages/checker",
+    "packages/creator",
+    "packages/cleaner",
+    "packages/helper",
+    "packages/modifier",
+    "packages/types"
+  ],
+  "out": "docs",
+  "exclude": ["packages/**/tests/*", "packages/**/*.js", "packages/**/demo/*"],
+  "excludeNotDocumented": true,
+  "readme": "README.md",
+  "listInvalidSymbolLinks": true,
+  "external-modulemap": "packages/*",
+  "excludeExternals": false
+}

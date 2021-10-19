@@ -1,3 +1,6 @@
+/**
+ * @enum Import declaration type
+ */
 export enum ImportType {
   NAMESPACE_IMPORT = "NAMESPACE_IMPORT",
   NAMED_IMPORTS = "NAMED_IMPORTS",

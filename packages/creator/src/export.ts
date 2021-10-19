@@ -1,13 +1,5 @@
-import {
-  ImportDeclaration,
-  SourceFile,
-  SyntaxKind,
-  TryStatement,
-  VariableDeclarationKind,
-  WriterFunction,
-} from "ts-morph";
+import { SourceFile, VariableDeclarationKind, WriterFunction } from "ts-morph";
 
-import { ensureArray, MaybeArray } from "@ts-morpher/helper";
 import {
   IGenericTypeParam,
   IInterfaceIndexSignature,
@@ -48,7 +40,7 @@ export function createBaseVariableExport(
  * @param source 
  * @param identifier 
  * @param typeInitializer 
- * @param genericTypeParams 
+ * @param genericTypeParams {@link IGenericTypeParam}
  * @param apply 
  * @example
  * createBaseTypeExport(source, "Foo", "Record<T, unknown>", [
@@ -89,55 +81,56 @@ export function createBaseTypeExport(
  * @param source
  * @param identifier
  * @param interfaceExtends extra interfaces to extend
- * @param indexSignatures specify index-signatures like [key:string]: any
- * @param properties interface properties
- * @param genericTypeParams generic type params to use in interface
+ * @param indexSignatures {@link IInterfaceIndexSignature} specify index-signatures like [key:string]: any
+ * @param properties {@link IInterfaceProperty} interface properties
+ * @param genericTypeParams {@link IGenericTypeParam} generic type params to use in interface
  * @param apply save source file
  * @example
- * createBaseInterfaceExport(
-    source,
-    "Foo",
-    ["Bar", "Baz"],
-    [
-      {
-        keyName: "Foo",
-        keyType: "string",
-        returnType: "unknown",
-        isReadonly: false,
-      },
-    ],
-    [
-      {
-        name: "name",
-        type: "string",
-      },
-      {
-        name: "age",
-        type: "number",
-        hasQuestionToken: true,
-      },
-      {
-        name: "other",
-        type: "T",
-      },
-    ],
-    [
-      {
-        name: "T",
-        default: "'default_string_literal'",
-        constraint: "string",
-      },
-    ]
-  );
+ * ```typescript
+  * createBaseInterfaceExport(
+      source,
+      "Foo",
+      ["Bar", "Baz"],
+      [
+        {
+          keyName: "Foo",
+          keyType: "string",
+          returnType: "unknown",
+          isReadonly: false,
+        },
+      ],
+      [
+        {
+          name: "name",
+          type: "string",
+        },
+        {
+          name: "age",
+          type: "number",
+          hasQuestionToken: true,
+        },
+        {
+          name: "other",
+          type: "T",
+        },
+      ],
+      [
+        {
+          name: "T",
+          default: "'default_string_literal'",
+          constraint: "string",
+        },
+      ]
+    );
 
-  // create following statement:
-  export interface Foo<T extends string = 'default_string_literal'> extends Bar, Baz {
-      [Foo: string]: unknown;
-      name: string;
-      age?: number;
-      other: T;
-  }
-
+    // create following statement:
+    export interface Foo<T extends string = 'default_string_literal'> extends Bar, Baz {
+        [Foo: string]: unknown;
+        name: string;
+        age?: number;
+        other: T;
+    }
+  ```
 
  */
 export function createBaseInterfaceExport(

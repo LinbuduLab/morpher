@@ -61,15 +61,25 @@ export function updateVariableExportKind(
   );
 }
 
-interface IBaseDeclarationStructure {
+/**
+ * Basic variable declaration structure
+ */
+export interface IBaseDeclarationStructure {
   name: string;
   hasExclamationToken?: boolean;
   initializer?: string | WriterFunction;
   type?: string | WriterFunction;
 }
 
-interface IBaseVariableExportStructure {
+/**
+ * Basic variable structure
+ */
+export interface IBaseVariableExportStructure {
   declarationKind?: VariableDeclarationKind;
+
+  /**
+   * {@link IBaseDeclarationStructure}
+   */
   declarations?: IBaseDeclarationStructure[];
 
   isExported?: boolean;
@@ -80,9 +90,9 @@ interface IBaseVariableExportStructure {
  * update base structure of variable export
  * @param source
  * @param identifier variable identifier
- * @param structure updated structure
+ * @param structure {@link IBaseVariableExportStructure} updated structure
  * @param apply save source file
- * @returns
+ * @returns void
  */
 export function updateVariableExportStructure(
   source: SourceFile,
@@ -101,7 +111,10 @@ export function updateVariableExportStructure(
   apply && source.saveSync();
 }
 
-interface IBaseTypeAliasStructure extends ISharedTypeStructure {
+/**
+ * Basic type alias structure
+ */
+export interface IBaseTypeAliasStructure extends ISharedTypeStructure {
   type?: string | WriterFunction;
 }
 
@@ -109,7 +122,7 @@ interface IBaseTypeAliasStructure extends ISharedTypeStructure {
  * update base structure of type alias export
  * @param source
  * @param identifier type alias identifier
- * @param structure updated structure
+ * @param structure {@link IBaseTypeAliasStructure} updated structure
  * @param apply save source file
  * @returns
  */
@@ -130,7 +143,10 @@ export function updateTypeExportStructure(
   apply && source.saveSync();
 }
 
-interface IBaseInterfaceStructure extends ISharedTypeStructure {
+/**
+ * Basic interface structure
+ */
+export interface IBaseInterfaceStructure extends ISharedTypeStructure {
   extends?: (string | WriterFunction)[] | WriterFunction;
 }
 
@@ -138,9 +154,9 @@ interface IBaseInterfaceStructure extends ISharedTypeStructure {
  * update base structure of interface export
  * @param source
  * @param identifier interface identifier
- * @param structure updated structure
+ * @param structure {@link IBaseInterfaceStructure } updated structure
  * @param apply save source file
- * @returns
+ * @returns void
  */
 export function updateInterfaceExportStructure(
   source: SourceFile,
