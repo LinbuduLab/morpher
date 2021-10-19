@@ -42,5 +42,5 @@ jobs:
       - name: Unit Tests
         if: runner.os != 'Windows'
         run: |
-          export NODE_OPTIONS=--max_old_space_size=4096 yarn test:ci
+          yarn test:ci
           bash <(curl -s https://codecov.io/bash)
