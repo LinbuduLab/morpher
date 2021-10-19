@@ -24,7 +24,7 @@ Class method declaration structure
 
 #### Defined in
 
-[types.ts:104](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/types/src/types.ts#L104)
+[types.ts:104](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/types/src/types.ts#L104)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[types.ts:94](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/types/src/types.ts#L94)
+[types.ts:94](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/types/src/types.ts#L94)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[types.ts:98](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/types/src/types.ts#L98)
+[types.ts:98](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/types/src/types.ts#L98)

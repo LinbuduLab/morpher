@@ -22,4 +22,4 @@ Basic variable structure
 
 #### Defined in
 
-[modifier/src/export.ts:83](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/modifier/src/export.ts#L83)
+[modifier/src/export.ts:83](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/export.ts#L83)

@@ -24,4 +24,4 @@ Arguments for a decorator factory.
 
 #### Defined in
 
-[types.ts:60](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/types/src/types.ts#L60)
+[types.ts:60](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/types/src/types.ts#L60)

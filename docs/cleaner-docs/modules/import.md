@@ -32,7 +32,7 @@ Remove all imports
 
 #### Defined in
 
-[import.ts:18](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/import.ts#L18)
+[import.ts:18](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/import.ts#L18)
 
 ___
 
@@ -55,7 +55,7 @@ Remove all type-only imports
 
 #### Defined in
 
-[import.ts:28](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/import.ts#L28)
+[import.ts:28](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/import.ts#L28)
 
 ___
 
@@ -79,7 +79,7 @@ Remove imports by `Module Specifier`
 
 #### Defined in
 
-[import.ts:39](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/import.ts#L39)
+[import.ts:39](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/import.ts#L39)
 
 ___
 
@@ -103,4 +103,4 @@ Remove imports by `Import Type`
 
 #### Defined in
 
-[import.ts:63](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/import.ts#L63)
+[import.ts:63](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/import.ts#L63)

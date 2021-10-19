@@ -83,7 +83,7 @@ other: T;
 
 #### Defined in
 
-[export.ts:136](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/creator/src/export.ts#L136)
+[export.ts:136](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/creator/src/export.ts#L136)
 
 ___
 
@@ -125,7 +125,7 @@ unknown
 
 #### Defined in
 
-[export.ts:62](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/creator/src/export.ts#L62)
+[export.ts:62](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/creator/src/export.ts#L62)
 
 ___
 
@@ -151,4 +151,4 @@ Create a base export variable statement
 
 #### Defined in
 
-[export.ts:17](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/creator/src/export.ts#L17)
+[export.ts:17](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/creator/src/export.ts#L17)

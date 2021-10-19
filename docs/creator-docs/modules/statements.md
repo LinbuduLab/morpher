@@ -31,4 +31,4 @@ will append in top of file if no import declaration found.
 
 #### Defined in
 
-[statements.ts:11](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/creator/src/statements.ts#L11)
+[statements.ts:11](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/creator/src/statements.ts#L11)

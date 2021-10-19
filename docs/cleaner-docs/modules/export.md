@@ -33,7 +33,7 @@ Remove export by `Export Type`
 
 #### Defined in
 
-[export.ts:48](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L48)
+[export.ts:48](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L48)
 
 ___
 
@@ -57,7 +57,7 @@ Remove export statements from source file, specifier identifier to remove specif
 
 #### Defined in
 
-[export.ts:21](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L21)
+[export.ts:21](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L21)
 
 ___
 
@@ -81,7 +81,7 @@ Remove all interface export statements, specify identifier to remove only matche
 
 #### Defined in
 
-[export.ts:135](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L135)
+[export.ts:135](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L135)
 
 ▸ **removeInterfaceExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
@@ -101,7 +101,7 @@ Remove all interface export statements, specify identifier to remove only matche
 
 #### Defined in
 
-[export.ts:147](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L147)
+[export.ts:147](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L147)
 
 ▸ **removeInterfaceExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
@@ -121,7 +121,7 @@ Remove all interface export statements, specify identifier to remove only matche
 
 #### Defined in
 
-[export.ts:159](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L159)
+[export.ts:159](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L159)
 
 ___
 
@@ -145,7 +145,7 @@ Remove all type alias export statements, specify identifier to remove only match
 
 #### Defined in
 
-[export.ts:84](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L84)
+[export.ts:84](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L84)
 
 ▸ **removeTypeExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
@@ -165,4 +165,4 @@ Remove all type alias export statements, specify identifier to remove only match
 
 #### Defined in
 
-[export.ts:96](https://github.com/linbudu599/morpher/blob/4a52d4d/packages/cleaner/src/export.ts#L96)
+[export.ts:96](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/export.ts#L96)
