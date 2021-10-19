@@ -21,3 +21,7 @@ WIP...
 | [modifier](packages/modifier) | ![modifier version](https://img.shields.io/npm/v/@ts-morpher/modifier.svg?label=%20) |
 | [creator](packages/creator)   | ![creator version](https://img.shields.io/npm/v/@ts-morpher/creator.svg?label=%20)   |
 | [helper](packages/helper)     | ![helper version](https://img.shields.io/npm/v/@ts-morpher/helper.svg?label=%20)     |
+
+## License
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%LinbuduLab%morpher.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%LinbuduLab%2Fmorpher?ref=badge_large)
