@@ -1,6 +1,6 @@
 {
   "name": "@ts-morpher/cleaner",
-  "version": "0.3.2",
+  "version": "0.4.1",
   "main": "dist/index.js",
   "typedocMain": "src/index.ts",
   "license": "MIT",
@@ -27,13 +27,13 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@ts-morpher/checker": "^0.3.2",
-    "@ts-morpher/helper": "^0.3.2",
-    "@ts-morpher/types": "^0.3.2",
+    "@ts-morpher/checker": "^0.4.1",
+    "@ts-morpher/helper": "^0.4.1",
+    "@ts-morpher/types": "^0.4.1",
     "ow": "^0.28.1"
   },
   "peerDependencies": {
     "ts-morph": "^12.0.0"
   },
-  "gitHead": "f59a7564d382b994acbf8bd4dc60b85f9ed8d3b0"
+  "gitHead": "3f0d3a16c498b5b8ae929822a02273dfe1ade149"
 }
