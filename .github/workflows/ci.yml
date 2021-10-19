@@ -33,7 +33,8 @@ jobs:
 
       - name: Bootstrap
         run: |
-          npx lerna exec -- yarn
+          # npx lerna exec -- yarn
+          lerna link
 
       - name: Build Project
         run: yarn build

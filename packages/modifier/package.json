@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@ts-morpher/checker": "^0.3.2",
+    "@ts-morpher/creator": "^0.3.2",
     "@ts-morpher/helper": "^0.3.2",
     "@ts-morpher/types": "^0.3.2",
     "ow": "^0.28.1",
