@@ -3,7 +3,7 @@ home: true
 heroText: Ts Morpher
 tagline: Dead simple TypeScript AST tools
 actionText: Get Started →
-actionLink: /example/
+actionLink: /quick-start/
 features:
   - title: Yes, AST can as simple as this, no knowledge of compilation principles is required.
     details: Check declaration, get declaration, update declaration, and save declaration.
@@ -13,5 +13,3 @@ features:
     details: Make your own CodeMod、Code Processor、AST Checker on top of ts morpher.
 footer: MIT Licensed | Copyright © 2021-present LinudbuLab
 ---
-
-...Badges
