@@ -12,15 +12,15 @@ export default {
     },
   },
   coverageReporters: ["json", "text", "lcov", "clover", "html"],
-  maxWorkers: "40%",
+  maxWorkers: 1,
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js", "ts"],
   projects: [
     "<rootDir>/packages/checker",
     "<rootDir>/packages/creator",
     "<rootDir>/packages/cleaner",
-    "<rootDir>/packages/modifier",
-    // "<rootDir>/packages/helper",
+    // "<rootDir>/packages/modifier",
+    "<rootDir>/packages/helper",
   ],
   preset: "ts-jest",
   globals: {

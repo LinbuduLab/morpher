@@ -19,7 +19,8 @@
     "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check",
     "docs:dev": "vuepress dev docs",
     "docs:gen": "ts-node scripts/docs-gen.ts",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "demo": "lerna exec yarn dev:import --scope @ts-morpher/example"
   },
   "dependencies": {
     "ts-morph": "^12.0.0"

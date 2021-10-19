@@ -30,8 +30,10 @@
     "@ts-morpher/checker": "^0.3.2",
     "@ts-morpher/helper": "^0.3.2",
     "@ts-morpher/types": "^0.3.2",
-    "ow": "^0.28.1",
-    "ts-morph": "^11.0.3"
+    "ow": "^0.28.1"
+  },
+  "peerDependencies": {
+    "ts-morph": "^12.0.0"
   },
   "gitHead": "f59a7564d382b994acbf8bd4dc60b85f9ed8d3b0"
 }

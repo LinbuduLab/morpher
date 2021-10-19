@@ -1,0 +1,31 @@
+{
+  "name": "@ts-morpher/example",
+  "version": "0.3.2",
+  "description": "> TODO: description",
+  "author": "linbudu599 <linbudu599@gmail.com>",
+  "homepage": "https://github.com/linbudu599/morpher#readme",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linbudu599/morpher.git"
+  },
+  "scripts": {
+    "dev:import": "ts-node-dev --respawn --transpile-only src/import-example.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/linbudu599/morpher/issues"
+  },
+  "dependencies": {
+    "@ts-morpher/checker": "^0.3.2",
+    "@ts-morpher/cleaner": "^0.3.2",
+    "@ts-morpher/creator": "^0.3.2",
+    "@ts-morpher/helper": "^0.3.2",
+    "@ts-morpher/modifier": "^0.3.2",
+    "@ts-morpher/types": "^0.3.2",
+    "fs-extra": "^10.0.0",
+    "ts-morph": "^12.0.0",
+    "ts-node-dev": "^1.1.8"
+  }
+}
