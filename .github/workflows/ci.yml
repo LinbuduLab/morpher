@@ -4,6 +4,7 @@ on:
   push:
     branches: [master, main]
   pull_request:
+    types: [assigned, opened, synchronize, reopened]
 
 jobs:
   build:
@@ -28,6 +29,11 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn
+
+      - name: Bootstrap
+        run: |
+          lerna bootstrap
+          lerna link
 
       - name: Build Project
         run: yarn build
