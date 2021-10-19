@@ -12,7 +12,8 @@
     "url": "git+https://github.com/linbudu599/morpher.git"
   },
   "scripts": {
-    "dev:import": "ts-node-dev --respawn --transpile-only src/import-example.ts"
+    "dev:import": "ts-node-dev --respawn --transpile-only src/import-example.ts",
+    "dev:class": "ts-node-dev --respawn --transpile-only src/class-example.ts"
   },
   "bugs": {
     "url": "https://github.com/linbudu599/morpher/issues"

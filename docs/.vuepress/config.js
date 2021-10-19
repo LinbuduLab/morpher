@@ -1,7 +1,7 @@
 module.exports = {
-  title: "Linubudlab:TSMorpher",
+  title: "LinubuduLab: TSMorpher",
   logo: "/media/logo.jpeg",
-  description: "Dead simple TypeScript AST utilities built on top of ts-morph",
+  description: "Dead simple TypeScript AST utilities",
   themeConfig: {
     nav: [
       {
@@ -24,10 +24,10 @@ module.exports = {
       },
     ],
     sidebar: "auto",
-    algolia: {
-      apiKey: "<API_KEY>",
-      indexName: "<INDEX_NAME>",
-    },
+    // algolia: {
+    //   apiKey: "<API_KEY>",
+    //   indexName: "<INDEX_NAME>",
+    // },
   },
   displayAllHeaders: true,
   lastUpdated: "Last Updated",
