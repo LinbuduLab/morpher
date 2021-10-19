@@ -25,6 +25,6 @@ jobs:
           npm install
           npm install surge -g
       - name: Build Docs
-        run: npm run gen
+        run: npm run docs:gen
       - name: Deploy to Surge
         run: surge docs ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
