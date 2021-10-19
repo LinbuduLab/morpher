@@ -9,7 +9,7 @@
     "packages/*"
   ],
   "scripts": {
-    "init": "rm -rf node_modules && lerna bootstrap",
+    "init": "rm -rf node_modules && yarn add lerna -DW && lerna bootstrap",
     "commit": "git add -A && git-cz",
     "pub:patch": "yarn build && lerna publish patch",
     "pub:minor": "yarn build && lerna publish minor",
