@@ -19,13 +19,5 @@
     "strictNullChecks": true,
     "declaration": true,
     "esModuleInterop": true
-  },
-  "references": [
-    { "path": "./packages/checker" },
-    { "path": "./packages/creator" },
-    { "path": "./packages/cleaner" },
-    { "path": "./packages/helper" },
-    { "path": "./packages/modifier" },
-    { "path": "./packages/types" }
-  ]
+  }
 }
