@@ -42,5 +42,5 @@ jobs:
       - name: Unit Tests
         if: runner.os != 'Windows'
         run: |
-          yarn test
+          yarn test:ci
           bash <(curl -s https://codecov.io/bash)
