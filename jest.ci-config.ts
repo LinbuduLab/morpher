@@ -3,14 +3,7 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
-    },
-  },
+  coverageThreshold: {},
   coverageReporters: ["json", "text", "lcov", "clover", "html"],
   maxWorkers: 1,
   moduleDirectories: ["node_modules"],
