@@ -12,7 +12,7 @@
     "commit": "git add -A && git-cz",
     "pub:patch": "yarn build && lerna publish patch",
     "pub:minor": "yarn build && lerna publish minor",
-    "test:ci": "jest --no-cache --runInBand --logHeapUsage --maxWorkers=1",
+    "test:ci": "jest --no-cache --runInBand --logHeapUsage",
     "test": "jest",
     "build": "ultra -r --filter '@ts-morpher/*' --topology build",
     "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
