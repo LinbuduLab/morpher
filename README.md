@@ -24,4 +24,4 @@ WIP...
 
 ## License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%LinbuduLab%morpher.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%LinbuduLab%2Fmorpher?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FLinbuduLab%2Fmorpher.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FLinbuduLab%2Fmorpher?ref=badge_shield)

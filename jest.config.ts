@@ -14,7 +14,7 @@ export default {
   coverageReporters: ["json", "text", "lcov", "clover", "html"],
   maxWorkers: "50%",
   moduleDirectories: ["node_modules"],
-  moduleFileExtensions: ["js", "ts"],
+  moduleFileExtensions: ["ts"],
   projects: [
     "<rootDir>/packages/checker",
     "<rootDir>/packages/creator",

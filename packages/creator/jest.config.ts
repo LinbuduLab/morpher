@@ -4,7 +4,7 @@ export default {
     "^.+\\.ts$": "ts-jest",
   },
   collectCoverageFrom: ["/src/**/*"],
-  moduleFileExtensions: ["ts", "js"],
+  moduleFileExtensions: ["ts"],
   globals: { "ts-jest": { tsconfig: "<rootDir>/tsconfig.json" } },
   displayName: "creator",
 };
