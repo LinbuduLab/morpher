@@ -32,7 +32,7 @@ jobs:
 
       - name: Bootstrap
         run: |
-          lerna bootstrap
+          lerna bootstrap --no-ci --force-local
           lerna link
 
       - name: Build Project
