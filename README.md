@@ -1,15 +1,8 @@
 # Morpher
 
-WIP...
-
-## Packages Deps
-
-- checker -> helper & types
-- creator -> helper & types & checker
-- cleaner -> helper & types & checker
-- helper -> types & checker
-- modifier -> helper & types & checker
-- types
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/LinbuduLab/morpher/TSMorpher-CI)
+![Codecov](https://img.shields.io/codecov/c/github/LinbuduLab/morpher)
+![npm (scoped)](https://img.shields.io/npm/v/@ts-morpher/checker)
 
 ## Packages
 
@@ -21,3 +14,7 @@ WIP...
 | [modifier](packages/modifier) | ![modifier version](https://img.shields.io/npm/v/@ts-morpher/modifier.svg?label=%20) |
 | [creator](packages/creator)   | ![creator version](https://img.shields.io/npm/v/@ts-morpher/creator.svg?label=%20)   |
 | [helper](packages/helper)     | ![helper version](https://img.shields.io/npm/v/@ts-morpher/helper.svg?label=%20)     |
+
+## License
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FLinbuduLab%2Fmorpher.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FLinbuduLab%2Fmorpher?ref=badge_shield)

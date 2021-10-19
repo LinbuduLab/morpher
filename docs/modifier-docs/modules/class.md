@@ -37,7 +37,7 @@ Update base class decorator declaration structure
 
 #### Defined in
 
-[modifier/src/class.ts:174](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/class.ts#L174)
+[modifier/src/class.ts:174](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L174)
 
 ___
 
@@ -63,7 +63,7 @@ Update base class method declaration structure
 
 #### Defined in
 
-[modifier/src/class.ts:108](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/class.ts#L108)
+[modifier/src/class.ts:108](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L108)
 
 ___
 
@@ -89,7 +89,7 @@ Update base class prop declaration structure
 
 #### Defined in
 
-[modifier/src/class.ts:141](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/class.ts#L141)
+[modifier/src/class.ts:141](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L141)
 
 ___
 
@@ -114,7 +114,7 @@ Update base class structure
 
 #### Defined in
 
-[modifier/src/class.ts:84](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/class.ts#L84)
+[modifier/src/class.ts:84](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L84)
 
 ___
 
@@ -140,7 +140,7 @@ Update class decorator identifier
 
 #### Defined in
 
-[modifier/src/class.ts:50](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/class.ts#L50)
+[modifier/src/class.ts:50](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L50)
 
 ___
 
@@ -165,4 +165,4 @@ Update class identifier
 
 #### Defined in
 
-[modifier/src/class.ts:24](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/class.ts#L24)
+[modifier/src/class.ts:24](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L24)

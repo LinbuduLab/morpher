@@ -13348,7 +13348,7 @@ ts-jest@^27.0.5:
     semver "7.x"
     yargs-parser "20.x"
 
-ts-morph@^11.0.0, ts-morph@^11.0.3:
+ts-morph@^11.0.0:
   version "11.0.3"
   resolved "https://registry.nlark.com/ts-morph/download/ts-morph-11.0.3.tgz?cache=0&sync_timestamp=1627273331820&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fts-morph%2Fdownload%2Fts-morph-11.0.3.tgz#01a92b3c2b5a48ccdf318ec90864229b8061d056"
   integrity sha1-AakrPCtaSMzfMY7JCGQim4Bh0FY=

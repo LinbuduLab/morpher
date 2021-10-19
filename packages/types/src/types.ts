@@ -32,7 +32,7 @@ export interface ISharedTypeStructure {
   /**
    * {@link IGenericTypeParam}
    */
-  genericTypeParams?: IGenericTypeParam[];
+  typeParameters?: IGenericTypeParam[];
   isExported?: boolean;
   hasDeclareKeyword?: boolean;
 }

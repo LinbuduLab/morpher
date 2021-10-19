@@ -22,4 +22,4 @@ Class method param declaration structure
 
 #### Defined in
 
-[types.ts:78](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/types/src/types.ts#L78)
+[types.ts:78](https://github.com/linbudu599/morpher/blob/0f9496e/packages/types/src/types.ts#L78)

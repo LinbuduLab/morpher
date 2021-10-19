@@ -12,12 +12,15 @@
     "commit": "git add -A && git-cz",
     "pub:patch": "yarn build && lerna publish patch",
     "pub:minor": "yarn build && lerna publish minor",
+    "test:ci": "jest --no-cache --runInBand --logHeapUsage --config jest.ci-config.ts",
     "test": "jest",
     "build": "ultra -r --filter '@ts-morpher/*' --topology build",
     "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
     "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:gen": "ts-node scripts/docs-gen.ts",
+    "docs:build": "vuepress build docs",
+    "demo": "lerna exec yarn dev:import --scope @ts-morpher/example"
   },
   "dependencies": {
     "ts-morph": "^12.0.0"
