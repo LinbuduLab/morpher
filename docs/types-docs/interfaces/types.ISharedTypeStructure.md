@@ -22,4 +22,4 @@ Type alias structure
 
 #### Defined in
 
-[types.ts:35](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/types/src/types.ts#L35)
+[types.ts:35](https://github.com/linbudu599/morpher/blob/0f9496e/packages/types/src/types.ts#L35)

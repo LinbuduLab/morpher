@@ -1,8 +1,7 @@
 module.exports = {
-  title: "TSMorpher",
+  title: "Linubudlab:TSMorpher",
   logo: "/media/logo.jpeg",
-  description:
-    "Dead simple JavaScript/TypeScript AST utilities built on top of ts-morph",
+  description: "Dead simple TypeScript AST utilities built on top of ts-morph",
   themeConfig: {
     nav: [
       {

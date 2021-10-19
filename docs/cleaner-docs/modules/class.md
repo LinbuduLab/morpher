@@ -33,7 +33,7 @@ remove class declaration
 
 #### Defined in
 
-[class.ts:23](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/class.ts#L23)
+[class.ts:23](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L23)
 
 ___
 
@@ -58,7 +58,7 @@ Remove class decorator declarations
 
 #### Defined in
 
-[class.ts:101](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/class.ts#L101)
+[class.ts:101](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L101)
 
 ___
 
@@ -83,7 +83,7 @@ remove class method declaration
 
 #### Defined in
 
-[class.ts:45](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/class.ts#L45)
+[class.ts:45](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L45)
 
 ___
 
@@ -108,4 +108,4 @@ Remove class property declaration
 
 #### Defined in
 
-[class.ts:75](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/cleaner/src/class.ts#L75)
+[class.ts:75](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L75)

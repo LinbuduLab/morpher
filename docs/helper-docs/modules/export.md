@@ -33,7 +33,7 @@ Return all export var statementss identifiers.
 
 #### Defined in
 
-[export.ts:18](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L18)
+[export.ts:18](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L18)
 
 ___
 
@@ -55,7 +55,7 @@ Return all export statements, specify `varIdentifier` to return only matched
 
 #### Defined in
 
-[export.ts:30](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L30)
+[export.ts:30](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L30)
 
 ▸ **getExportVariableStatements**(`source`, `varIdentifier`): `VariableStatement`
 
@@ -74,7 +74,7 @@ Return all export statements, specify `varIdentifier` to return only matched
 
 #### Defined in
 
-[export.ts:40](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L40)
+[export.ts:40](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L40)
 
 ▸ **getExportVariableStatements**(`source`, `varIdentifier`): `VariableStatement`[]
 
@@ -93,7 +93,7 @@ Return all export statements, specify `varIdentifier` to return only matched
 
 #### Defined in
 
-[export.ts:51](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L51)
+[export.ts:51](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L51)
 
 ___
 
@@ -115,7 +115,7 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:151](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L151)
+[export.ts:151](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L151)
 
 ▸ **getInterfaceExportDeclaration**(`source`, `identifier`): `InterfaceDeclaration`
 
@@ -134,7 +134,7 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:160](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L160)
+[export.ts:160](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L160)
 
 ▸ **getInterfaceExportDeclaration**(`source`, `identifiers`): `InterfaceDeclaration`[]
 
@@ -153,7 +153,7 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:170](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L170)
+[export.ts:170](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L170)
 
 ___
 
@@ -175,7 +175,7 @@ Return all identifier of interface exported
 
 #### Defined in
 
-[export.ts:206](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L206)
+[export.ts:206](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L206)
 
 ___
 
@@ -197,7 +197,7 @@ Get exported TypeAliasDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:86](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L86)
+[export.ts:86](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L86)
 
 ▸ **getTypeExportDeclaration**(`source`, `identifier`): `TypeAliasDeclaration`
 
@@ -216,7 +216,7 @@ Get exported TypeAliasDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:95](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L95)
+[export.ts:95](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L95)
 
 ▸ **getTypeExportDeclaration**(`source`, `identifiers`): `TypeAliasDeclaration`[]
 
@@ -235,7 +235,7 @@ Get exported TypeAliasDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:105](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L105)
+[export.ts:105](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L105)
 
 ___
 
@@ -257,4 +257,4 @@ Return all identifier of type alias exported
 
 #### Defined in
 
-[export.ts:141](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/helper/src/export.ts#L141)
+[export.ts:141](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L141)

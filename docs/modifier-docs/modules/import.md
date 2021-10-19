@@ -35,7 +35,7 @@ Add new members to the namespace import
 
 #### Defined in
 
-[modifier/src/import.ts:56](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/import.ts#L56)
+[modifier/src/import.ts:56](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/import.ts#L56)
 
 ___
 
@@ -60,7 +60,7 @@ Remove members in the namespace import
 
 #### Defined in
 
-[modifier/src/import.ts:103](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/import.ts#L103)
+[modifier/src/import.ts:103](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/import.ts#L103)
 
 ___
 
@@ -85,7 +85,7 @@ Set import clause of default import directly
 
 #### Defined in
 
-[modifier/src/import.ts:172](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/import.ts#L172)
+[modifier/src/import.ts:172](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/import.ts#L172)
 
 ___
 
@@ -110,4 +110,4 @@ Set import clause of namespace import directly
 
 #### Defined in
 
-[modifier/src/import.ts:197](https://github.com/linbudu599/morpher/blob/e1b7ece/packages/modifier/src/import.ts#L197)
+[modifier/src/import.ts:197](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/import.ts#L197)
