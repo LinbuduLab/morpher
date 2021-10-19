@@ -1,4 +1,4 @@
-name: TSMorpher CI
+name: TSMorpher-CI
 
 on:
   push:

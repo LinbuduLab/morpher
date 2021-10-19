@@ -2,6 +2,8 @@
 
 WIP...
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/LinbuduLab/morpher/TSMorpher-CI)
+
 ## Packages Deps
 
 - checker -> helper & types
