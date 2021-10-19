@@ -29,10 +29,11 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn
+          yarn workspace info
 
       - name: Bootstrap
         run: |
-          lerna link --force-local
+          lerna link
 
       - name: Build Project
         run: yarn build
