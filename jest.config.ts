@@ -17,10 +17,10 @@ export default {
   moduleFileExtensions: ["js", "ts"],
   projects: [
     "<rootDir>/packages/checker",
-    "<rootDir>/packages/creator",
-    "<rootDir>/packages/cleaner",
-    "<rootDir>/packages/modifier",
-    "<rootDir>/packages/helper",
+    // "<rootDir>/packages/creator",
+    // "<rootDir>/packages/cleaner",
+    // "<rootDir>/packages/modifier",
+    // "<rootDir>/packages/helper",
   ],
   preset: "ts-jest",
   globals: {
