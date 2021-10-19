@@ -17,6 +17,7 @@
     "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
     "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check",
     "docs:dev": "vuepress dev docs",
+    "docs:gen": "ts-node scripts/docs-gen.ts",
     "docs:build": "vuepress build docs"
   },
   "dependencies": {

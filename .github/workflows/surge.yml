@@ -1,0 +1,30 @@
+name: Surge-Docs-Deploy
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  server-job:
+    strategy:
+      matrix:
+        node-version: [12.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm install surge -g
+      - name: Build Docs
+        run: npm run gen
+      - name: Deploy to Surge
+        run: surge docs ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
