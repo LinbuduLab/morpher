@@ -33,7 +33,7 @@ jobs:
       - name: Bootstrap
         run: |
           lerna bootstrap --no-ci --force-local --loglevel debug
-          lerna link
+          lerna link --force-local
 
       - name: Build Project
         run: yarn build
