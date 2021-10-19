@@ -19,7 +19,7 @@ export default {
     "<rootDir>/packages/checker",
     "<rootDir>/packages/creator",
     "<rootDir>/packages/cleaner",
-    // "<rootDir>/packages/modifier",
+    "<rootDir>/packages/modifier",
     // "<rootDir>/packages/helper",
   ],
   preset: "ts-jest",

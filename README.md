@@ -3,6 +3,8 @@
 WIP...
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/LinbuduLab/morpher/TSMorpher-CI)
+![Codecov](https://img.shields.io/codecov/c/github/LinbuduLab/morpher)
+![npm (scoped)](https://img.shields.io/npm/v/@ts-morpher/checker)
 
 ## Packages Deps
 
