@@ -11,6 +11,8 @@ import {
   getClassPropDeclarations,
   getClassPropIdentifiers,
   getClassPropModifiers,
+  getClassPropDecorators,
+  getClassMethodDecorators,
 } from "../src/class";
 
 const source = new Project().addSourceFileAtPath(
@@ -40,6 +42,24 @@ describe("package/helper-class", () => {
     expect(getClassPropDeclarations(source, "Fo1")).toEqual([]);
     expect(getClassPropDeclarations(source, "Foo", "prop1")).toBeDefined();
     expect(getClassPropDeclarations(source, "Foo", "prop599")).toBeUndefined();
+
+    expect(getClassPropDecorators(source, "Foo", "prop1").length).toBe(1);
+    expect(getClassPropDecorators(source, "Foo", "prop1")[0].getName()).toBe(
+      "propDeco"
+    );
+    expect(getClassPropDecorators(source, "Foo", "prop2")).toEqual([]);
+    expect(
+      getClassPropDecorators(source, "Foo", "prop1", "propDeco")
+    ).toBeDefined();
+
+    expect(getClassMethodDecorators(source, "Foo", "method1").length).toBe(1);
+    expect(
+      getClassMethodDecorators(source, "Foo", "method1")[0].getName()
+    ).toBe("methodDeco");
+    expect(getClassMethodDecorators(source, "Foo", "method2")).toEqual([]);
+    expect(
+      getClassMethodDecorators(source, "Foo", "method1", "methodDeco")
+    ).toBeDefined();
   });
 
   it("should return identifiers", () => {
@@ -120,5 +140,30 @@ describe("package/helper-class", () => {
 
     expect(getClassDecorators(source, "Foo1")).toEqual([]);
     expect(getClassDecorators(source, "Foo1", "Deco11")).toBeUndefined();
+
+    expect(
+      getClassPropDecorators(source, "Foo1", "prop1", "deco1")
+    ).toBeUndefined();
+    expect(
+      getClassPropDecorators(source, "Foo", "prop1111", "deco1")
+    ).toBeUndefined();
+    expect(getClassPropDecorators(source, "Foo1", "prop")).toEqual([]);
+    expect(getClassPropDecorators(source, "Foo1", "prop111")).toEqual([]);
+    expect(
+      getClassPropDecorators(source, "Foo1", "prop1", "deco1111")
+    ).toBeUndefined();
+
+    expect(
+      getClassMethodDecorators(source, "Foo1", "method1", "deco1")
+    ).toBeUndefined();
+
+    expect(getClassMethodDecorators(source, "Foo", "method111")).toEqual([]);
+    expect(getClassMethodDecorators(source, "Foo1", "method111")).toEqual([]);
+    expect(
+      getClassMethodDecorators(source, "Foo1", "method111", "deco111")
+    ).toBeUndefined();
+    expect(
+      getClassMethodDecorators(source, "Foo", "method111", "deco1111")
+    ).toBeUndefined();
   });
 });

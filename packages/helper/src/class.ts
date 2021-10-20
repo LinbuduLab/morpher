@@ -120,6 +120,62 @@ export function getClassMethodIdentifiers(
 }
 
 /**
+ * Return class method decorators, specify decorator name to return only matched.
+ * @param source
+ * @param className
+ * @param methodName
+ */
+export function getClassMethodDecorators(
+  source: SourceFile,
+  className: string,
+  methodName: string
+): Decorator[];
+
+/**
+ * Return class method decorators, specify decorator name to return only matched.
+ * @param source
+ * @param className
+ * @param methodName
+ * @param decoratorName
+ */
+export function getClassMethodDecorators(
+  source: SourceFile,
+  className: string,
+  methodName: string,
+  decoratorName: string
+): Decorator | undefined;
+
+/**
+ * Return class method decorators, specify decorator name to return only matched.
+ * @param source
+ * @param className
+ * @param methodName
+ * @param decoratorName
+ */
+export function getClassMethodDecorators(
+  source: SourceFile,
+  className: string,
+  methodName: string,
+  decoratorName?: string
+): MaybeArray<Decorator> | undefined {
+  const targetMethod = getClassMethodDeclarations(
+    source,
+    className,
+    methodName
+  );
+
+  if (!targetMethod) {
+    return decoratorName ? undefined : [];
+  }
+
+  const decorators = targetMethod.getDecorators();
+
+  return decoratorName
+    ? decorators.find((deco) => deco.getName() === decoratorName)
+    : decorators;
+}
+
+/**
  * Return all prop declarations of target class
  * specify `propName` to return only matched one.
  * @param source
@@ -183,6 +239,58 @@ export function getClassPropIdentifiers(
   className: string
 ): string[] | undefined {
   return getClassPropDeclarations(source, className).map((p) => p.getName());
+}
+
+/**
+ * Return class prop decorators, specify decorator name to return only matched.
+ * @param source
+ * @param className
+ * @param propName
+ */
+export function getClassPropDecorators(
+  source: SourceFile,
+  className: string,
+  propName: string
+): Decorator[];
+
+/**
+ * Return class prop decorators, specify decorator name to return only matched.
+ * @param source
+ * @param className
+ * @param propName
+ * @param decoratorName
+ */
+export function getClassPropDecorators(
+  source: SourceFile,
+  className: string,
+  propName: string,
+  decoratorName: string
+): Decorator | undefined;
+
+/**
+ * Return class prop decorators, specify decorator name to return only matched.
+ * @param source
+ * @param className
+ * @param propName
+ * @param decoratorName
+ */
+export function getClassPropDecorators(
+  source: SourceFile,
+  className: string,
+  propName: string,
+  decoratorName?: string
+): MaybeArray<Decorator> | undefined {
+  const targetProp = getClassPropDeclarations(source, className, propName);
+
+  if (!targetProp) {
+    return decoratorName ? undefined : [];
+  }
+
+  const decorators = targetProp.getDecorators();
+
+  return decoratorName
+    ? decorators.find((deco) => deco.getName() === decoratorName)
+    : decorators;
 }
 
 /**

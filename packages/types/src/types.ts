@@ -71,6 +71,7 @@ export interface IBaseMethodParamStruct {
   hasOverrideKeyword?: boolean;
   initializer?: string | WriterFunction;
   isRestParameter?: boolean;
+  statements: string | WriterFunction | (string | WriterFunction)[];
   scope?: Scope;
   /**
    * {@link IBaseDecoratorStruct}

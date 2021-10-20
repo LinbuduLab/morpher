@@ -12,7 +12,7 @@ export default {
     },
   },
   coverageReporters: ["json", "text", "lcov", "clover", "html"],
-  maxWorkers: "40%",
+  maxWorkers: "80%",
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js", "ts"],
   projects: [
