@@ -27,21 +27,23 @@
 
 ▸ **getDefaultImportDeclarations**(`source`): `ImportDeclaration`[]
 
-Return all default import declarations
+Return all default import declarations.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `ImportDeclaration`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:195](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L195)
+[import.ts:210](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L210)
 
 ___
 
@@ -63,7 +65,7 @@ Return all default import declarations module specifier
 
 #### Defined in
 
-[import.ts:210](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L210)
+[import.ts:225](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L225)
 
 ___
 
@@ -75,19 +77,19 @@ Return all import declarations, specify `moduleSpecifier` to return only matched
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `ImportDeclaration`[]
 
-ImportDeclaration | ImportDeclaration[] | undefined
+ImportDeclaration {@link ImportDeclaration}
 
 #### Defined in
 
-[import.ts:11](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L11)
+[import.ts:11](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L11)
 
 ▸ **getImportDeclarations**(`source`, `moduleSpecifier`): `ImportDeclaration` \| `undefined`
 
@@ -95,20 +97,20 @@ Return all import declarations, specify `moduleSpecifier` to return only matched
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `moduleSpecifier` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `moduleSpecifier` | `string` |  |
 
 #### Returns
 
 `ImportDeclaration` \| `undefined`
 
-ImportDeclaration | ImportDeclaration[] | undefined
+ImportDeclaration {@link ImportDeclaration}
 
 #### Defined in
 
-[import.ts:19](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L19)
+[import.ts:19](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L19)
 
 ▸ **getImportDeclarations**(`source`, `moduleSpecifier`): `ImportDeclaration`[]
 
@@ -116,20 +118,20 @@ Return all import declarations, specify `moduleSpecifier` to return only matched
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `moduleSpecifier` | `string`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `moduleSpecifier` | `string`[] |  |
 
 #### Returns
 
 `ImportDeclaration`[]
 
-ImportDeclaration | ImportDeclaration[] | undefined
+ImportDeclaration {@link ImportDeclaration}
 
 #### Defined in
 
-[import.ts:30](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L30)
+[import.ts:30](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L30)
 
 ___
 
@@ -141,9 +143,9 @@ Return all import module specifiers.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -153,7 +155,7 @@ string[]
 
 #### Defined in
 
-[import.ts:73](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L73)
+[import.ts:73](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L73)
 
 ___
 
@@ -161,21 +163,23 @@ ___
 
 ▸ **getNamedImportDeclarations**(`source`): `ImportDeclaration`[]
 
-Return all named import declarations
+Return all named import declarations.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `ImportDeclaration`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:139](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L139)
+[import.ts:154](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L154)
 
 ___
 
@@ -183,13 +187,13 @@ ___
 
 ▸ **getNamedImportModuleSpecifiers**(`source`): `string`[]
 
-Return all named import declarations module specifier
+Return all named import declarations module specifier.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -197,7 +201,7 @@ Return all named import declarations module specifier
 
 #### Defined in
 
-[import.ts:154](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L154)
+[import.ts:169](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L169)
 
 ___
 
@@ -205,21 +209,23 @@ ___
 
 ▸ **getNamespaceImportDeclarations**(`source`): `ImportDeclaration`[]
 
-Return all namespace import declarations
+Return all namespace import declarations.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `ImportDeclaration`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:165](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L165)
+[import.ts:180](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L180)
 
 ___
 
@@ -227,21 +233,23 @@ ___
 
 ▸ **getNamespaceImportModuleSpecifiers**(`source`): `string`[]
 
-Return all namespace import declarations module specifier
+Return all namespace import declarations module specifier.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `string`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:180](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L180)
+[import.ts:195](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L195)
 
 ___
 
@@ -253,9 +261,9 @@ Return all built-in module import declarations
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -263,7 +271,7 @@ Return all built-in module import declarations
 
 #### Defined in
 
-[import.ts:221](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L221)
+[import.ts:236](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L236)
 
 ___
 
@@ -275,9 +283,9 @@ Return all built-in module import module specifiers
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -285,7 +293,7 @@ Return all built-in module import module specifiers
 
 #### Defined in
 
-[import.ts:232](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L232)
+[import.ts:247](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L247)
 
 ___
 
@@ -297,17 +305,19 @@ Return all non-built-in module import declarations
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `ImportDeclaration`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:245](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L245)
+[import.ts:262](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L262)
 
 ___
 
@@ -315,13 +325,13 @@ ___
 
 ▸ **getNodeModuleImportModuleSpecifiers**(`source`): `string`[]
 
-Return all non-built-in module import module specifiers
+Return all non-built-in module import module specifiers.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -329,7 +339,7 @@ Return all non-built-in module import module specifiers
 
 #### Defined in
 
-[import.ts:256](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L256)
+[import.ts:274](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L274)
 
 ___
 
@@ -341,55 +351,61 @@ Return all type-only import declarations
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `ImportDeclaration`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:83](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L83)
+[import.ts:84](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L84)
 
 ▸ **getTypeOnlyImportDeclarations**(`source`, `moduleSpecifier`): `ImportDeclaration` \| `undefined`
 
-Return type-only import declarations, specify `identifier` to return only matched
+Return type-only import declarations, specify `identifier` to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `moduleSpecifier` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `moduleSpecifier` | `string` |  |
 
 #### Returns
 
 `ImportDeclaration` \| `undefined`
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:87](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L87)
+[import.ts:94](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L94)
 
 ▸ **getTypeOnlyImportDeclarations**(`source`, `moduleSpecifiers`): `ImportDeclaration`[]
 
-Return type-only import declarations, specify `identifier` to return only matched
+Return type-only import declarations, specify `identifier` to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `moduleSpecifiers` | `string`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `moduleSpecifiers` | `string`[] | - |
 
 #### Returns
 
 `ImportDeclaration`[]
 
+ImportDeclaration {@link ImportDeclaration}
+
 #### Defined in
 
-[import.ts:92](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L92)
+[import.ts:105](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L105)
 
 ___
 
@@ -401,9 +417,9 @@ Return all type-only import module specifiers.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -411,4 +427,4 @@ Return all type-only import module specifiers.
 
 #### Defined in
 
-[import.ts:124](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/import.ts#L124)
+[import.ts:139](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/import.ts#L139)

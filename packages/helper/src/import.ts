@@ -4,17 +4,17 @@ import { getDeclarationIdentifierByKind, MaybeArray, uniqArray } from "./util";
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
- * @param source
+ * @param source SourceFile
  * @param moduleSpecifier
- * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getImportDeclarations(source: SourceFile): ImportDeclaration[];
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
- * @param source
+ * @param source SourceFile
  * @param moduleSpecifier
- * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getImportDeclarations(
   source: SourceFile,
@@ -23,9 +23,9 @@ export function getImportDeclarations(
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
- * @param source
+ * @param source SourceFile
  * @param moduleSpecifier
- * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getImportDeclarations(
   source: SourceFile,
@@ -34,9 +34,9 @@ export function getImportDeclarations(
 
 /**
  * Return all import declarations, specify `moduleSpecifier` to return only matched.
- * @param source
+ * @param source SourceFile
  * @param moduleSpecifier
- * @returns ImportDeclaration | ImportDeclaration[] | undefined
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getImportDeclarations(
   source: SourceFile,
@@ -67,7 +67,7 @@ export function getImportDeclarations(
 
 /**
  * Return all import module specifiers.
- * @param source
+ * @param source SourceFile
  * @returns string[]
  */
 export function getImportModuleSpecifiers(source: SourceFile): string[] {
@@ -78,25 +78,40 @@ export function getImportModuleSpecifiers(source: SourceFile): string[] {
 
 /**
  * Return all type-only import declarations
- * @param source
+ * @param source SourceFile
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getTypeOnlyImportDeclarations(
   source: SourceFile
 ): ImportDeclaration[];
 
+/**
+ * Return type-only import declarations, specify `identifier` to return only matched.
+ * @param source SourceFile
+ * @param moduleSpecifier
+ * @returns ImportDeclaration {@link ImportDeclaration}
+ */
 export function getTypeOnlyImportDeclarations(
   source: SourceFile,
   moduleSpecifier: string
 ): ImportDeclaration | undefined;
 
+/**
+ * Return type-only import declarations, specify `identifier` to return only matched.
+ * @param source SourceFile
+ * @param moduleSpecifier
+ * @returns ImportDeclaration {@link ImportDeclaration}
+ */
 export function getTypeOnlyImportDeclarations(
   source: SourceFile,
   moduleSpecifiers: string[]
 ): ImportDeclaration[];
 
 /**
- * Return type-only import declarations, specify `identifier` to return only matched
- * @param source
+ * Return type-only import declarations, specify `identifier` to return only matched.
+ * @param source SourceFile
+ * @param moduleSpecifier
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getTypeOnlyImportDeclarations(
   source: SourceFile,
@@ -119,7 +134,7 @@ export function getTypeOnlyImportDeclarations(
 
 /**
  * Return all type-only import module specifiers.
- * @param source
+ * @param source SourceFile
  */
 export function getTypeOnlyImportModuleSpecifiers(
   source: SourceFile
@@ -132,9 +147,9 @@ export function getTypeOnlyImportModuleSpecifiers(
 }
 
 /**
- * Return all named import declarations
- * @param source
- * @returns
+ * Return all named import declarations.
+ * @param source SourceFile
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getNamedImportDeclarations(
   source: SourceFile
@@ -147,8 +162,8 @@ export function getNamedImportDeclarations(
 }
 
 /**
- * Return all named import declarations module specifier
- * @param source
+ * Return all named import declarations module specifier.
+ * @param source SourceFile
  * @returns
  */
 export function getNamedImportModuleSpecifiers(source: SourceFile): string[] {
@@ -158,9 +173,9 @@ export function getNamedImportModuleSpecifiers(source: SourceFile): string[] {
 }
 
 /**
- * Return all namespace import declarations
- * @param source
- * @returns
+ * Return all namespace import declarations.
+ * @param source SourceFile
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getNamespaceImportDeclarations(
   source: SourceFile
@@ -173,9 +188,9 @@ export function getNamespaceImportDeclarations(
 }
 
 /**
- * Return all namespace import declarations module specifier
- * @param source
- * @returns
+ * Return all namespace import declarations module specifier.
+ * @param source SourceFile
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getNamespaceImportModuleSpecifiers(
   source: SourceFile
@@ -188,9 +203,9 @@ export function getNamespaceImportModuleSpecifiers(
 }
 
 /**
- * Return all default import declarations
- * @param source
- * @returns
+ * Return all default import declarations.
+ * @param source SourceFile
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
 export function getDefaultImportDeclarations(
   source: SourceFile
@@ -215,7 +230,7 @@ export function getDefaultImportModuleSpecifiers(source: SourceFile): string[] {
 
 /**
  * Return all built-in module import declarations
- * @param source
+ * @param source SourceFile
  * @returns
  */
 export function getNodeInternalImportDeclarations(source: SourceFile) {
@@ -226,10 +241,12 @@ export function getNodeInternalImportDeclarations(source: SourceFile) {
 
 /**
  * Return all built-in module import module specifiers
- * @param source
+ * @param source SourceFile
  * @returns
  */
-export function getNodeInternalImportModuleSpecifiers(source: SourceFile) {
+export function getNodeInternalImportModuleSpecifiers(
+  source: SourceFile
+): string[] {
   return uniqArray(
     getImportModuleSpecifiers(source).filter((spc) =>
       builtinModules.includes(spc)
@@ -239,21 +256,24 @@ export function getNodeInternalImportModuleSpecifiers(source: SourceFile) {
 
 /**
  * Return all non-built-in module import declarations
- * @param source
- * @returns
+ * @param source SourceFile
+ * @returns ImportDeclaration {@link ImportDeclaration}
  */
-export function getNodeModuleImportDeclarations(source: SourceFile) {
+export function getNodeModuleImportDeclarations(
+  source: SourceFile
+): ImportDeclaration[] {
   return getImportDeclarations(source).filter(
     (i) => !builtinModules.includes(i.getModuleSpecifierValue())
   );
 }
 
 /**
- * Return all non-built-in module import module specifiers
- * @param source
- * @returns
+ * Return all non-built-in module import module specifiers.
+ * @param source SourceFile
  */
-export function getNodeModuleImportModuleSpecifiers(source: SourceFile) {
+export function getNodeModuleImportModuleSpecifiers(
+  source: SourceFile
+): string[] {
   return uniqArray(
     getImportModuleSpecifiers(source).filter(
       (spc) => !builtinModules.includes(spc)

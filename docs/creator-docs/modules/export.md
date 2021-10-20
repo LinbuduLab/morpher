@@ -20,7 +20,7 @@ Create base interface export
 
 **`example`**
 ```typescript
-createBaseInterfaceExport(
+ createBaseInterfaceExport(
 source,
 "Foo",
 ["Bar", "Baz"],
@@ -73,7 +73,7 @@ other: T;
 | `identifier` | `string` | `undefined` |  |
 | `interfaceExtends` | `string`[] | `[]` | extra interfaces to extend |
 | `indexSignatures` | `IInterfaceIndexSignature`[] | `[]` | {@link IInterfaceIndexSignature} specify index-signatures like [key:string]: any |
-| `properties` | `IInterfaceProperty`[] | `[]` | {@link IInterfaceProperty} interface properties |
+| `properties` | `IInterfaceProperty`[] | `[]` | {@link IInterfaceProperty} interface properties structure |
 | `genericTypeParams` | (`string` \| `IGenericTypeParam`)[] | `[]` | {@link IGenericTypeParam} generic type params to use in interface |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -83,7 +83,7 @@ other: T;
 
 #### Defined in
 
-[export.ts:136](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/export.ts#L136)
+[export.ts:136](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/export.ts#L136)
 
 ___
 
@@ -91,9 +91,10 @@ ___
 
 ▸ **createBaseTypeExport**(`source`, `identifier`, `typeInitializer`, `genericTypeParams?`, `apply?`): `void`
 
-Create base type alias export
+Create type alias export from base structure.
 
 **`example`**
+```typescript
 createBaseTypeExport(source, "Foo", "Record<T, unknown>", [
 {
 name: "T",
@@ -103,46 +104,20 @@ constraint: "string",
 ]);
 
 // create following statement:
-
 export type Foo<T extends string = "default_string_literal"> = Record<
 T,
 unknown
 >;
+```
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
-| `identifier` | `string` | `undefined` |  |
-| `typeInitializer` | `string` \| `WriterFunction` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `identifier` | `string` | `undefined` | 'Foo' in `export type Foo = string` |
+| `typeInitializer` | `string` \| `WriterFunction` | `undefined` | 'string' in `export type Foo = string` |
 | `genericTypeParams?` | (`string` \| `IGenericTypeParam`)[] | `undefined` | {@link IGenericTypeParam} |
-| `apply` | `boolean` | `true` |  |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[export.ts:62](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/export.ts#L62)
-
-___
-
-### createBaseVariableExport
-
-▸ **createBaseVariableExport**(`source`, `identifier`, `initializer`, `kind`, `apply?`): `void`
-
-Create a base export variable statement
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
-| `identifier` | `string` | `undefined` | variable identifier, foo in export const foo = 'bar' |
-| `initializer` | `string` \| `WriterFunction` | `undefined` | initializer, bar in export const foo = 'bar' |
-| `kind` | `VariableDeclarationKind` | `undefined` | declaration kind |
 | `apply` | `boolean` | `true` | save source file |
 
 #### Returns
@@ -151,4 +126,30 @@ Create a base export variable statement
 
 #### Defined in
 
-[export.ts:17](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/export.ts#L17)
+[export.ts:62](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/export.ts#L62)
+
+___
+
+### createBaseVariableExport
+
+▸ **createBaseVariableExport**(`source`, `identifier`, `initializer`, `kind`, `apply?`): `void`
+
+Create export variable statement from base structure.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `identifier` | `string` | `undefined` | variable identifier, 'foo' in `export const foo = 'bar'` |
+| `initializer` | `string` \| `WriterFunction` | `undefined` | initializer, 'bar' in `export const foo = 'bar'` |
+| `kind` | `VariableDeclarationKind` | `undefined` | declaration kind {@link VariableDeclarationKind} |
+| `apply` | `boolean` | `true` | save source file |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[export.ts:17](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/export.ts#L17)

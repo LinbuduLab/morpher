@@ -45,8 +45,8 @@ import { ImportType } from "@ts-morpher/types";
 // }
 
 /**
- * Add new members to the namespace import
- * @param source
+ * Add new members to the namespace import.
+ * @param source SourceFile
  * @param importSpec namespace import specifier
  * @param members import clause members to add
  * @param createOnInexist create a namespace import declaration when target import not found
@@ -93,8 +93,8 @@ export function addNamedImportMembers(
 }
 
 /**
- * Remove members in the namespace import
- * @param source
+ * Remove members in the namespace import.
+ * @param source SourceFile
  * @param importSpec namespace import specifier
  * @param members import clause members to remove
  * @param apply save source file
@@ -137,8 +137,8 @@ export function removeNamedImportMembers(
 }
 
 /**
- *
- * @param source
+ * Update import module specifier.
+ * @param source SourceFile
  * @param moduleSpecifier import specifier
  * @param updatedModuleSpecifier updated import specifier
  * @param apply save source file
@@ -162,8 +162,8 @@ export function updateImportSpecifier(
 }
 
 /**
- * Set import clause of default import directly
- * @param source
+ * Set import clause of default import directly.
+ * @param source SourceFile
  * @param specifier import specifier
  * @param updatedClause import clause to set
  * @param apply save source file
@@ -187,8 +187,8 @@ export function updateDefaultImportClause(
 }
 
 /**
- * Set import clause of namespace import directly
- * @param source
+ * Set import clause of namespace import directly.
+ * @param source SourceFile
  * @param specifier import specifier
  * @param updatedNamespace import clause to set
  * @param apply save source file

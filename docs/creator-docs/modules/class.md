@@ -17,13 +17,13 @@
 
 ▸ **createBaseClass**(`source`, `baseClassStruct`, `apply?`): `void`
 
-Create base class structure
+Create class declaration from base structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `baseClassStruct` | `IBaseClassStructure` | `undefined` | {@link IBaseClassStructure} |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -33,7 +33,7 @@ Create base class structure
 
 #### Defined in
 
-[class.ts:24](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/class.ts#L24)
+[class.ts:24](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/class.ts#L24)
 
 ___
 
@@ -41,16 +41,16 @@ ___
 
 ▸ **createBaseClassDecorator**(`source`, `className`, `baseDecoratorStruct`, `apply?`): `void`
 
-Create decorator declaration target class
+Create decorator declaration for target class, from base structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `className` | `string` | `undefined` |  |
 | `baseDecoratorStruct` | `IBaseDecoratorStruct` | `undefined` | {@link IBaseDecoratorStruct} |
-| `apply` | `boolean` | `true` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -58,7 +58,7 @@ Create decorator declaration target class
 
 #### Defined in
 
-[class.ts:109](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/class.ts#L109)
+[class.ts:109](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/class.ts#L109)
 
 ___
 
@@ -66,13 +66,13 @@ ___
 
 ▸ **createBaseClassMethod**(`source`, `className`, `baseMethodStruct`, `apply?`): `void`
 
-Create method declaration for target class
+Create method declaration for target class, from base structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `className` | `string` | `undefined` |  |
 | `baseMethodStruct` | `IBaseMethodStruct` | `undefined` | {@link IBaseMethodStruct} |
 | `apply` | `boolean` | `true` | save source file |
@@ -83,7 +83,7 @@ Create method declaration for target class
 
 #### Defined in
 
-[class.ts:51](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/class.ts#L51)
+[class.ts:51](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/class.ts#L51)
 
 ___
 
@@ -91,13 +91,13 @@ ___
 
 ▸ **createBaseClassProp**(`source`, `className`, `basePropStruct`, `apply?`): `void`
 
-Create prop declaration for target class
+Create prop declaration for target class, from base structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `className` | `string` | `undefined` |  |
 | `basePropStruct` | `IBasePropStruct` | `undefined` | {@link IBasePropStruct} |
 | `apply` | `boolean` | `true` | save source file |
@@ -108,4 +108,4 @@ Create prop declaration for target class
 
 #### Defined in
 
-[class.ts:80](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/class.ts#L80)
+[class.ts:80](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/class.ts#L80)

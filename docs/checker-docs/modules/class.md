@@ -20,16 +20,16 @@
 
 ### checkClassExistInSourceFile
 
-▸ **checkClassExistInSourceFile**(`source`, `className`): `boolean`
+▸ **checkClassExistInSourceFile**(`source`, `classIdentifier`): `boolean`
 
-Check does class exist in source file
+Check does class declaration exist in source file by class identifier.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `classIdentifier` | `string` |  |
 
 #### Returns
 
@@ -37,7 +37,7 @@ Check does class exist in source file
 
 #### Defined in
 
-[class.ts:29](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L29)
+[class.ts:29](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L29)
 
 ___
 
@@ -45,14 +45,14 @@ ___
 
 ▸ **checkClassHasDecorators**(`source`, `className`): `boolean`
 
-Check class has decorator
+Check class has decorator defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `className` | `string` |  |
 
 #### Returns
 
@@ -60,7 +60,7 @@ Check class has decorator
 
 #### Defined in
 
-[class.ts:112](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L112)
+[class.ts:112](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L112)
 
 ___
 
@@ -68,14 +68,14 @@ ___
 
 ▸ **checkClassHasMethods**(`source`, `className`): `boolean`
 
-Check class has method member
+Check does class has method defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `className` | `string` |  |
 
 #### Returns
 
@@ -83,7 +83,7 @@ Check class has method member
 
 #### Defined in
 
-[class.ts:89](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L89)
+[class.ts:89](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L89)
 
 ___
 
@@ -91,14 +91,14 @@ ___
 
 ▸ **checkClassHasProps**(`source`, `prop`): `boolean`
 
-Check class has prop member
+Check class has prop defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `prop` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `prop` | `string` |  |
 
 #### Returns
 
@@ -106,7 +106,7 @@ Check class has prop member
 
 #### Defined in
 
-[class.ts:102](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L102)
+[class.ts:102](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L102)
 
 ___
 
@@ -114,15 +114,15 @@ ___
 
 ▸ **checkDecoratorExistInClass**(`source`, `className`, `decoratorName`): `boolean`
 
-Check prop exist in class declaration
+Check does decorator exist in class.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
-| `decoratorName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `className` | `string` |  |
+| `decoratorName` | `string` |  |
 
 #### Returns
 
@@ -130,7 +130,7 @@ Check prop exist in class declaration
 
 #### Defined in
 
-[class.ts:73](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L73)
+[class.ts:73](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L73)
 
 ___
 
@@ -138,15 +138,15 @@ ___
 
 ▸ **checkIsDecoratorFactory**(`source`, `className`, `decoratorName`): `boolean`
 
-Check is decorator factory (`@Foo()`)
+Check is a decorator factory (`@Foo()`)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
-| `decoratorName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `className` | `string` |  |
+| `decoratorName` | `string` |  |
 
 #### Returns
 
@@ -154,7 +154,7 @@ Check is decorator factory (`@Foo()`)
 
 #### Defined in
 
-[class.ts:126](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L126)
+[class.ts:126](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L126)
 
 ___
 
@@ -162,15 +162,15 @@ ___
 
 ▸ **checkMethodExistInClass**(`source`, `className`, `methodName`): `boolean`
 
-Check method exist in class declaration
+Check does method exist in class declaration.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
-| `methodName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `className` | `string` |  |
+| `methodName` | `string` |  |
 
 #### Returns
 
@@ -178,23 +178,23 @@ Check method exist in class declaration
 
 #### Defined in
 
-[class.ts:43](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L43)
+[class.ts:43](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L43)
 
 ___
 
 ### checkPropExistInClass
 
-▸ **checkPropExistInClass**(`source`, `className`, `prop`): `boolean`
+▸ **checkPropExistInClass**(`source`, `className`, `propName`): `boolean`
 
-Check prop exist in class declaration
+Check does prop exist in class.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `className` | `string` |
-| `prop` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `className` | `string` |  |
+| `propName` | `string` |  |
 
 #### Returns
 
@@ -202,7 +202,7 @@ Check prop exist in class declaration
 
 #### Defined in
 
-[class.ts:58](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L58)
+[class.ts:58](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L58)
 
 ___
 
@@ -210,13 +210,13 @@ ___
 
 ▸ **checkSourceFileHasClass**(`source`): `boolean`
 
-Check is there class defined in source file
+Check source file has class declarations exist.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -224,4 +224,4 @@ Check is there class defined in source file
 
 #### Defined in
 
-[class.ts:19](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/class.ts#L19)
+[class.ts:19](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/class.ts#L19)

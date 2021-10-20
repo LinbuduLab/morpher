@@ -23,9 +23,9 @@ Return all export var statementss identifiers.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -33,7 +33,7 @@ Return all export var statementss identifiers.
 
 #### Defined in
 
-[export.ts:18](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L18)
+[export.ts:18](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L18)
 
 ___
 
@@ -41,59 +41,65 @@ ___
 
 ▸ **getExportVariableStatements**(`source`): `VariableStatement`[]
 
-Return all export statements, specify `varIdentifier` to return only matched
+Return all export statements, specify `varIdentifier` to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `VariableStatement`[]
 
+VariableStatement {@link VariableStatement}
+
 #### Defined in
 
-[export.ts:30](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L30)
+[export.ts:29](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L29)
 
-▸ **getExportVariableStatements**(`source`, `varIdentifier`): `VariableStatement`
+▸ **getExportVariableStatements**(`source`, `varIdentifier`): `VariableStatement` \| `undefined`
 
-Return all export statements, specify `varIdentifier` to return only matched
+Return all export statements, specify `varIdentifier` to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `varIdentifier` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `varIdentifier` | `string` |  |
 
 #### Returns
 
-`VariableStatement`
+`VariableStatement` \| `undefined`
+
+VariableStatement {@link VariableStatement}
 
 #### Defined in
 
-[export.ts:40](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L40)
+[export.ts:39](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L39)
 
 ▸ **getExportVariableStatements**(`source`, `varIdentifier`): `VariableStatement`[]
 
-Return all export statements, specify `varIdentifier` to return only matched
+Return all export statements, specify `varIdentifier` to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `varIdentifier` | `string`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `varIdentifier` | `string`[] |  |
 
 #### Returns
 
 `VariableStatement`[]
 
+VariableStatement {@link VariableStatement}
+
 #### Defined in
 
-[export.ts:51](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L51)
+[export.ts:50](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L50)
 
 ___
 
@@ -105,9 +111,9 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -115,7 +121,7 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:151](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L151)
+[export.ts:154](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L154)
 
 ▸ **getInterfaceExportDeclaration**(`source`, `identifier`): `InterfaceDeclaration`
 
@@ -125,8 +131,8 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
-| `identifier` | `string` | 'Foo' in export interface Foo {}; |
+| `source` | `SourceFile` | SourceFile |
+| `identifier` | `string` | 'Foo' in `export interface Foo {};` |
 
 #### Returns
 
@@ -134,7 +140,7 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:160](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L160)
+[export.ts:163](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L163)
 
 ▸ **getInterfaceExportDeclaration**(`source`, `identifiers`): `InterfaceDeclaration`[]
 
@@ -142,10 +148,10 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `identifiers` | `string`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `identifiers` | `string`[] | - |
 
 #### Returns
 
@@ -153,7 +159,7 @@ Get exported InterfaceDeclaration, specify identifier to return only matched.
 
 #### Defined in
 
-[export.ts:170](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L170)
+[export.ts:173](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L173)
 
 ___
 
@@ -161,13 +167,13 @@ ___
 
 ▸ **getInterfaceExportIdentifiers**(`source`): `string`[]
 
-Return all identifier of interface exported
+Return all identifier of interface exported.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -175,7 +181,7 @@ Return all identifier of interface exported
 
 #### Defined in
 
-[export.ts:206](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L206)
+[export.ts:209](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L209)
 
 ___
 
@@ -187,17 +193,19 @@ Get exported TypeAliasDeclaration, specify identifier to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
 `TypeAliasDeclaration`[]
 
+TypeAliasDeclaration {@link TypeAliasDeclaration}
+
 #### Defined in
 
-[export.ts:86](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L86)
+[export.ts:86](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L86)
 
 ▸ **getTypeExportDeclaration**(`source`, `identifier`): `TypeAliasDeclaration`
 
@@ -207,16 +215,18 @@ Get exported TypeAliasDeclaration, specify identifier to return only matched.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | `string` | 'Foo' in export type Foo = string; |
 
 #### Returns
 
 `TypeAliasDeclaration`
 
+TypeAliasDeclaration {@link TypeAliasDeclaration}
+
 #### Defined in
 
-[export.ts:95](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L95)
+[export.ts:96](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L96)
 
 ▸ **getTypeExportDeclaration**(`source`, `identifiers`): `TypeAliasDeclaration`[]
 
@@ -224,18 +234,20 @@ Get exported TypeAliasDeclaration, specify identifier to return only matched.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `identifiers` | `string`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `identifiers` | `string`[] | - |
 
 #### Returns
 
 `TypeAliasDeclaration`[]
 
+TypeAliasDeclaration {@link TypeAliasDeclaration}
+
 #### Defined in
 
-[export.ts:105](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L105)
+[export.ts:107](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L107)
 
 ___
 
@@ -243,13 +255,13 @@ ___
 
 ▸ **getTypeExportIdentifiers**(`source`): `string`[]
 
-Return all identifier of type alias exported
+Return all identifier of type alias exported.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -257,4 +269,4 @@ Return all identifier of type alias exported
 
 #### Defined in
 
-[export.ts:141](https://github.com/linbudu599/morpher/blob/0f9496e/packages/helper/src/export.ts#L141)
+[export.ts:144](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/export.ts#L144)

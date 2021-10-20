@@ -16,19 +16,75 @@ Basic type alias structure
 
 ### Properties
 
-- [genericTypeParams](export.IBaseTypeAliasStructure.md#generictypeparams)
+- [hasDeclareKeyword](export.IBaseTypeAliasStructure.md#hasdeclarekeyword)
+- [isExported](export.IBaseTypeAliasStructure.md#isexported)
+- [name](export.IBaseTypeAliasStructure.md#name)
+- [type](export.IBaseTypeAliasStructure.md#type)
+- [typeParameters](export.IBaseTypeAliasStructure.md#typeparameters)
 
 ## Properties
 
-### genericTypeParams
+### hasDeclareKeyword
 
-• `Optional` **genericTypeParams**: `IGenericTypeParam`[]
+• `Optional` **hasDeclareKeyword**: `boolean`
+
+#### Inherited from
+
+ISharedTypeStructure.hasDeclareKeyword
+
+#### Defined in
+
+types/dist/types.d.ts:37
+
+___
+
+### isExported
+
+• `Optional` **isExported**: `boolean`
+
+#### Inherited from
+
+ISharedTypeStructure.isExported
+
+#### Defined in
+
+types/dist/types.d.ts:36
+
+___
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+ISharedTypeStructure.name
+
+#### Defined in
+
+types/dist/types.d.ts:31
+
+___
+
+### type
+
+• `Optional` **type**: `string` \| `WriterFunction`
+
+#### Defined in
+
+[modifier/src/export.ts:118](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/export.ts#L118)
+
+___
+
+### typeParameters
+
+• `Optional` **typeParameters**: `IGenericTypeParam`[]
 
 {@link IGenericTypeParam}
 
 #### Inherited from
 
-ISharedTypeStructure.genericTypeParams
+ISharedTypeStructure.typeParameters
 
 #### Defined in
 

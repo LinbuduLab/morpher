@@ -19,17 +19,17 @@
 
 ▸ **updateBaseClassDecoratorStructure**(`source`, `classIdentifier`, `decoratorIdentifier`, `baseDecoratorStruct`, `apply?`): `void`
 
-Update base class decorator declaration structure
+Update base class decorator declaration structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `classIdentifier` | `string` | `undefined` |  |
 | `decoratorIdentifier` | `string` | `undefined` |  |
 | `baseDecoratorStruct` | `IBaseDecoratorStruct` | `undefined` | {@link IBaseDecoratorStruct} |
-| `apply` | `boolean` | `true` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -37,7 +37,7 @@ Update base class decorator declaration structure
 
 #### Defined in
 
-[modifier/src/class.ts:174](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L174)
+[modifier/src/class.ts:174](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/class.ts#L174)
 
 ___
 
@@ -45,17 +45,17 @@ ___
 
 ▸ **updateBaseClassMethodStructure**(`source`, `classIdentifier`, `methodIdentifier`, `baseMethodStruct`, `apply?`): `void`
 
-Update base class method declaration structure
+Update base class method declaration structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `classIdentifier` | `string` | `undefined` |  |
 | `methodIdentifier` | `string` | `undefined` |  |
 | `baseMethodStruct` | `IBaseMethodStruct` | `undefined` | {@link IBaseMethodStruct} |
-| `apply` | `boolean` | `true` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -63,7 +63,7 @@ Update base class method declaration structure
 
 #### Defined in
 
-[modifier/src/class.ts:108](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L108)
+[modifier/src/class.ts:108](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/class.ts#L108)
 
 ___
 
@@ -71,17 +71,17 @@ ___
 
 ▸ **updateBaseClassPropStructure**(`source`, `classIdentifier`, `propIdentifier`, `basePropStruct`, `apply?`): `void`
 
-Update base class prop declaration structure
+Update base class prop declaration structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `classIdentifier` | `string` | `undefined` |  |
 | `propIdentifier` | `string` | `undefined` |  |
 | `basePropStruct` | `IBasePropStruct` | `undefined` | {@link IBasePropStruct} |
-| `apply` | `boolean` | `true` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -89,7 +89,7 @@ Update base class prop declaration structure
 
 #### Defined in
 
-[modifier/src/class.ts:141](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L141)
+[modifier/src/class.ts:141](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/class.ts#L141)
 
 ___
 
@@ -97,16 +97,16 @@ ___
 
 ▸ **updateBaseClassStructure**(`source`, `classIdentifier`, `baseClassStruct`, `apply?`): `void`
 
-Update base class structure
+Update base class structure.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `classIdentifier` | `string` | `undefined` |  |
 | `baseClassStruct` | `IBaseClassStructure` | `undefined` | {@link IBaseClassStructure} |
-| `apply` | `boolean` | `true` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -114,7 +114,7 @@ Update base class structure
 
 #### Defined in
 
-[modifier/src/class.ts:84](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L84)
+[modifier/src/class.ts:84](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/class.ts#L84)
 
 ___
 
@@ -122,17 +122,17 @@ ___
 
 ▸ **updateClassDecoratorIdentifier**(`source`, `classIdentifier`, `decoratorIdentifier`, `updatedIdentifier`, `apply?`): `void`
 
-Update class decorator identifier
+Update class decorator identifier.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |
-| `classIdentifier` | `string` | `undefined` |
-| `decoratorIdentifier` | `string` | `undefined` |
-| `updatedIdentifier` | `string` | `undefined` |
-| `apply` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `classIdentifier` | `string` | `undefined` |  |
+| `decoratorIdentifier` | `string` | `undefined` |  |
+| `updatedIdentifier` | `string` | `undefined` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -140,7 +140,7 @@ Update class decorator identifier
 
 #### Defined in
 
-[modifier/src/class.ts:50](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L50)
+[modifier/src/class.ts:50](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/class.ts#L50)
 
 ___
 
@@ -148,16 +148,16 @@ ___
 
 ▸ **updateClassIdentifier**(`source`, `classIdentifier`, `updatedIdentifier`, `apply?`): `void`
 
-Update class identifier
+Update class identifier.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |
-| `classIdentifier` | `string` | `undefined` |
-| `updatedIdentifier` | `string` | `undefined` |
-| `apply` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `classIdentifier` | `string` | `undefined` |  |
+| `updatedIdentifier` | `string` | `undefined` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -165,4 +165,4 @@ Update class identifier
 
 #### Defined in
 
-[modifier/src/class.ts:24](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/class.ts#L24)
+[modifier/src/class.ts:24](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/class.ts#L24)

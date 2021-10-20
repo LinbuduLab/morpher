@@ -6,6 +6,7 @@
 
 ### References
 
+- [ClassMemberType](index.md#classmembertype)
 - [IBaseClassStructure](index.md#ibaseclassstructure)
 - [IBaseDecoratorStruct](index.md#ibasedecoratorstruct)
 - [IBaseMethodParamStruct](index.md#ibasemethodparamstruct)
@@ -15,8 +16,15 @@
 - [IInterfaceIndexSignature](index.md#iinterfaceindexsignature)
 - [IInterfaceProperty](index.md#iinterfaceproperty)
 - [ISharedTypeStructure](index.md#isharedtypestructure)
+- [ImportType](index.md#importtype)
 
 ## References
+
+### ClassMemberType
+
+Re-exports [ClassMemberType](../enums/class.ClassMemberType.md)
+
+___
 
 ### IBaseClassStructure
 
@@ -69,3 +77,9 @@ ___
 ### ISharedTypeStructure
 
 Re-exports [ISharedTypeStructure](../interfaces/types.ISharedTypeStructure.md)
+
+___
+
+### ImportType
+
+Re-exports [ImportType](../enums/import.ImportType.md)

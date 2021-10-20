@@ -17,13 +17,13 @@
 
 ▸ **removeExportStatementsByExportType**(`source`, `removeTypes?`, `apply?`): `void`
 
-Remove export by `Export Type`
+Remove export by `Export Type`(var, let, const).
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `removeTypes?` | `Partial`<`Record`<``"var"`` \| ``"let"`` \| ``"const"``, `boolean`\>\> | `undefined` | types of exports to remove: "const" \| "let" \| "var" |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -33,7 +33,7 @@ Remove export by `Export Type`
 
 #### Defined in
 
-[export.ts:48](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L48)
+[export.ts:48](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L48)
 
 ___
 
@@ -47,7 +47,7 @@ Remove export statements from source file, specifier identifier to remove specif
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `identifier?` | `string` | `undefined` | 'foo' in export const foo = 1; |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -57,7 +57,7 @@ Remove export statements from source file, specifier identifier to remove specif
 
 #### Defined in
 
-[export.ts:21](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L21)
+[export.ts:21](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L21)
 
 ___
 
@@ -65,15 +65,15 @@ ___
 
 ▸ **removeInterfaceExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
-Remove all interface export statements, specify identifier to remove only matched
+Remove all interface export statements, specify identifier to remove only matched one.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | ``null`` | interface identifier |
-| `apply?` | `boolean` |  |
+| `apply?` | `boolean` | save source file |
 
 #### Returns
 
@@ -81,19 +81,19 @@ Remove all interface export statements, specify identifier to remove only matche
 
 #### Defined in
 
-[export.ts:135](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L135)
+[export.ts:135](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L135)
 
 ▸ **removeInterfaceExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
-Remove all interface export statements, specify identifier to remove only matched
+Remove all interface export statements, specify identifier to remove only matched one.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | `string` | interface identifier |
-| `apply?` | `boolean` |  |
+| `apply?` | `boolean` | save source file |
 
 #### Returns
 
@@ -101,19 +101,19 @@ Remove all interface export statements, specify identifier to remove only matche
 
 #### Defined in
 
-[export.ts:147](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L147)
+[export.ts:147](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L147)
 
 ▸ **removeInterfaceExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
-Remove all interface export statements, specify identifier to remove only matched
+Remove all interface export statements, specify identifier to remove only matched one.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | `string`[] | interface identifier |
-| `apply?` | `boolean` |  |
+| `apply?` | `boolean` | save source file |
 
 #### Returns
 
@@ -121,7 +121,7 @@ Remove all interface export statements, specify identifier to remove only matche
 
 #### Defined in
 
-[export.ts:159](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L159)
+[export.ts:159](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L159)
 
 ___
 
@@ -129,15 +129,15 @@ ___
 
 ▸ **removeTypeExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
-Remove all type alias export statements, specify identifier to remove only matched
+Remove all type alias export statements, specify identifier to remove only matched one.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | ``null`` | type alias |
-| `apply?` | `boolean` |  |
+| `apply?` | `boolean` | save source file |
 
 #### Returns
 
@@ -145,19 +145,19 @@ Remove all type alias export statements, specify identifier to remove only match
 
 #### Defined in
 
-[export.ts:84](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L84)
+[export.ts:84](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L84)
 
 ▸ **removeTypeExportByIdentifier**(`source`, `identifier`, `apply?`): `void`
 
-Remove all type alias export statements, specify identifier to remove only matched
+Remove all type alias export statements, specify identifier to remove only matched one.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | `MaybeArray`<`string`\> | type alias |
-| `apply?` | `boolean` |  |
+| `apply?` | `boolean` | save source file |
 
 #### Returns
 
@@ -165,4 +165,4 @@ Remove all type alias export statements, specify identifier to remove only match
 
 #### Defined in
 
-[export.ts:96](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/export.ts#L96)
+[export.ts:96](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/export.ts#L96)

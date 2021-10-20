@@ -6,5 +6,7 @@
 
 ### Modules
 
+- [class](modules/class.md)
+- [import](modules/import.md)
 - [index](modules/index.md)
 - [types](modules/types.md)

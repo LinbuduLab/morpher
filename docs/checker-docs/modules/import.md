@@ -26,7 +26,7 @@
 
 ▸ **checkImportExistByModuleSpecifier**(`source`, `moduleSpecifier`): `boolean`
 
-Check does `Import Declaration` exist - by `Module Specifier`
+Check does `Import Declaration` exist - by Module Specifier.
 
 **`example`**
 
@@ -35,7 +35,7 @@ Check does `Import Declaration` exist - by `Module Specifier`
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `source` | `SourceFile` |  |
-| `moduleSpecifier` | `string` | e.g. 'ts-morph' in import { SourceFile } from 'ts-morph' |
+| `moduleSpecifier` | `string` | 'ts-morph' in import { SourceFile } from 'ts-morph' |
 
 #### Returns
 
@@ -43,15 +43,15 @@ Check does `Import Declaration` exist - by `Module Specifier`
 
 #### Defined in
 
-[import.ts:14](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L14)
+[import.ts:14](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L14)
 
 ___
 
 ### checkImportType
 
-▸ **checkImportType**(`declaration`): `ImportType` \| `undefined`
+▸ **checkImportType**(`declaration`): `ImportType`
 
-Get Import Type  - by Import Declaration
+Get `Import Type`  - by `Import Declaration`.
 
 #### Parameters
 
@@ -61,11 +61,13 @@ Get Import Type  - by Import Declaration
 
 #### Returns
 
-`ImportType` \| `undefined`
+`ImportType`
+
+ImportType {@link ImportType}
 
 #### Defined in
 
-[import.ts:176](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L176)
+[import.ts:176](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L176)
 
 ___
 
@@ -73,7 +75,7 @@ ___
 
 ▸ **checkImportTypeByModuleSpecifier**(`source`, `moduleSpecifier`): `ImportType`
 
-Get Import Type  - by Module Specifier
+Check Import Type  - by `Module Specifier`.
 
 #### Parameters
 
@@ -86,11 +88,11 @@ Get Import Type  - by Module Specifier
 
 `ImportType`
 
-ImportType
+ImportType {@link ImportType}
 
 #### Defined in
 
-[import.ts:142](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L142)
+[import.ts:142](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L142)
 
 ___
 
@@ -98,14 +100,14 @@ ___
 
 ▸ **checkIsDefaultImportByModuleSpecifier**(`source`, `moduleSpecifier`): `boolean`
 
-Check is Import Declaration default import - by `Module Specifier`
+Check is `Import Declaration` default import - by `Module Specifier`.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `source` | `SourceFile` |  |
-| `moduleSpecifier` | `string` | e.g. 'ts-morph' in import { SourceFile } from 'ts-morph' |
+| `moduleSpecifier` | `string` | 'ts-morph' in import { SourceFile } from 'ts-morph' |
 
 #### Returns
 
@@ -113,7 +115,7 @@ Check is Import Declaration default import - by `Module Specifier`
 
 #### Defined in
 
-[import.ts:35](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L35)
+[import.ts:35](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L35)
 
 ___
 
@@ -121,7 +123,7 @@ ___
 
 ▸ **checkIsDefaultImportDeclaration**(`importSpec`): `boolean`
 
-Check is Import Declaration default import - by Import Declaration
+Check is `Import Declaration` default import - by `Import Declaration`.
 
 #### Parameters
 
@@ -135,7 +137,7 @@ Check is Import Declaration default import - by Import Declaration
 
 #### Defined in
 
-[import.ts:91](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L91)
+[import.ts:91](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L91)
 
 ___
 
@@ -143,14 +145,14 @@ ___
 
 ▸ **checkIsDefaultWithNamedImportByModuleSpecifier**(`source`, `moduleSpecifier`): `boolean`
 
-Check is Import Declaration default with named import - by Module Specifier
+Check is `Import Declaration` default with named import - by `Module Specifier`.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `source` | `SourceFile` |  |
-| `moduleSpecifier` | `string` | e.g. 'ts-morph' in import { SourceFile } from 'ts-morph' |
+| `moduleSpecifier` | `string` | 'ts-morph' in import { SourceFile } from 'ts-morph' |
 
 #### Returns
 
@@ -158,7 +160,7 @@ Check is Import Declaration default with named import - by Module Specifier
 
 #### Defined in
 
-[import.ts:77](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L77)
+[import.ts:77](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L77)
 
 ___
 
@@ -166,7 +168,7 @@ ___
 
 ▸ **checkIsDefaultWithNamedImportDeclaration**(`importSpec`): `boolean`
 
-Check is Import Declaration default with named import - by Import Declaration
+Check is `Import Declaration` default with named import - by `Import Declaration`.
 
 **`example`**
 
@@ -182,7 +184,7 @@ Check is Import Declaration default with named import - by Import Declaration
 
 #### Defined in
 
-[import.ts:127](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L127)
+[import.ts:127](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L127)
 
 ___
 
@@ -190,14 +192,14 @@ ___
 
 ▸ **checkIsNamedImportByModuleSpecifier**(`source`, `moduleSpecifier`): `boolean`
 
-Check is Import Declaration named import - by Module Specifier
+Check is `Import Declaration` named import - by `Module Specifier`.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `source` | `SourceFile` |  |
-| `moduleSpecifier` | `string` | e.g. 'ts-morph' in import { SourceFile } from 'ts-morph' |
+| `moduleSpecifier` | `string` | 'ts-morph' in import { SourceFile } from 'ts-morph' |
 
 #### Returns
 
@@ -205,7 +207,7 @@ Check is Import Declaration named import - by Module Specifier
 
 #### Defined in
 
-[import.ts:63](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L63)
+[import.ts:63](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L63)
 
 ___
 
@@ -213,7 +215,7 @@ ___
 
 ▸ **checkIsNamedImportDeclaration**(`importSpec`): `boolean`
 
-Check is Import Declaration named import - by Import Declaration
+Check is `Import Declaration` named import - by `Import Declaration`.
 
 **`example`**
 
@@ -229,7 +231,7 @@ Check is Import Declaration named import - by Import Declaration
 
 #### Defined in
 
-[import.ts:115](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L115)
+[import.ts:115](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L115)
 
 ___
 
@@ -237,14 +239,14 @@ ___
 
 ▸ **checkIsNamespaceImportByModuleSpecifier**(`source`, `moduleSpecifier`): `boolean`
 
-Check is Import Declaration namespace import - by Module Specifier
+Check is `Import Declaration` namespace import - by `Module Specifier`.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `source` | `SourceFile` |  |
-| `moduleSpecifier` | `string` | e.g. 'ts-morph' in import { SourceFile } from 'ts-morph' |
+| `moduleSpecifier` | `string` | 'ts-morph' in import { SourceFile } from 'ts-morph' |
 
 #### Returns
 
@@ -252,7 +254,7 @@ Check is Import Declaration namespace import - by Module Specifier
 
 #### Defined in
 
-[import.ts:49](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L49)
+[import.ts:49](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L49)
 
 ___
 
@@ -260,7 +262,7 @@ ___
 
 ▸ **checkIsNamespaceImportDeclaration**(`importSpec`): `boolean`
 
-Check is Import Declaration namespace import - by Import Declaration
+Check is `Import Declaration` namespace import - by `Import Declaration`.
 
 **`example`**
 
@@ -276,7 +278,7 @@ Check is Import Declaration namespace import - by Import Declaration
 
 #### Defined in
 
-[import.ts:103](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L103)
+[import.ts:103](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L103)
 
 ___
 
@@ -284,7 +286,7 @@ ___
 
 ▸ **checkIsTypeOnlyImportByModuleSpecifier**(`source`, `moduleSpecifier`): `boolean` \| `undefined`
 
-Check is Import Declaration type only - by Module Specifier
+Check is `Import Declaration` type only - by `Module Specifier`.
 
 #### Parameters
 
@@ -299,7 +301,7 @@ Check is Import Declaration type only - by Module Specifier
 
 #### Defined in
 
-[import.ts:202](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L202)
+[import.ts:200](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L200)
 
 ___
 
@@ -307,7 +309,7 @@ ___
 
 ▸ **checkSourceFileHasImports**(`source`): `boolean`
 
-Check dose Source File has `Import Declaration`
+Check dose Source File has `Import Declaration` defined.
 
 **`example`**
 
@@ -323,4 +325,4 @@ Check dose Source File has `Import Declaration`
 
 #### Defined in
 
-[import.ts:26](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/import.ts#L26)
+[import.ts:26](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/import.ts#L26)

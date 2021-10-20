@@ -10,16 +10,16 @@ import {
 import { getDeclarationIdentifierByKind, MaybeArray } from "./util";
 
 /**
- * Return all class declarations in source file, specify `className` to return only matched
- * @param source
- * @returns
+ * Return all class declarations in source file, specify `className` to return only matched.
+ * @param source SourceFile
+ * @returns ClassDeclaration {@link ClassDeclaration}
  */
 export function getClassDeclarations(source: SourceFile): ClassDeclaration[];
 
 /**
- * Return all class declarations in source file, specify `className` to return only matched
- * @param source
- * @returns
+ * Return all class declarations in source file, specify `className` to return only matched.
+ * @param source SourceFile
+ * @returns ClassDeclaration {@link ClassDeclaration}
  */
 export function getClassDeclarations(
   source: SourceFile,
@@ -27,9 +27,9 @@ export function getClassDeclarations(
 ): ClassDeclaration | undefined;
 
 /**
- * Return all class declarations in source file, specify `className` to return only matched
- * @param source
- * @returns
+ * Return all class declarations in source file, specify `className` to return only matched.
+ * @param source SourceFile
+ * @returns ClassDeclaration {@link ClassDeclaration}
  */
 export function getClassDeclarations(
   source: SourceFile,
@@ -45,8 +45,8 @@ export function getClassDeclarations(
 }
 
 /**
- * Return all class identifiers in source file
- * @param source
+ * Return all class identifiers in source file.
+ * @param source SourceFile
  * @returns
  */
 export function getClassIdentifiers(source: SourceFile): string[] {
@@ -54,12 +54,13 @@ export function getClassIdentifiers(source: SourceFile): string[] {
 }
 
 /**
- * Return all method declarations of target class
+ * Return all method declarations of target class.
+ *
  * specify `methodName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param methodName
- * @returns MethodDeclaration | MethodDeclaration[] | undefined
+ * @returns MethodDeclaration {@link MethodDeclaration}
  */
 export function getClassMethodDeclarations(
   source: SourceFile,
@@ -69,10 +70,10 @@ export function getClassMethodDeclarations(
 /**
  * Return all method declarations of target class
  * specify `methodName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param methodName
- * @returns MethodDeclaration | MethodDeclaration[] | undefined
+ * @returns MethodDeclaration {@link MethodDeclaration}
  */
 export function getClassMethodDeclarations(
   source: SourceFile,
@@ -83,10 +84,10 @@ export function getClassMethodDeclarations(
 /**
  * Return all method declarations of target class
  * specify `methodName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param methodName
- * @returns MethodDeclaration | MethodDeclaration[] | undefined
+ * @returns MethodDeclaration {@link MethodDeclaration}
  */
 export function getClassMethodDeclarations(
   source: SourceFile,
@@ -108,9 +109,9 @@ export function getClassMethodDeclarations(
 
 /**
  * Return all method identifiers of target class.
- * @param source
+ * @param source SourceFile
  * @param className
- * @returns string[]
+ * @returns
  */
 export function getClassMethodIdentifiers(
   source: SourceFile,
@@ -121,9 +122,10 @@ export function getClassMethodIdentifiers(
 
 /**
  * Return class method decorators, specify decorator name to return only matched.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param methodName
+ * @returns Decorator {@link Decorator}
  */
 export function getClassMethodDecorators(
   source: SourceFile,
@@ -133,10 +135,11 @@ export function getClassMethodDecorators(
 
 /**
  * Return class method decorators, specify decorator name to return only matched.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param methodName
  * @param decoratorName
+ * @returns Decorator {@link Decorator}
  */
 export function getClassMethodDecorators(
   source: SourceFile,
@@ -147,10 +150,11 @@ export function getClassMethodDecorators(
 
 /**
  * Return class method decorators, specify decorator name to return only matched.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param methodName
  * @param decoratorName
+ * @returns Decorator {@link Decorator}
  */
 export function getClassMethodDecorators(
   source: SourceFile,
@@ -176,12 +180,12 @@ export function getClassMethodDecorators(
 }
 
 /**
- * Return all prop declarations of target class
+ * Return all prop declarations of target class.
  * specify `propName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param propName
- * @returns PropertyDeclaration | PropertyDeclaration[] | undefined
+ * @returns PropertyDeclaration {@link PropertyDeclaration}
  */
 export function getClassPropDeclarations(
   source: SourceFile,
@@ -189,12 +193,12 @@ export function getClassPropDeclarations(
 ): PropertyDeclaration[];
 
 /**
- * Return all prop declarations of target class
+ * Return all prop declarations of target class.
  * specify `propName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param propName
- * @returns PropertyDeclaration | PropertyDeclaration[] | undefined
+ * @returns PropertyDeclaration {@link PropertyDeclaration}
  */
 export function getClassPropDeclarations(
   source: SourceFile,
@@ -203,12 +207,12 @@ export function getClassPropDeclarations(
 ): PropertyDeclaration | undefined;
 
 /**
- * Return all prop declarations of target class
+ * Return all prop declarations of target class.
  * specify `propName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param propName
- * @returns PropertyDeclaration | PropertyDeclaration[] | undefined
+ * @returns PropertyDeclaration {@link PropertyDeclaration}
  */
 export function getClassPropDeclarations(
   source: SourceFile,
@@ -230,7 +234,7 @@ export function getClassPropDeclarations(
 
 /**
  * Return all prop identifiers of target class.
- * @param source
+ * @param source SourceFile
  * @param className
  * @returns string[]
  */
@@ -243,9 +247,10 @@ export function getClassPropIdentifiers(
 
 /**
  * Return class prop decorators, specify decorator name to return only matched.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param propName
+ * @returns Decorator {@link Decorator}
  */
 export function getClassPropDecorators(
   source: SourceFile,
@@ -255,10 +260,11 @@ export function getClassPropDecorators(
 
 /**
  * Return class prop decorators, specify decorator name to return only matched.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param propName
  * @param decoratorName
+ * @returns Decorator {@link Decorator}
  */
 export function getClassPropDecorators(
   source: SourceFile,
@@ -269,10 +275,11 @@ export function getClassPropDecorators(
 
 /**
  * Return class prop decorators, specify decorator name to return only matched.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param propName
  * @param decoratorName
+ * @returns Decorator {@link Decorator}
  */
 export function getClassPropDecorators(
   source: SourceFile,
@@ -296,10 +303,10 @@ export function getClassPropDecorators(
 /**
  * Return all decorator declarations of target class
  * specify `decoratorName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param decoratorName
- * @returns Decorator | Decorator[] | undefined
+ * @returns Decorator {@link Decorator}
  */
 export function getClassDecorators(
   source: SourceFile,
@@ -309,10 +316,10 @@ export function getClassDecorators(
 /**
  * Return all decorator declarations of target class
  * specify `decoratorName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param decoratorName
- * @returns Decorator | Decorator[] | undefined
+ * @returns Decorator {@link Decorator}
  */
 export function getClassDecorators(
   source: SourceFile,
@@ -323,10 +330,10 @@ export function getClassDecorators(
 /**
  * Return all decorator declarations of target class
  * specify `decoratorName` to return only matched one.
- * @param source
+ * @param source SourceFile
  * @param className
  * @param decoratorName
- * @returns Decorator | Decorator[] | undefined
+ * @returns Decorator {@link Decorator}
  */
 export function getClassDecorators(
   source: SourceFile,
@@ -362,7 +369,7 @@ export function getClassDecoratorIdentifiers(
 }
 
 /**
- * Return method modifiers flags like public / static / readonly
+ * Return method modifiers flags like public / static / readonly.
  * @param source
  * @param className
  * @param methodName

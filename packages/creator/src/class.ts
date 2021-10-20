@@ -15,8 +15,8 @@ import {
 } from "@ts-morpher/types";
 
 /**
- * Create base class structure
- * @param source
+ * Create class declaration from base structure.
+ * @param source SourceFile
  * @param baseClassStruct {@link IBaseClassStructure}
  * @param apply save source file
  * @returns
@@ -41,8 +41,8 @@ export function createBaseClass(
 }
 
 /**
- * Create method declaration for target class
- * @param source
+ * Create method declaration for target class, from base structure.
+ * @param source SourceFile
  * @param className
  * @param baseMethodStruct {@link IBaseMethodStruct}
  * @param apply save source file
@@ -70,8 +70,8 @@ export function createBaseClassMethod(
 }
 
 /**
- * Create prop declaration for target class
- * @param source
+ * Create prop declaration for target class, from base structure.
+ * @param source SourceFile
  * @param className
  * @param basePropStruct {@link IBasePropStruct}
  * @param apply save source file
@@ -99,11 +99,11 @@ export function createBaseClassProp(
 }
 
 /**
- * Create decorator declaration target class
- * @param source
+ * Create decorator declaration for target class, from base structure.
+ * @param source SourceFile
  * @param className
  * @param baseDecoratorStruct {@link IBaseDecoratorStruct}
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function createBaseClassDecorator(

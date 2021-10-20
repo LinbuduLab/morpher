@@ -11,9 +11,11 @@
 - [getClassDecorators](index.md#getclassdecorators)
 - [getClassIdentifiers](index.md#getclassidentifiers)
 - [getClassMethodDeclarations](index.md#getclassmethoddeclarations)
+- [getClassMethodDecorators](index.md#getclassmethoddecorators)
 - [getClassMethodIdentifiers](index.md#getclassmethodidentifiers)
 - [getClassMethodModifiers](index.md#getclassmethodmodifiers)
 - [getClassPropDeclarations](index.md#getclasspropdeclarations)
+- [getClassPropDecorators](index.md#getclasspropdecorators)
 - [getClassPropIdentifiers](index.md#getclasspropidentifiers)
 - [getClassPropModifiers](index.md#getclasspropmodifiers)
 - [getDefaultImportDeclarations](index.md#getdefaultimportdeclarations)
@@ -69,6 +71,12 @@ Re-exports [getClassMethodDeclarations](class.md#getclassmethoddeclarations)
 
 ___
 
+### getClassMethodDecorators
+
+Re-exports [getClassMethodDecorators](class.md#getclassmethoddecorators)
+
+___
+
 ### getClassMethodIdentifiers
 
 Re-exports [getClassMethodIdentifiers](class.md#getclassmethodidentifiers)
@@ -84,6 +92,12 @@ ___
 ### getClassPropDeclarations
 
 Re-exports [getClassPropDeclarations](class.md#getclasspropdeclarations)
+
+___
+
+### getClassPropDecorators
+
+Re-exports [getClassPropDecorators](class.md#getclasspropdecorators)
 
 ___
 

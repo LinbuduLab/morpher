@@ -17,13 +17,13 @@
 
 ▸ **removeAllImports**(`source`, `apply?`): `void`
 
-Remove all imports
+Remove all imports in source file.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `apply` | `boolean` | `true` | save source file |
 
 #### Returns
@@ -32,7 +32,7 @@ Remove all imports
 
 #### Defined in
 
-[import.ts:18](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/import.ts#L18)
+[import.ts:18](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/import.ts#L18)
 
 ___
 
@@ -40,13 +40,13 @@ ___
 
 ▸ **removeAllTypeOnlyImports**(`source`, `apply?`): `void`
 
-Remove all type-only imports
+Remove all type-only imports in source file.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `apply` | `boolean` | `true` | save source file |
 
 #### Returns
@@ -55,7 +55,7 @@ Remove all type-only imports
 
 #### Defined in
 
-[import.ts:28](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/import.ts#L28)
+[import.ts:28](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/import.ts#L28)
 
 ___
 
@@ -63,13 +63,13 @@ ___
 
 ▸ **removeImportDeclarationByModuleSpecifier**(`source`, `specifiers`, `apply?`): `void`
 
-Remove imports by `Module Specifier`
+Remove imports by `Module Specifier`.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `specifiers` | `string`[] | `undefined` | specifiers of imports to remove |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -79,7 +79,7 @@ Remove imports by `Module Specifier`
 
 #### Defined in
 
-[import.ts:39](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/import.ts#L39)
+[import.ts:39](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/import.ts#L39)
 
 ___
 
@@ -87,13 +87,13 @@ ___
 
 ▸ **removeImportDeclarationByType**(`source`, `removeTypes?`, `apply?`): `void`
 
-Remove imports by `Import Type`
+Remove imports by `Import Type`{@link ImportType}.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `removeTypes?` | `Partial`<`Record`<``"namespace"`` \| ``"default"`` \| ``"named"``, `boolean`\>\> | `undefined` | types of imports to remove: "namespace" \| "default" \| "named" |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -103,4 +103,4 @@ Remove imports by `Import Type`
 
 #### Defined in
 
-[import.ts:63](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/import.ts#L63)
+[import.ts:63](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/import.ts#L63)

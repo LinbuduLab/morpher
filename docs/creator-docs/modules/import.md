@@ -14,13 +14,13 @@
 
 ▸ **createImportDeclaration**(`source`, `namespace`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
-Add a namespace import declaration
+Add a namespace import declaration.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `namespace` | `string` | import namespace |
 | `moduleSpecifier` | `string` | import specifier |
 | `importType` | `NAMESPACE_IMPORT` | ImportType.NAMESPACE_IMPORT |
@@ -34,17 +34,17 @@ void
 
 #### Defined in
 
-[import.ts:16](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/import.ts#L16)
+[import.ts:16](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L16)
 
 ▸ **createImportDeclaration**(`source`, `namedImports`, `moduleSpecifier`, `importType`, `isTypeOnly?`, `apply?`): `void`
 
-Add a named import declaration
+Add a named import declaration.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `namedImports` | `MaybeArray`<`string`\> | named imports member |
 | `moduleSpecifier` | `string` | import specifier |
 | `importType` | `NAMED_IMPORTS` | ImportType.NAMED_IMPORTS |
@@ -59,17 +59,17 @@ void
 
 #### Defined in
 
-[import.ts:34](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/import.ts#L34)
+[import.ts:34](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L34)
 
 ▸ **createImportDeclaration**(`source`, `defaultImport`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
-Add a default import declaration
+Add a default import declaration.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `defaultImport` | `string` | - |
 | `moduleSpecifier` | `string` | import specifier |
 | `importType` | `DEFAULT_IMPORT` | ImportType.DEFAULT_IMPORT |
@@ -83,17 +83,17 @@ void
 
 #### Defined in
 
-[import.ts:53](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/import.ts#L53)
+[import.ts:53](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L53)
 
 ▸ **createImportDeclaration**(`source`, `namedImports`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
-Add a default with named import declaration
+Add a default with named import declaration.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `namedImports` | `MaybeArray`<`string`\> | - |
 | `moduleSpecifier` | `string` | import specifier |
 | `importType` | `DEFAULT_WITH_NAMED_IMPORT` | ImportType.DEFAULT_WITH_NAMED_IMPORT |
@@ -107,4 +107,4 @@ void
 
 #### Defined in
 
-[import.ts:70](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/import.ts#L70)
+[import.ts:70](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L70)

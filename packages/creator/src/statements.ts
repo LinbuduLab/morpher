@@ -4,7 +4,7 @@ import { ensureArray, MaybeArray } from "@ts-morpher/helper";
 /**
  * Append statements after import declarations with new line,
  * will append in top of file if no import declaration found.
- * @param source
+ * @param source SourceFile
  * @param appendStatement plain statements to insert
  * @param apply save source file
  */
@@ -15,9 +15,9 @@ export function appendStatementAfterImportDeclarations(
 ) {
   const importDeclarationList = source
     .getFirstChildByKind(SyntaxKind.SyntaxList)
-    ?.getChildrenOfKind(SyntaxKind.ImportDeclaration);
+    .getChildrenOfKind(SyntaxKind.ImportDeclaration);
 
-  const appendIdx = importDeclarationList?.length
+  const appendIdx = importDeclarationList.length
     ? source.getLastChildByKind(SyntaxKind.ImportDeclaration)!.getChildIndex() +
       1
     : 0;

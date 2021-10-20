@@ -11,26 +11,26 @@ import {
 } from "ts-morph";
 
 /**
- * @private
+ * @internal
  */
 export type MaybeArray<T> = T | T[];
 
 /**
- * @private
+ * @internal
  */
 export function uniqArray<T>(array: T[]): T[] {
   return [...new Set(array)];
 }
 
 /**
- * @private
+ * @internal
  */
 export function ensureArray<T>(maybeArray: MaybeArray<T>): T[] {
   return Array.isArray(maybeArray) ? maybeArray : [maybeArray];
 }
 
 /**
- * @private
+ * @internal
  */
 export function getDeclarationIdentifierByKind(
   dec:
@@ -53,7 +53,7 @@ export function getDeclarationIdentifierByKind(
 }
 
 /**
- * @private
+ * @internal
  */
 export function getVariableIdentifier(statement: VariableStatement): string {
   return statement
@@ -65,7 +65,7 @@ export function getVariableIdentifier(statement: VariableStatement): string {
 }
 
 /**
- * @private
+ * @internal
  */
 export function getTypeOrInterfaceIdentifier(
   declaration: TypeAliasDeclaration | InterfaceDeclaration

@@ -43,6 +43,10 @@ describe("package/checker-export", () => {
       VariableDeclarationKind.Const
     );
 
+    expect(
+      checkExportDeclarationKindByIdentifier(source, "inexistFoo")
+    ).toBeUndefined();
+
     expect(checkTypeExportExistByIdentifier(source, "Foo")).toBeTruthy();
     expect(checkTypeExportExistByIdentifier(source, "Foo1")).toBeFalsy();
 
@@ -52,19 +56,19 @@ describe("package/checker-export", () => {
   it("should check by statement", () => {
     expect(
       checkExportDeclarationKindByStatement(
-        getExportVariableStatements(source, "varFoo")
+        getExportVariableStatements(source, "varFoo")!
       )
     ).toBe(VariableDeclarationKind.Var);
 
     expect(
       checkExportDeclarationKindByStatement(
-        getExportVariableStatements(source, "letFoo")
+        getExportVariableStatements(source, "letFoo")!
       )
     ).toBe(VariableDeclarationKind.Let);
 
     expect(
       checkExportDeclarationKindByStatement(
-        getExportVariableStatements(source, "constFoo")
+        getExportVariableStatements(source, "constFoo")!
       )
     ).toBe(VariableDeclarationKind.Const);
   });

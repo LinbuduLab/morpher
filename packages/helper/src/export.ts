@@ -13,7 +13,7 @@ import {
 
 /**
  * Return all export var statementss identifiers.
- * @param source
+ * @param source SourceFile
  */
 export function getExportVariableIdentifiers(source: SourceFile): string[] {
   return getExportVariableStatements(source).map((statement) =>
@@ -22,31 +22,30 @@ export function getExportVariableIdentifiers(source: SourceFile): string[] {
 }
 
 /**
- * Return all export statements, specify `varIdentifier` to return only matched
- * @param source
- * @param varIdentifier
- * @returns
+ * Return all export statements, specify `varIdentifier` to return only matched.
+ * @param source SourceFile
+ * @returns VariableStatement {@link VariableStatement}
  */
 export function getExportVariableStatements(
   source: SourceFile
 ): VariableStatement[];
 
 /**
- * Return all export statements, specify `varIdentifier` to return only matched
- * @param source
+ * Return all export statements, specify `varIdentifier` to return only matched.
+ * @param source SourceFile
  * @param varIdentifier
- * @returns
+ * @returns VariableStatement {@link VariableStatement}
  */
 export function getExportVariableStatements(
   source: SourceFile,
   varIdentifier: string
-): VariableStatement;
+): VariableStatement | undefined;
 
 /**
- * Return all export statements, specify `varIdentifier` to return only matched
- * @param source
+ * Return all export statements, specify `varIdentifier` to return only matched.
+ * @param source SourceFile
  * @param varIdentifier
- * @returns
+ * @returns VariableStatement {@link VariableStatement}
  */
 export function getExportVariableStatements(
   source: SourceFile,
@@ -54,10 +53,10 @@ export function getExportVariableStatements(
 ): VariableStatement[];
 
 /**
- * Return all export statements, specify `varIdentifier` to return only matched
- * @param source
+ * Return all export statements, specify `varIdentifier` to return only matched.
+ * @param source SourceFile
  * @param varIdentifier
- * @returns
+ * @returns VariableStatement {@link VariableStatement}
  */
 export function getExportVariableStatements(
   source: SourceFile,
@@ -81,7 +80,8 @@ export function getExportVariableStatements(
 
 /**
  * Get exported TypeAliasDeclaration, specify identifier to return only matched.
- * @param source
+ * @param source SourceFile
+ * @returns TypeAliasDeclaration {@link TypeAliasDeclaration}
  */
 export function getTypeExportDeclaration(
   source: SourceFile
@@ -89,8 +89,9 @@ export function getTypeExportDeclaration(
 
 /**
  * Get exported TypeAliasDeclaration, specify identifier to return only matched.
- * @param source
+ * @param source SourceFile
  * @param identifier 'Foo' in export type Foo = string;
+ * @returns TypeAliasDeclaration {@link TypeAliasDeclaration}
  */
 export function getTypeExportDeclaration(
   source: SourceFile,
@@ -99,8 +100,9 @@ export function getTypeExportDeclaration(
 
 /**
  * Get exported TypeAliasDeclaration, specify identifier to return only matched.
- * @param source
+ * @param source SourceFile
  * @param identifier 'Foo' in export type Foo = string;
+ * @returns TypeAliasDeclaration {@link TypeAliasDeclaration}
  */
 export function getTypeExportDeclaration(
   source: SourceFile,
@@ -109,8 +111,9 @@ export function getTypeExportDeclaration(
 
 /**
  * Get exported TypeAliasDeclaration, specify identifier to return only matched.
- * @param source
- * @param identifier 'Foo' in export type Foo = string;
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export type Foo = string;`
+ * @returns TypeAliasDeclaration {@link TypeAliasDeclaration}
  */
 export function getTypeExportDeclaration(
   source: SourceFile,
@@ -134,8 +137,8 @@ export function getTypeExportDeclaration(
 }
 
 /**
- * Return all identifier of type alias exported
- * @param source
+ * Return all identifier of type alias exported.
+ * @param source SourceFile
  * @returns
  */
 export function getTypeExportIdentifiers(source: SourceFile): string[] {
@@ -146,7 +149,7 @@ export function getTypeExportIdentifiers(source: SourceFile): string[] {
 
 /**
  * Get exported InterfaceDeclaration, specify identifier to return only matched.
- * @param source
+ * @param source SourceFile
  */
 export function getInterfaceExportDeclaration(
   source: SourceFile
@@ -154,8 +157,8 @@ export function getInterfaceExportDeclaration(
 
 /**
  * Get exported InterfaceDeclaration, specify identifier to return only matched.
- * @param source
- * @param identifier 'Foo' in export interface Foo {};
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export interface Foo {};`
  */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
@@ -164,8 +167,8 @@ export function getInterfaceExportDeclaration(
 
 /**
  * Get exported InterfaceDeclaration, specify identifier to return only matched.
- * @param source
- * @param identifier 'Foo' in export interface Foo {};
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export interface Foo {}`;
  */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
@@ -174,8 +177,8 @@ export function getInterfaceExportDeclaration(
 
 /**
  * Get exported InterfaceDeclaration, specify identifier to return only matched.
- * @param source
- * @param identifier 'Foo' in export interface Foo {};
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export interface Foo {};`
  */
 export function getInterfaceExportDeclaration(
   source: SourceFile,
@@ -199,8 +202,8 @@ export function getInterfaceExportDeclaration(
 }
 
 /**
- * Return all identifier of interface exported
- * @param source
+ * Return all identifier of interface exported.
+ * @param source SourceFile
  * @returns
  */
 export function getInterfaceExportIdentifiers(source: SourceFile): string[] {

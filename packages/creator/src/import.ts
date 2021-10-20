@@ -1,12 +1,12 @@
-import { ImportDeclaration, SourceFile, SyntaxKind } from "ts-morph";
+import { SourceFile } from "ts-morph";
 import ow from "ow";
 
 import { ensureArray, MaybeArray } from "@ts-morpher/helper";
 import { ImportType } from "@ts-morpher/types";
 
 /**
- * Add a namespace import declaration
- * @param source
+ * Add a namespace import declaration.
+ * @param source SourceFile
  * @param namespace import namespace
  * @param moduleSpecifier import specifier
  * @param importType ImportType.NAMESPACE_IMPORT
@@ -22,8 +22,8 @@ export function createImportDeclaration(
 ): void;
 
 /**
- * Add a named import declaration
- * @param source
+ * Add a named import declaration.
+ * @param source SourceFile
  * @param namedImports named imports member
  * @param moduleSpecifier import specifier
  * @param importType ImportType.NAMED_IMPORTS
@@ -41,8 +41,8 @@ export function createImportDeclaration(
 ): void;
 
 /**
- * Add a default import declaration
- * @param source
+ * Add a default import declaration.
+ * @param source SourceFile
  * @param importClause import clause
  * @param moduleSpecifier import specifier
  * @param importType ImportType.DEFAULT_IMPORT
@@ -59,8 +59,8 @@ export function createImportDeclaration(
 ): void;
 
 /**
- * Add a default with named import declaration
- * @param source
+ * Add a default with named import declaration.
+ * @param source SourceFile
  * @param defaultAndNamedImports default and named imports member, the 1st item will be regarded as default
  * @param moduleSpecifier import specifier
  * @param importType ImportType.DEFAULT_WITH_NAMED_IMPORT
@@ -76,8 +76,8 @@ export function createImportDeclaration(
 ): void;
 
 /**
- * Add a new import declaration of specified type
- * @param source
+ * Add a new import declaration of specified type.
+ * @param source SourceFile
  * @param importClause namespace / named imports / default import depends on importType
  * @param moduleSpecifier import specifier
  * @param importType import type to create

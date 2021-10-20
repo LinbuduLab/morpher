@@ -11,8 +11,8 @@ import {
 import { ISharedTypeStructure } from "@ts-morpher/types";
 
 /**
- * update variable export identifier
- * @param source
+ * update variable export identifier.
+ * @param source SourceFile
  * @param identifier previous identifier
  * @param updatedIdentifier updated identifier
  * @param apply save source file
@@ -39,8 +39,8 @@ export function updateVariableExportIdentifier(
 }
 
 /**
- * update variable export declaration kind
- * @param source
+ * update variable export declaration kind.
+ * @param source SourceFile
  * @param identifier previous identifier
  * @param declarationKind updated declaration kind
  * @param apply save source file
@@ -62,7 +62,7 @@ export function updateVariableExportKind(
 }
 
 /**
- * Basic variable declaration structure
+ * Basic variable declaration structure.
  */
 export interface IBaseDeclarationStructure {
   name: string;
@@ -72,7 +72,7 @@ export interface IBaseDeclarationStructure {
 }
 
 /**
- * Basic variable structure
+ * Basic variable structure.
  */
 export interface IBaseVariableExportStructure {
   declarationKind?: VariableDeclarationKind;
@@ -87,8 +87,8 @@ export interface IBaseVariableExportStructure {
 }
 
 /**
- * update base structure of variable export
- * @param source
+ * update base structure of variable export.
+ * @param source SourceFile
  * @param identifier variable identifier
  * @param structure {@link IBaseVariableExportStructure} updated structure
  * @param apply save source file
@@ -119,8 +119,8 @@ export interface IBaseTypeAliasStructure extends ISharedTypeStructure {
 }
 
 /**
- * update base structure of type alias export
- * @param source
+ * update base structure of type alias export.
+ * @param source SourceFile
  * @param identifier type alias identifier
  * @param structure {@link IBaseTypeAliasStructure} updated structure
  * @param apply save source file
@@ -144,15 +144,15 @@ export function updateTypeExportStructure(
 }
 
 /**
- * Basic interface structure
+ * Basic interface structure.
  */
 export interface IBaseInterfaceStructure extends ISharedTypeStructure {
   extends?: (string | WriterFunction)[] | WriterFunction;
 }
 
 /**
- * update base structure of interface export
- * @param source
+ * update base structure of interface export.
+ * @param source SourceFile
  * @param identifier interface identifier
  * @param structure {@link IBaseInterfaceStructure } updated structure
  * @param apply save source file

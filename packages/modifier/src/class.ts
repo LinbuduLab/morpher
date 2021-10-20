@@ -14,11 +14,11 @@ import {
 } from "@ts-morpher/types";
 
 /**
- * Update class identifier
- * @param source
+ * Update class identifier.
+ * @param source SourceFile
  * @param classIdentifier
  * @param updatedIdentifier
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function updateClassIdentifier(
@@ -39,12 +39,12 @@ export function updateClassIdentifier(
 }
 
 /**
- * Update class decorator identifier
- * @param source
+ * Update class decorator identifier.
+ * @param source SourceFile
  * @param classIdentifier
  * @param decoratorIdentifier
  * @param updatedIdentifier
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function updateClassDecoratorIdentifier(
@@ -74,11 +74,11 @@ export function updateClassDecoratorIdentifier(
 }
 
 /**
- * Update base class structure
- * @param source
+ * Update base class structure.
+ * @param source SourceFile
  * @param classIdentifier
  * @param baseClassStruct {@link IBaseClassStructure}
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function updateBaseClassStructure(
@@ -97,12 +97,12 @@ export function updateBaseClassStructure(
 }
 
 /**
- * Update base class method declaration structure
- * @param source
+ * Update base class method declaration structure.
+ * @param source SourceFile
  * @param classIdentifier
  * @param methodIdentifier
  * @param baseMethodStruct {@link IBaseMethodStruct}
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function updateBaseClassMethodStructure(
@@ -130,12 +130,12 @@ export function updateBaseClassMethodStructure(
 }
 
 /**
- * Update base class prop declaration structure
- * @param source
+ * Update base class prop declaration structure.
+ * @param source SourceFile
  * @param classIdentifier
  * @param propIdentifier
  * @param basePropStruct {@link IBasePropStruct}
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function updateBaseClassPropStructure(
@@ -163,12 +163,12 @@ export function updateBaseClassPropStructure(
 }
 
 /**
- * Update base class decorator declaration structure
- * @param source
+ * Update base class decorator declaration structure.
+ * @param source SourceFile
  * @param classIdentifier
  * @param decoratorIdentifier
  * @param baseDecoratorStruct {@link IBaseDecoratorStruct}
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function updateBaseClassDecoratorStructure(

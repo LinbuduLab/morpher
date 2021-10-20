@@ -11,8 +11,8 @@ import {
 import { ImportType } from "@ts-morpher/types";
 
 /**
- * Remove all imports
- * @param source
+ * Remove all imports in source file.
+ * @param source SourceFile
  * @param apply save source file
  */
 export function removeAllImports(source: SourceFile, apply = true) {
@@ -21,8 +21,8 @@ export function removeAllImports(source: SourceFile, apply = true) {
 }
 
 /**
- * Remove all type-only imports
- * @param source
+ * Remove all type-only imports in source file.
+ * @param source SourceFile
  * @param apply save source file
  */
 export function removeAllTypeOnlyImports(source: SourceFile, apply = true) {
@@ -31,8 +31,8 @@ export function removeAllTypeOnlyImports(source: SourceFile, apply = true) {
 }
 
 /**
- * Remove imports by `Module Specifier`
- * @param source
+ * Remove imports by `Module Specifier`.
+ * @param source SourceFile
  * @param specifiers specifiers of imports to remove
  * @param apply save source file
  */
@@ -54,8 +54,8 @@ export function removeImportDeclarationByModuleSpecifier(
 }
 
 /**
- * Remove imports by `Import Type`
- * @param source
+ * Remove imports by `Import Type`{@link ImportType}.
+ * @param source SourceFile
  * @param removeTypes types of imports to remove: "namespace" | "default" | "named"
  * @param apply save source file
  * @returns

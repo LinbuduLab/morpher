@@ -20,14 +20,14 @@
 
 ▸ **checkExportDeclarationKindByIdentifier**(`source`, `identifier`): `VariableDeclarationKind` \| `undefined`
 
-Check export type by identifier
+Check export declare kind(var, let, const) by identifier.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
-| `identifier` | `string` | variable identifier |
+| `source` | `SourceFile` | SourceFile |
+| `identifier` | `string` | `foo` in `export const foo = 123`; |
 
 #### Returns
 
@@ -35,29 +35,29 @@ Check export type by identifier
 
 #### Defined in
 
-[export.ts:55](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L55)
+[export.ts:54](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L54)
 
 ___
 
 ### checkExportDeclarationKindByStatement
 
-▸ **checkExportDeclarationKindByStatement**(`statement`): `VariableDeclarationKind` \| `undefined`
+▸ **checkExportDeclarationKindByStatement**(`statement`): `VariableDeclarationKind`
 
-Check export type by statement
+Check export declare kind(var, let, const) by statement.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `statement` | `VariableStatement` | variable statement |
+| `statement` | `VariableStatement` | variable statement, use {@link getExportVariableStatements} to get statement definition |
 
 #### Returns
 
-`VariableDeclarationKind` \| `undefined`
+`VariableDeclarationKind`
 
 #### Defined in
 
-[export.ts:74](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L74)
+[export.ts:75](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L75)
 
 ___
 
@@ -65,13 +65,13 @@ ___
 
 ▸ **checkExportExistByIdentifier**(`source`, `identifier`): `boolean`
 
-Check export statements exist by export identifier
+Check does export statements exist by export identifier.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | `SourceFile` |  |
+| `source` | `SourceFile` | SourceFile |
 | `identifier` | `string` | `foo` in `export const foo = 123`; |
 
 #### Returns
@@ -80,7 +80,7 @@ Check export statements exist by export identifier
 
 #### Defined in
 
-[export.ts:42](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L42)
+[export.ts:41](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L41)
 
 ___
 
@@ -88,14 +88,14 @@ ___
 
 ▸ **checkInterfaceExportExistByIdentifier**(`source`, `identifier`): `boolean`
 
-Check interface export exist
+Check does interface export exist by identifier.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `identifier` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `identifier` | `string` | 'Foo' in `export interface Foo {};` |
 
 #### Returns
 
@@ -103,7 +103,7 @@ Check interface export exist
 
 #### Defined in
 
-[export.ts:103](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L103)
+[export.ts:104](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L104)
 
 ___
 
@@ -111,15 +111,15 @@ ___
 
 ▸ **checkSourceFileHasExports**(`source`): `boolean`
 
-Check dose Source File has `Export Variable Statement`
+Check dose source file has `Export Variable Statement`(`export const foo = 'foo';`) defined.
 
 **`example`**
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -127,7 +127,7 @@ Check dose Source File has `Export Variable Statement`
 
 #### Defined in
 
-[export.ts:20](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L20)
+[export.ts:19](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L19)
 
 ___
 
@@ -135,15 +135,15 @@ ___
 
 ▸ **checkSourceFileHasTypeExports**(`source`): `boolean`
 
-Check dose Source File has `Export Variable Statement`
+Check dose Source File has `Type Alias Export`(`export type A = string;`) or `Interface Export`(`export interface IFoo {}`) defined.
 
 **`example`**
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
 
 #### Returns
 
@@ -151,7 +151,7 @@ Check dose Source File has `Export Variable Statement`
 
 #### Defined in
 
-[export.ts:29](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L29)
+[export.ts:28](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L28)
 
 ___
 
@@ -159,14 +159,14 @@ ___
 
 ▸ **checkTypeExportExistByIdentifier**(`source`, `identifier`): `boolean`
 
-Check type alias export exist
+Check does type alias export exist by identifier.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `source` | `SourceFile` |
-| `identifier` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `source` | `SourceFile` | SourceFile |
+| `identifier` | `string` | 'Foo' in `export type Foo = string;` |
 
 #### Returns
 
@@ -174,4 +174,4 @@ Check type alias export exist
 
 #### Defined in
 
-[export.ts:90](https://github.com/linbudu599/morpher/blob/0f9496e/packages/checker/src/export.ts#L90)
+[export.ts:91](https://github.com/linbudu599/morpher/blob/25ef250/packages/checker/src/export.ts#L91)

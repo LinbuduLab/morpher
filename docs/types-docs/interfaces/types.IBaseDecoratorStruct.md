@@ -11,6 +11,8 @@ Decorator structure
 ### Properties
 
 - [arguments](types.IBaseDecoratorStruct.md#arguments)
+- [name](types.IBaseDecoratorStruct.md#name)
+- [typeArguments](types.IBaseDecoratorStruct.md#typearguments)
 
 ## Properties
 
@@ -24,4 +26,24 @@ Arguments for a decorator factory.
 
 #### Defined in
 
-[types.ts:60](https://github.com/linbudu599/morpher/blob/0f9496e/packages/types/src/types.ts#L60)
+[types.ts:60](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L60)
+
+___
+
+### name
+
+• **name**: `string`
+
+#### Defined in
+
+[types.ts:55](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L55)
+
+___
+
+### typeArguments
+
+• `Optional` **typeArguments**: `string`[]
+
+#### Defined in
+
+[types.ts:61](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L61)

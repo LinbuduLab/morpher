@@ -4,15 +4,28 @@
 
 [export](../modules/export.md).IBaseVariableExportStructure
 
-Basic variable structure
+Basic variable structure.
 
 ## Table of contents
 
 ### Properties
 
+- [declarationKind](export.IBaseVariableExportStructure.md#declarationkind)
 - [declarations](export.IBaseVariableExportStructure.md#declarations)
+- [isDefaultExport](export.IBaseVariableExportStructure.md#isdefaultexport)
+- [isExported](export.IBaseVariableExportStructure.md#isexported)
 
 ## Properties
+
+### declarationKind
+
+• `Optional` **declarationKind**: `VariableDeclarationKind`
+
+#### Defined in
+
+[modifier/src/export.ts:78](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/export.ts#L78)
+
+___
 
 ### declarations
 
@@ -22,4 +35,24 @@ Basic variable structure
 
 #### Defined in
 
-[modifier/src/export.ts:83](https://github.com/linbudu599/morpher/blob/0f9496e/packages/modifier/src/export.ts#L83)
+[modifier/src/export.ts:83](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/export.ts#L83)
+
+___
+
+### isDefaultExport
+
+• `Optional` **isDefaultExport**: `boolean`
+
+#### Defined in
+
+[modifier/src/export.ts:86](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/export.ts#L86)
+
+___
+
+### isExported
+
+• `Optional` **isExported**: `boolean`
+
+#### Defined in
+
+[modifier/src/export.ts:85](https://github.com/linbudu599/morpher/blob/25ef250/packages/modifier/src/export.ts#L85)

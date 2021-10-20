@@ -7,11 +7,11 @@ import {
 } from "@ts-morpher/types";
 
 /**
- * Create a base export variable statement
- * @param source
- * @param identifier variable identifier, foo in export const foo = 'bar'
- * @param initializer initializer, bar in export const foo = 'bar'
- * @param kind declaration kind
+ * Create export variable statement from base structure.
+ * @param source SourceFile
+ * @param identifier variable identifier, 'foo' in `export const foo = 'bar'`
+ * @param initializer initializer, 'bar' in `export const foo = 'bar'`
+ * @param kind declaration kind {@link VariableDeclarationKind}
  * @param apply save source file
  */
 export function createBaseVariableExport(
@@ -36,28 +36,28 @@ export function createBaseVariableExport(
 }
 
 /**
- * Create base type alias export
- * @param source 
- * @param identifier 
- * @param typeInitializer 
+ * Create type alias export from base structure.
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export type Foo = string`
+ * @param typeInitializer 'string' in `export type Foo = string`
  * @param genericTypeParams {@link IGenericTypeParam}
- * @param apply 
+ * @param apply save source file
  * @example
+ * ```typescript
  * createBaseTypeExport(source, "Foo", "Record<T, unknown>", [
-    {
-      name: "T",
-      default: "'default_string_literal'",
-      constraint: "string",
-    },
-  ]);
+      {
+        name: "T",
+        default: "'default_string_literal'",
+        constraint: "string",
+      },
+    ]);
 
-// create following statement:
-
-export type Foo<T extends string = "default_string_literal"> = Record<
-  T,
-  unknown
->;
-
+  // create following statement:
+  export type Foo<T extends string = "default_string_literal"> = Record<
+    T,
+    unknown
+  >;
+  ```
  */
 export function createBaseTypeExport(
   source: SourceFile,
@@ -82,12 +82,12 @@ export function createBaseTypeExport(
  * @param identifier
  * @param interfaceExtends extra interfaces to extend
  * @param indexSignatures {@link IInterfaceIndexSignature} specify index-signatures like [key:string]: any
- * @param properties {@link IInterfaceProperty} interface properties
+ * @param properties {@link IInterfaceProperty} interface properties structure
  * @param genericTypeParams {@link IGenericTypeParam} generic type params to use in interface
  * @param apply save source file
  * @example
  * ```typescript
-  * createBaseInterfaceExport(
+*  createBaseInterfaceExport(
       source,
       "Foo",
       ["Bar", "Baz"],

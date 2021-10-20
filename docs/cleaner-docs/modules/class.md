@@ -17,15 +17,15 @@
 
 ▸ **removeClass**(`source`, `classIdentifier`, `apply?`): `void`
 
-remove class declaration
+Remove class declaration by identifier.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |
-| `classIdentifier` | `string` | `undefined` |
-| `apply` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `classIdentifier` | `string` | `undefined` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -33,7 +33,7 @@ remove class declaration
 
 #### Defined in
 
-[class.ts:23](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L23)
+[class.ts:23](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/class.ts#L23)
 
 ___
 
@@ -41,16 +41,16 @@ ___
 
 ▸ **removeClassDecorator**(`source`, `classIdentifier`, `decoratorIdentifier`, `apply?`): `void`
 
-Remove class decorator declarations
+Remove class decorator declaration by identifier.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |
-| `classIdentifier` | `string` | `undefined` |
-| `decoratorIdentifier` | `string` | `undefined` |
-| `apply` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `classIdentifier` | `string` | `undefined` |  |
+| `decoratorIdentifier` | `string` | `undefined` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -58,7 +58,7 @@ Remove class decorator declarations
 
 #### Defined in
 
-[class.ts:101](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L101)
+[class.ts:101](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/class.ts#L101)
 
 ___
 
@@ -66,16 +66,16 @@ ___
 
 ▸ **removeClassMethod**(`source`, `classIdentifier`, `methodIdentifier`, `apply?`): `void`
 
-remove class method declaration
+Remove class method declaration by identifier.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |
-| `classIdentifier` | `string` | `undefined` |
-| `methodIdentifier` | `string` | `undefined` |
-| `apply` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `classIdentifier` | `string` | `undefined` |  |
+| `methodIdentifier` | `string` | `undefined` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -83,7 +83,7 @@ remove class method declaration
 
 #### Defined in
 
-[class.ts:45](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L45)
+[class.ts:45](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/class.ts#L45)
 
 ___
 
@@ -91,16 +91,16 @@ ___
 
 ▸ **removeClassProp**(`source`, `classIdentifier`, `propIdentifier`, `apply?`): `void`
 
-Remove class property declaration
+Remove class property declaration by identifier.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |
-| `classIdentifier` | `string` | `undefined` |
-| `propIdentifier` | `string` | `undefined` |
-| `apply` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `source` | `SourceFile` | `undefined` | SourceFile |
+| `classIdentifier` | `string` | `undefined` |  |
+| `propIdentifier` | `string` | `undefined` |  |
+| `apply` | `boolean` | `true` | save source file |
 
 #### Returns
 
@@ -108,4 +108,4 @@ Remove class property declaration
 
 #### Defined in
 
-[class.ts:75](https://github.com/linbudu599/morpher/blob/0f9496e/packages/cleaner/src/class.ts#L75)
+[class.ts:75](https://github.com/linbudu599/morpher/blob/25ef250/packages/cleaner/src/class.ts#L75)

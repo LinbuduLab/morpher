@@ -14,10 +14,10 @@ import {
 } from "@ts-morpher/checker";
 
 /**
- * remove class declaration
- * @param source
+ * Remove class declaration by identifier.
+ * @param source SourceFile
  * @param classIdentifier
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function removeClass(
@@ -35,11 +35,11 @@ export function removeClass(
 }
 
 /**
- * remove class method declaration
- * @param source
+ * Remove class method declaration by identifier.
+ * @param source SourceFile
  * @param classIdentifier
  * @param methodIdentifier
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function removeClassMethod(
@@ -65,11 +65,11 @@ export function removeClassMethod(
 }
 
 /**
- * Remove class property declaration
- * @param source
+ * Remove class property declaration by identifier.
+ * @param source SourceFile
  * @param classIdentifier
  * @param propIdentifier
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function removeClassProp(
@@ -91,11 +91,11 @@ export function removeClassProp(
 }
 
 /**
- * Remove class decorator declarations
- * @param source
+ * Remove class decorator declaration by identifier.
+ * @param source SourceFile
  * @param classIdentifier
  * @param decoratorIdentifier
- * @param apply
+ * @param apply save source file
  * @returns
  */
 export function removeClassDecorator(

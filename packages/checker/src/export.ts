@@ -7,14 +7,13 @@ import {
 import {
   getExportVariableStatements,
   getExportVariableIdentifiers,
-  getVariableIdentifier,
   getTypeExportIdentifiers,
   getInterfaceExportIdentifiers,
 } from "@ts-morpher/helper";
 
 /**
- * Check dose Source File has `Export Variable Statement`
- * @param source
+ * Check dose source file has `Export Variable Statement`(`export const foo = 'foo';`) defined.
+ * @param source SourceFile
  * @example
  */
 export function checkSourceFileHasExports(source: SourceFile): boolean {
@@ -22,8 +21,8 @@ export function checkSourceFileHasExports(source: SourceFile): boolean {
 }
 
 /**
- * Check dose Source File has `Export Variable Statement`
- * @param source
+ * Check dose Source File has `Type Alias Export`(`export type A = string;`) or `Interface Export`(`export interface IFoo {}`) defined.
+ * @param source SourceFile
  * @example
  */
 export function checkSourceFileHasTypeExports(source: SourceFile): boolean {
@@ -34,8 +33,8 @@ export function checkSourceFileHasTypeExports(source: SourceFile): boolean {
 }
 
 /**
- * Check export statements exist by export identifier
- * @param source
+ * Check does export statements exist by export identifier.
+ * @param source SourceFile
  * @param identifier `foo` in `export const foo = 123`;
  * @returns
  */
@@ -47,9 +46,9 @@ export function checkExportExistByIdentifier(
 }
 
 /**
- * Check export type by identifier
- * @param source
- * @param identifier variable identifier
+ * Check export declare kind(var, let, const) by identifier.
+ * @param source SourceFile
+ * @param identifier `foo` in `export const foo = 123`;
  * @returns
  */
 export function checkExportDeclarationKindByIdentifier(
@@ -58,6 +57,8 @@ export function checkExportDeclarationKindByIdentifier(
 ): VariableDeclarationKind | undefined {
   const statement = getExportVariableStatements(source, identifier);
 
+  if (!statement) return;
+
   const declareList = statement.getFirstChildByKind(
     SyntaxKind.VariableDeclarationList
   );
@@ -66,14 +67,14 @@ export function checkExportDeclarationKindByIdentifier(
 }
 
 /**
- * Check export type by statement
- * @param source
- * @param statement variable statement
+ * Check export declare kind(var, let, const) by statement.
+ * @param source SourceFile
+ * @param statement variable statement, use {@link getExportVariableStatements} to get statement definition
  * @returns
  */
 export function checkExportDeclarationKindByStatement(
   statement: VariableStatement
-): VariableDeclarationKind | undefined {
+): VariableDeclarationKind {
   const declareList = statement.getFirstChildByKind(
     SyntaxKind.VariableDeclarationList
   );
@@ -82,9 +83,9 @@ export function checkExportDeclarationKindByStatement(
 }
 
 /**
- * Check type alias export exist
- * @param source
- * @param identifier
+ * Check does type alias export exist by identifier.
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export type Foo = string;`
  * @returns
  */
 export function checkTypeExportExistByIdentifier(
@@ -95,9 +96,9 @@ export function checkTypeExportExistByIdentifier(
 }
 
 /**
- * Check interface export exist
- * @param source
- * @param identifier
+ * Check does interface export exist by identifier.
+ * @param source SourceFile
+ * @param identifier 'Foo' in `export interface Foo {};`
  * @returns
  */
 export function checkInterfaceExportExistByIdentifier(

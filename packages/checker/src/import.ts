@@ -6,9 +6,9 @@ import {
 import { ImportType } from "@ts-morpher/types";
 
 /**
- * Check does `Import Declaration` exist - by `Module Specifier`
+ * Check does `Import Declaration` exist - by Module Specifier.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  * @example
  */
 export function checkImportExistByModuleSpecifier(
@@ -19,7 +19,7 @@ export function checkImportExistByModuleSpecifier(
 }
 
 /**
- * Check dose Source File has `Import Declaration`
+ * Check dose Source File has `Import Declaration` defined.
  * @param source
  * @example
  */
@@ -28,9 +28,9 @@ export function checkSourceFileHasImports(source: SourceFile): boolean {
 }
 
 /**
- * Check is Import Declaration default import - by `Module Specifier`
+ * Check is `Import Declaration` default import - by `Module Specifier`.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
 export function checkIsDefaultImportByModuleSpecifier(
   source: SourceFile,
@@ -42,9 +42,9 @@ export function checkIsDefaultImportByModuleSpecifier(
 }
 
 /**
- * Check is Import Declaration namespace import - by Module Specifier
+ * Check is `Import Declaration` namespace import - by `Module Specifier`.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
 export function checkIsNamespaceImportByModuleSpecifier(
   source: SourceFile,
@@ -56,9 +56,9 @@ export function checkIsNamespaceImportByModuleSpecifier(
 }
 
 /**
- * Check is Import Declaration named import - by Module Specifier
+ * Check is `Import Declaration` named import - by `Module Specifier`.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
 export function checkIsNamedImportByModuleSpecifier(
   source: SourceFile,
@@ -70,9 +70,9 @@ export function checkIsNamedImportByModuleSpecifier(
 }
 
 /**
- * Check is Import Declaration default with named import - by Module Specifier
+ * Check is `Import Declaration` default with named import - by `Module Specifier`.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
 export function checkIsDefaultWithNamedImportByModuleSpecifier(
   source: SourceFile,
@@ -84,9 +84,9 @@ export function checkIsDefaultWithNamedImportByModuleSpecifier(
 }
 
 /**
- * Check is Import Declaration default import - by Import Declaration
+ * Check is `Import Declaration` default import - by `Import Declaration`.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  */
 export function checkIsDefaultImportDeclaration(
   importSpec: ImportDeclaration
@@ -95,9 +95,9 @@ export function checkIsDefaultImportDeclaration(
 }
 
 /**
- * Check is Import Declaration namespace import - by Import Declaration
+ * Check is `Import Declaration` namespace import - by `Import Declaration`.
  * @param source
- * @param moduleSpecifier e.g. 'ts-morph' in import { SourceFile } from 'ts-morph'
+ * @param moduleSpecifier 'ts-morph' in import { SourceFile } from 'ts-morph'
  * @example
  */
 export function checkIsNamespaceImportDeclaration(
@@ -107,7 +107,7 @@ export function checkIsNamespaceImportDeclaration(
 }
 
 /**
- * Check is Import Declaration named import - by Import Declaration
+ * Check is `Import Declaration` named import - by `Import Declaration`.
  * @param source
  * @param moduleSpecifier
  * @example
@@ -119,7 +119,7 @@ export function checkIsNamedImportDeclaration(
 }
 
 /**
- * Check is Import Declaration default with named import - by Import Declaration
+ * Check is `Import Declaration` default with named import - by `Import Declaration`.
  * @param source
  * @param moduleSpecifier
  * @example
@@ -134,10 +134,10 @@ export function checkIsDefaultWithNamedImportDeclaration(
 }
 
 /**
- * Get Import Type  - by Module Specifier
+ * Check Import Type  - by `Module Specifier`.
  * @param source
  * @param moduleSpecifier
- * @returns ImportType
+ * @returns ImportType {@link ImportType}
  */
 export function checkImportTypeByModuleSpecifier(
   source: SourceFile,
@@ -169,13 +169,11 @@ export function checkImportTypeByModuleSpecifier(
 }
 
 /**
- * Get Import Type  - by Import Declaration
+ * Get `Import Type`  - by `Import Declaration`.
  * @param source
- * @returns
+ * @returns ImportType {@link ImportType}
  */
-export function checkImportType(
-  declaration: ImportDeclaration
-): ImportType | undefined {
+export function checkImportType(declaration: ImportDeclaration): ImportType {
   const isNamespaceImport = checkIsNamespaceImportDeclaration(declaration);
 
   if (isNamespaceImport) {
@@ -194,7 +192,7 @@ export function checkImportType(
 }
 
 /**
- * Check is Import Declaration type only - by Module Specifier
+ * Check is `Import Declaration` type only - by `Module Specifier`.
  * @param source
  * @param moduleSpecifier
  * @returns

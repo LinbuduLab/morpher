@@ -14,16 +14,17 @@ async function main() {
   const commandList = [];
 
   for (const pkg of packageList) {
-    packageDocInfoList.push({
-      entryPoints: `packages/${pkg}/src`,
-      tsconfig: `packages/${pkg}/tsconfig.json`,
-      out: `docs/${pkg}-docs`,
-    });
+    pkg !== "example" &&
+      packageDocInfoList.push({
+        entryPoints: `packages/${pkg}/src`,
+        tsconfig: `packages/${pkg}/tsconfig.json`,
+        out: `docs/${pkg}-docs`,
+      });
   }
 
   for (const docInfo of packageDocInfoList) {
     commandList.push(
-      `typedoc --entryPointStrategy expand --entryPoints ${docInfo.entryPoints} --tsconfig ${docInfo.tsconfig} --out ${docInfo.out} --readme none --excludeNotDocumented`
+      `typedoc --entryPointStrategy expand --entryPoints ${docInfo.entryPoints} --tsconfig ${docInfo.tsconfig} --out ${docInfo.out} --readme none`
     );
   }
 

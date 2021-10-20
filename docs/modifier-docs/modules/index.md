@@ -19,6 +19,7 @@
 - [updateClassDecoratorIdentifier](index.md#updateclassdecoratoridentifier)
 - [updateClassIdentifier](index.md#updateclassidentifier)
 - [updateDefaultImportClause](index.md#updatedefaultimportclause)
+- [updateImportSpecifier](index.md#updateimportspecifier)
 - [updateInterfaceExportStructure](index.md#updateinterfaceexportstructure)
 - [updateNamespaceImportClause](index.md#updatenamespaceimportclause)
 - [updateTypeExportStructure](index.md#updatetypeexportstructure)
@@ -103,6 +104,12 @@ ___
 ### updateDefaultImportClause
 
 Re-exports [updateDefaultImportClause](import.md#updatedefaultimportclause)
+
+___
+
+### updateImportSpecifier
+
+Re-exports [updateImportSpecifier](import.md#updateimportspecifier)
 
 ___
 

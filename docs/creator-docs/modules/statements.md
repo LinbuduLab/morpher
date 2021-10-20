@@ -21,7 +21,7 @@ will append in top of file if no import declaration found.
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `source` | `SourceFile` | `undefined` |  |
+| `source` | `SourceFile` | `undefined` | SourceFile |
 | `appendStatement` | `MaybeArray`<`string`\> | `undefined` | plain statements to insert |
 | `apply` | `boolean` | `true` | save source file |
 
@@ -31,4 +31,4 @@ will append in top of file if no import declaration found.
 
 #### Defined in
 
-[statements.ts:11](https://github.com/linbudu599/morpher/blob/0f9496e/packages/creator/src/statements.ts#L11)
+[statements.ts:11](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/statements.ts#L11)

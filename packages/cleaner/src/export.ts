@@ -13,7 +13,7 @@ import {
 
 /**
  * Remove export statements from source file, specifier identifier to remove specified one.
- * @param source
+ * @param source SourceFile
  * @param identifier 'foo' in export const foo = 1;
  * @param apply save source file
  * @returns
@@ -39,8 +39,8 @@ export function removeExportStatementsByIdentifier(
 }
 
 /**
- * Remove export by `Export Type`
- * @param source
+ * Remove export by `Export Type`(var, let, const).
+ * @param source SourceFile
  * @param removeTypes types of exports to remove: "const" | "let" | "var"
  * @param apply save source file
  * @returns
@@ -76,10 +76,10 @@ export function removeExportStatementsByExportType(
 }
 
 /**
- * Remove all type alias export statements, specify identifier to remove only matched
- * @param source
+ * Remove all type alias export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier type alias
- * @param apply
+ * @param apply save source file
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
@@ -88,10 +88,10 @@ export function removeTypeExportByIdentifier(
 ): void;
 
 /**
- * Remove all type alias export statements, specify identifier to remove only matched
- * @param source
+ * Remove all type alias export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier type alias
- * @param apply
+ * @param apply save source file
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
@@ -100,10 +100,10 @@ export function removeTypeExportByIdentifier(
 ): void;
 
 /**
- * Remove all type alias export statements, specify identifier to remove only matched
- * @param source
+ * Remove all type alias export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier type alias
- * @param apply
+ * @param apply save source file
  */
 export function removeTypeExportByIdentifier(
   source: SourceFile,
@@ -127,10 +127,10 @@ export function removeTypeExportByIdentifier(
 }
 
 /**
- * Remove all interface export statements, specify identifier to remove only matched
- * @param source
+ * Remove all interface export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier interface identifier
- * @param apply
+ * @param apply save source file
  */
 export function removeInterfaceExportByIdentifier(
   source: SourceFile,
@@ -139,10 +139,10 @@ export function removeInterfaceExportByIdentifier(
 ): void;
 
 /**
- * Remove all interface export statements, specify identifier to remove only matched
- * @param source
+ * Remove all interface export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier interface identifier
- * @param apply
+ * @param apply save source file
  */
 export function removeInterfaceExportByIdentifier(
   source: SourceFile,
@@ -151,10 +151,10 @@ export function removeInterfaceExportByIdentifier(
 ): void;
 
 /**
- * Remove all interface export statements, specify identifier to remove only matched
- * @param source
+ * Remove all interface export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier interface identifier
- * @param apply
+ * @param apply save source file
  */
 export function removeInterfaceExportByIdentifier(
   source: SourceFile,
@@ -163,10 +163,10 @@ export function removeInterfaceExportByIdentifier(
 ): void;
 
 /**
- * Remove all interface export statements, specify identifier to remove only matched
- * @param source
+ * Remove all interface export statements, specify identifier to remove only matched one.
+ * @param source SourceFile
  * @param identifier interface identifier
- * @param apply
+ * @param apply save source file
  */
 export function removeInterfaceExportByIdentifier(
   source: SourceFile,
