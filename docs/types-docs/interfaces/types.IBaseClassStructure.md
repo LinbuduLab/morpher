@@ -25,7 +25,7 @@ Class declaration structure
 
 #### Defined in
 
-[types.ts:45](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L45)
+[types.ts:45](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L45)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[types.ts:44](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L44)
+[types.ts:44](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L44)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[types.ts:46](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L46)
+[types.ts:46](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L46)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[types.ts:48](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L48)
+[types.ts:48](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L48)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[types.ts:47](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L47)
+[types.ts:47](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L47)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[types.ts:43](https://github.com/linbudu599/morpher/blob/25ef250/packages/types/src/types.ts#L43)
+[types.ts:43](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L43)

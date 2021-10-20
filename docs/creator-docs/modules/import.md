@@ -34,7 +34,7 @@ void
 
 #### Defined in
 
-[import.ts:16](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L16)
+[import.ts:16](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/creator/src/import.ts#L16)
 
 ▸ **createImportDeclaration**(`source`, `namedImports`, `moduleSpecifier`, `importType`, `isTypeOnly?`, `apply?`): `void`
 
@@ -59,7 +59,7 @@ void
 
 #### Defined in
 
-[import.ts:34](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L34)
+[import.ts:34](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/creator/src/import.ts#L34)
 
 ▸ **createImportDeclaration**(`source`, `defaultImport`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
@@ -83,7 +83,7 @@ void
 
 #### Defined in
 
-[import.ts:53](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L53)
+[import.ts:53](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/creator/src/import.ts#L53)
 
 ▸ **createImportDeclaration**(`source`, `namedImports`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
@@ -107,4 +107,4 @@ void
 
 #### Defined in
 
-[import.ts:70](https://github.com/linbudu599/morpher/blob/25ef250/packages/creator/src/import.ts#L70)
+[import.ts:70](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/creator/src/import.ts#L70)

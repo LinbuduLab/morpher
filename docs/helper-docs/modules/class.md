@@ -41,7 +41,7 @@ ClassDeclaration {@link ClassDeclaration}
 
 #### Defined in
 
-[class.ts:17](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L17)
+[class.ts:17](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L17)
 
 ▸ **getClassDeclarations**(`source`, `className`): `ClassDeclaration` \| `undefined`
 
@@ -62,7 +62,7 @@ ClassDeclaration {@link ClassDeclaration}
 
 #### Defined in
 
-[class.ts:24](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L24)
+[class.ts:24](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L24)
 
 ___
 
@@ -87,7 +87,7 @@ string[]
 
 #### Defined in
 
-[class.ts:364](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L364)
+[class.ts:364](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L364)
 
 ___
 
@@ -113,7 +113,7 @@ Decorator {@link Decorator}
 
 #### Defined in
 
-[class.ts:311](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L311)
+[class.ts:311](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L311)
 
 ▸ **getClassDecorators**(`source`, `className`, `decoratorName`): `Decorator` \| `undefined`
 
@@ -136,7 +136,7 @@ Decorator {@link Decorator}
 
 #### Defined in
 
-[class.ts:324](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L324)
+[class.ts:324](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L324)
 
 ___
 
@@ -158,7 +158,7 @@ Return all class identifiers in source file.
 
 #### Defined in
 
-[class.ts:52](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L52)
+[class.ts:52](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L52)
 
 ___
 
@@ -185,7 +185,7 @@ MethodDeclaration {@link MethodDeclaration}
 
 #### Defined in
 
-[class.ts:65](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L65)
+[class.ts:65](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L65)
 
 ▸ **getClassMethodDeclarations**(`source`, `className`, `methodName`): `MethodDeclaration` \| `undefined`
 
@@ -208,7 +208,7 @@ MethodDeclaration {@link MethodDeclaration}
 
 #### Defined in
 
-[class.ts:78](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L78)
+[class.ts:78](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L78)
 
 ___
 
@@ -234,7 +234,7 @@ Decorator {@link Decorator}
 
 #### Defined in
 
-[class.ts:130](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L130)
+[class.ts:130](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L130)
 
 ▸ **getClassMethodDecorators**(`source`, `className`, `methodName`, `decoratorName`): `Decorator` \| `undefined`
 
@@ -257,7 +257,7 @@ Decorator {@link Decorator}
 
 #### Defined in
 
-[class.ts:144](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L144)
+[class.ts:144](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L144)
 
 ___
 
@@ -280,7 +280,7 @@ Return all method identifiers of target class.
 
 #### Defined in
 
-[class.ts:116](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L116)
+[class.ts:116](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L116)
 
 ___
 
@@ -304,7 +304,7 @@ Return method modifiers flags like public / static / readonly.
 
 #### Defined in
 
-[class.ts:378](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L378)
+[class.ts:378](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L378)
 
 ___
 
@@ -330,7 +330,7 @@ PropertyDeclaration {@link PropertyDeclaration}
 
 #### Defined in
 
-[class.ts:190](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L190)
+[class.ts:190](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L190)
 
 ▸ **getClassPropDeclarations**(`source`, `className`, `propName`): `PropertyDeclaration` \| `undefined`
 
@@ -353,7 +353,7 @@ PropertyDeclaration {@link PropertyDeclaration}
 
 #### Defined in
 
-[class.ts:203](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L203)
+[class.ts:203](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L203)
 
 ___
 
@@ -379,7 +379,7 @@ Decorator {@link Decorator}
 
 #### Defined in
 
-[class.ts:255](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L255)
+[class.ts:255](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L255)
 
 ▸ **getClassPropDecorators**(`source`, `className`, `propName`, `decoratorName`): `Decorator` \| `undefined`
 
@@ -402,7 +402,7 @@ Decorator {@link Decorator}
 
 #### Defined in
 
-[class.ts:269](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L269)
+[class.ts:269](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L269)
 
 ___
 
@@ -427,7 +427,7 @@ string[]
 
 #### Defined in
 
-[class.ts:241](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L241)
+[class.ts:241](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L241)
 
 ___
 
@@ -451,4 +451,4 @@ Return prop modifiers flags like public / static / readonly
 
 #### Defined in
 
-[class.ts:400](https://github.com/linbudu599/morpher/blob/25ef250/packages/helper/src/class.ts#L400)
+[class.ts:400](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/helper/src/class.ts#L400)

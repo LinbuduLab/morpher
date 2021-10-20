@@ -6,6 +6,8 @@
 
 ### References
 
+- [MaybeArray](index.md#maybearray)
+- [ensureArray](index.md#ensurearray)
 - [getClassDeclarations](index.md#getclassdeclarations)
 - [getClassDecoratorIdentifiers](index.md#getclassdecoratoridentifiers)
 - [getClassDecorators](index.md#getclassdecorators)
@@ -18,6 +20,7 @@
 - [getClassPropDecorators](index.md#getclasspropdecorators)
 - [getClassPropIdentifiers](index.md#getclasspropidentifiers)
 - [getClassPropModifiers](index.md#getclasspropmodifiers)
+- [getDeclarationIdentifierByKind](index.md#getdeclarationidentifierbykind)
 - [getDefaultImportDeclarations](index.md#getdefaultimportdeclarations)
 - [getDefaultImportModuleSpecifiers](index.md#getdefaultimportmodulespecifiers)
 - [getExportVariableIdentifiers](index.md#getexportvariableidentifiers)
@@ -38,8 +41,23 @@
 - [getTypeExportIdentifiers](index.md#gettypeexportidentifiers)
 - [getTypeOnlyImportDeclarations](index.md#gettypeonlyimportdeclarations)
 - [getTypeOnlyImportModuleSpecifiers](index.md#gettypeonlyimportmodulespecifiers)
+- [getTypeOrInterfaceIdentifier](index.md#gettypeorinterfaceidentifier)
+- [getVariableIdentifier](index.md#getvariableidentifier)
+- [uniqArray](index.md#uniqarray)
 
 ## References
+
+### MaybeArray
+
+Re-exports [MaybeArray](util.md#maybearray)
+
+___
+
+### ensureArray
+
+Re-exports [ensureArray](util.md#ensurearray)
+
+___
 
 ### getClassDeclarations
 
@@ -110,6 +128,12 @@ ___
 ### getClassPropModifiers
 
 Re-exports [getClassPropModifiers](class.md#getclasspropmodifiers)
+
+___
+
+### getDeclarationIdentifierByKind
+
+Re-exports [getDeclarationIdentifierByKind](util.md#getdeclarationidentifierbykind)
 
 ___
 
@@ -230,3 +254,21 @@ ___
 ### getTypeOnlyImportModuleSpecifiers
 
 Re-exports [getTypeOnlyImportModuleSpecifiers](import.md#gettypeonlyimportmodulespecifiers)
+
+___
+
+### getTypeOrInterfaceIdentifier
+
+Re-exports [getTypeOrInterfaceIdentifier](util.md#gettypeorinterfaceidentifier)
+
+___
+
+### getVariableIdentifier
+
+Re-exports [getVariableIdentifier](util.md#getvariableidentifier)
+
+___
+
+### uniqArray
+
+Re-exports [uniqArray](util.md#uniqarray)
