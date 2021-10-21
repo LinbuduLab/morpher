@@ -164,7 +164,7 @@ export function checkImportTypeByModuleSpecifier(
   return isNamedImport && isDefaultImport
     ? ImportType.DEFAULT_WITH_NAMED_IMPORT
     : isNamedImport
-    ? ImportType.NAMED_IMPORTS
+    ? ImportType.NAMED_IMPORT
     : ImportType.DEFAULT_IMPORT;
 }
 
@@ -187,8 +187,10 @@ export function checkImportType(declaration: ImportDeclaration): ImportType {
   return isNamedImport && isDefaultImport
     ? ImportType.DEFAULT_WITH_NAMED_IMPORT
     : isNamedImport
-    ? ImportType.NAMED_IMPORTS
-    : ImportType.DEFAULT_IMPORT;
+    ? ImportType.NAMED_IMPORT
+    : isDefaultImport
+    ? ImportType.DEFAULT_IMPORT
+    : ImportType.DIRECTLY_IMPORT;
 }
 
 /**

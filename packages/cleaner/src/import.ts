@@ -82,7 +82,7 @@ export function removeImportDeclarationByType(
         removeTypes.default && imp.remove();
         break;
 
-      case ImportType.NAMED_IMPORTS:
+      case ImportType.NAMED_IMPORT:
         removeTypes.named && imp.remove();
         break;
 

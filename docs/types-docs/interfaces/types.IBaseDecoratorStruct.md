@@ -26,7 +26,7 @@ Arguments for a decorator factory.
 
 #### Defined in
 
-[types.ts:60](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L60)
+[types.ts:60](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/types.ts#L60)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[types.ts:55](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L55)
+[types.ts:55](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/types.ts#L55)
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-[types.ts:61](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L61)
+[types.ts:61](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/types.ts#L61)

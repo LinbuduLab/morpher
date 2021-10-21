@@ -34,7 +34,7 @@ void
 
 #### Defined in
 
-[import.ts:16](https://github.com/linbudu599/morpher/blob/6e7db56/packages/creator/src/import.ts#L16)
+[import.ts:16](https://github.com/linbudu599/morpher/blob/9f915c5/packages/creator/src/import.ts#L16)
 
 ▸ **createImportDeclaration**(`source`, `namedImports`, `moduleSpecifier`, `importType`, `isTypeOnly?`, `apply?`): `void`
 
@@ -47,7 +47,7 @@ Add a named import declaration.
 | `source` | `SourceFile` | SourceFile |
 | `namedImports` | `MaybeArray`<`string`\> | named imports member |
 | `moduleSpecifier` | `string` | import specifier |
-| `importType` | `NAMED_IMPORTS` | ImportType.NAMED_IMPORTS |
+| `importType` | `NAMED_IMPORT` | ImportType.NAMED_IMPORT |
 | `isTypeOnly?` | `boolean` | create type only import |
 | `apply?` | `boolean` | save source file |
 
@@ -59,7 +59,7 @@ void
 
 #### Defined in
 
-[import.ts:34](https://github.com/linbudu599/morpher/blob/6e7db56/packages/creator/src/import.ts#L34)
+[import.ts:34](https://github.com/linbudu599/morpher/blob/9f915c5/packages/creator/src/import.ts#L34)
 
 ▸ **createImportDeclaration**(`source`, `defaultImport`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
@@ -83,7 +83,7 @@ void
 
 #### Defined in
 
-[import.ts:53](https://github.com/linbudu599/morpher/blob/6e7db56/packages/creator/src/import.ts#L53)
+[import.ts:53](https://github.com/linbudu599/morpher/blob/9f915c5/packages/creator/src/import.ts#L53)
 
 ▸ **createImportDeclaration**(`source`, `namedImports`, `moduleSpecifier`, `importType`, `apply?`): `void`
 
@@ -107,4 +107,4 @@ void
 
 #### Defined in
 
-[import.ts:70](https://github.com/linbudu599/morpher/blob/6e7db56/packages/creator/src/import.ts#L70)
+[import.ts:70](https://github.com/linbudu599/morpher/blob/9f915c5/packages/creator/src/import.ts#L70)

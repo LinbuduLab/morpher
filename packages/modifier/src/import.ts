@@ -68,7 +68,7 @@ export function addNamedImportMembers(
           source,
           members,
           importSpec,
-          ImportType.NAMED_IMPORTS,
+          ImportType.NAMED_IMPORT,
           apply
         )
       : void 0;

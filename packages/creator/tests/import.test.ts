@@ -37,7 +37,7 @@ describe("package/creator-import", () => {
       source,
       ["CompilerOptions"],
       "typescript",
-      ImportType.NAMED_IMPORTS,
+      ImportType.NAMED_IMPORT,
       true,
       true
     );
@@ -47,7 +47,7 @@ describe("package/creator-import", () => {
       checkIsTypeOnlyImportByModuleSpecifier(source, "typescript")
     ).toBeTruthy();
     expect(checkImportTypeByModuleSpecifier(source, "typescript")).toBe(
-      ImportType.NAMED_IMPORTS
+      ImportType.NAMED_IMPORT
     );
   });
 

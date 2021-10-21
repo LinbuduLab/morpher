@@ -10,7 +10,8 @@
 
 - [DEFAULT\_IMPORT](import.ImportType.md#default_import)
 - [DEFAULT\_WITH\_NAMED\_IMPORT](import.ImportType.md#default_with_named_import)
-- [NAMED\_IMPORTS](import.ImportType.md#named_imports)
+- [DIRECTLY\_IMPORT](import.ImportType.md#directly_import)
+- [NAMED\_IMPORT](import.ImportType.md#named_import)
 - [NAMESPACE\_IMPORT](import.ImportType.md#namespace_import)
 
 ## Enumeration members
@@ -21,7 +22,7 @@
 
 #### Defined in
 
-[import.ts:7](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/import.ts#L7)
+[import.ts:7](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/import.ts#L7)
 
 ___
 
@@ -31,17 +32,27 @@ ___
 
 #### Defined in
 
-[import.ts:8](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/import.ts#L8)
+[import.ts:8](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/import.ts#L8)
 
 ___
 
-### NAMED\_IMPORTS
+### DIRECTLY\_IMPORT
 
-• **NAMED\_IMPORTS** = `"NAMED_IMPORTS"`
+• **DIRECTLY\_IMPORT** = `"DIRECTLY_IMPORT"`
 
 #### Defined in
 
-[import.ts:6](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/import.ts#L6)
+[import.ts:9](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/import.ts#L9)
+
+___
+
+### NAMED\_IMPORT
+
+• **NAMED\_IMPORT** = `"NAMED_IMPORT"`
+
+#### Defined in
+
+[import.ts:6](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/import.ts#L6)
 
 ___
 
@@ -51,4 +62,4 @@ ___
 
 #### Defined in
 
-[import.ts:5](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/import.ts#L5)
+[import.ts:5](https://github.com/linbudu599/morpher/blob/9f915c5/packages/types/src/import.ts#L5)

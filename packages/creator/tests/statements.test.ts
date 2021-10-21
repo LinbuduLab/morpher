@@ -31,7 +31,7 @@ describe("package/creator-statements", () => {
       source,
       ["transpileModule"],
       "typescript",
-      ImportType.NAMED_IMPORTS
+      ImportType.NAMED_IMPORT
     );
 
     appendStatementAfterImportDeclarations(source, ['const foo = "foo";']);

@@ -22,7 +22,7 @@ createImportDeclaration(
   source,
   ["PrimaryGeneratedColumn", "Column", "BaseEntity", "Entity"],
   "typeorm",
-  ImportType.NAMED_IMPORTS
+  ImportType.NAMED_IMPORT
 );
 
 createBaseInterfaceExport(

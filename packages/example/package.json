@@ -12,8 +12,11 @@
     "url": "git+https://github.com/linbudu599/morpher.git"
   },
   "scripts": {
-    "dev:import": "ts-node-dev --respawn --transpile-only src/import-example.ts",
-    "dev:class": "ts-node-dev --respawn --transpile-only src/class-example.ts"
+    "dev:create-import": "ts-node-dev --respawn --transpile-only src/create-import/index.ts",
+    "dev:create-class": "ts-node-dev --respawn --transpile-only src/create-class/index.ts",
+    "dev:create-export": "ts-node-dev --respawn --transpile-only src/create-export/index.ts",
+    "dev:append-statements": "ts-node-dev --respawn --transpile-only src/append-statements/index.ts",
+    "dev:check-import": "ts-node-dev --respawn --transpile-only src/check-import/index.ts"
   },
   "bugs": {
     "url": "https://github.com/linbudu599/morpher/issues"

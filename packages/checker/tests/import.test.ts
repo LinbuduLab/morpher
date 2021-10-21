@@ -146,7 +146,7 @@ describe("package/checker-import", () => {
       ImportType.NAMESPACE_IMPORT
     );
     expect(checkImportTypeByModuleSpecifier(source, "typescript")).toBe(
-      ImportType.NAMED_IMPORTS
+      ImportType.NAMED_IMPORT
     );
     expect(checkImportTypeByModuleSpecifier(source, "child_process")).toBe(
       ImportType.DEFAULT_WITH_NAMED_IMPORT
@@ -159,11 +159,15 @@ describe("package/checker-import", () => {
       ImportType.NAMESPACE_IMPORT
     );
     expect(checkImportType(getImportDeclarations(source, "typescript")!)).toBe(
-      ImportType.NAMED_IMPORTS
+      ImportType.NAMED_IMPORT
     );
     expect(
       checkImportType(getImportDeclarations(source, "child_process")!)
     ).toBe(ImportType.DEFAULT_WITH_NAMED_IMPORT);
+
+    expect(checkImportType(getImportDeclarations(source, "net")!)).toBe(
+      ImportType.DIRECTLY_IMPORT
+    );
   });
 
   it("should check type only impoty", () => {

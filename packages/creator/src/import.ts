@@ -26,7 +26,7 @@ export function createImportDeclaration(
  * @param source SourceFile
  * @param namedImports named imports member
  * @param moduleSpecifier import specifier
- * @param importType ImportType.NAMED_IMPORTS
+ * @param importType ImportType.NAMED_IMPORT
  * @param isTypeOnly create type only import
  * @param apply save source file
  * @returns void
@@ -35,7 +35,7 @@ export function createImportDeclaration(
   source: SourceFile,
   namedImports: MaybeArray<string>,
   moduleSpecifier: string,
-  importType: ImportType.NAMED_IMPORTS,
+  importType: ImportType.NAMED_IMPORT,
   isTypeOnly?: boolean,
   apply?: boolean
 ): void;
@@ -105,7 +105,7 @@ export function createImportDeclaration(
 
       break;
 
-    case ImportType.NAMED_IMPORTS:
+    case ImportType.NAMED_IMPORT:
       source.addImportDeclaration({
         namedImports: ensureArray(importClause),
         moduleSpecifier,
