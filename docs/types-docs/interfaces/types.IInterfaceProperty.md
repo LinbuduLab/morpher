@@ -22,7 +22,7 @@ Interface property structure
 
 #### Defined in
 
-[types.ts:24](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L24)
+[types.ts:24](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L24)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[types.ts:23](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L23)
+[types.ts:23](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L23)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[types.ts:25](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L25)
+[types.ts:25](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L25)

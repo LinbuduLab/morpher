@@ -4,7 +4,7 @@ export default {
   coverageDirectory: "coverage",
   coverageProvider: "v8",
   coverageThreshold: {},
-  coverageReporters: ["json", "text", "lcov", "clover", "html"],
+  coverageReporters: ["json", "text", "lcov", "clover"],
   maxWorkers: 1,
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js", "ts"],
@@ -16,14 +16,6 @@ export default {
     "<rootDir>/packages/helper",
   ],
   preset: "ts-jest",
-  globals: {
-    "ts-jest": {
-      useESM: true,
-    },
-  },
-  moduleNameMapper: {
-    "^(\\.{1,2}/.*)\\.js$": "$1",
-  },
   roots: ["<rootDir>"],
   runner: "jest-runner",
   testEnvironment: "jest-environment-node",

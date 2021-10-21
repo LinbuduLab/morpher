@@ -23,7 +23,7 @@ Interface index signature structure
 
 #### Defined in
 
-[types.ts:17](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L17)
+[types.ts:17](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L17)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[types.ts:14](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L14)
+[types.ts:14](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L14)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[types.ts:15](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L15)
+[types.ts:15](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L15)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[types.ts:16](https://github.com/linbudu599/morpher/blob/98d4a1f/packages/types/src/types.ts#L16)
+[types.ts:16](https://github.com/linbudu599/morpher/blob/6e7db56/packages/types/src/types.ts#L16)

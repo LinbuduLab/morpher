@@ -19,7 +19,7 @@
     "rebuild": "ultra -r --filter '@ts-morpher/*' --topology rebuild",
     "tsc-check": "ultra -r --filter '@ts-morpher/*' --topology check",
     "docs:dev": "vuepress dev docs",
-    "docs:gen": "ts-node scripts/docs-gen.ts",
+    "docs:gen": "ts-node scripts/docs-gen.ts && git add -A",
     "docs:build": "vuepress build docs",
     "demo:import": "lerna exec yarn dev:import --scope @ts-morpher/example",
     "demo:class": "lerna exec yarn dev:class --scope @ts-morpher/example"

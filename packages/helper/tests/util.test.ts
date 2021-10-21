@@ -56,7 +56,7 @@ describe("package/helper-util", () => {
 
   it("should get variable identifier", () => {
     expect(
-      getVariableIdentifier(getExportVariableStatements(source, "foo"))
+      getVariableIdentifier(getExportVariableStatements(source, "foo")!)
     ).toBe("foo");
   });
 
