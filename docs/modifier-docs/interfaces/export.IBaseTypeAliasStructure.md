@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[modifier/src/export.ts:118](https://github.com/linbudu599/morpher/blob/fad7f99/packages/modifier/src/export.ts#L118)
+[modifier/src/export.ts:118](https://github.com/linbudu599/morpher/blob/387f7fa/packages/modifier/src/export.ts#L118)
 
 ___
 

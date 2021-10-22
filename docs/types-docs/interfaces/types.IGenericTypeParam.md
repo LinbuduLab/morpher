@@ -22,7 +22,7 @@ Shared type parameter structure
 
 #### Defined in
 
-[types.ts:8](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/types.ts#L8)
+[types.ts:8](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L8)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[types.ts:7](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/types.ts#L7)
+[types.ts:7](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L7)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[types.ts:6](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/types.ts#L6)
+[types.ts:6](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L6)

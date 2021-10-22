@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[import.ts:7](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/import.ts#L7)
+[import.ts:7](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L7)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[import.ts:8](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/import.ts#L8)
+[import.ts:8](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L8)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[import.ts:9](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/import.ts#L9)
+[import.ts:9](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L9)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[import.ts:6](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/import.ts#L6)
+[import.ts:6](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L6)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[import.ts:5](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/import.ts#L5)
+[import.ts:5](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L5)

@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[class.ts:8](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/class.ts#L8)
+[class.ts:8](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/class.ts#L8)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[class.ts:6](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/class.ts#L6)
+[class.ts:6](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/class.ts#L6)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[class.ts:7](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/class.ts#L7)
+[class.ts:7](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/class.ts#L7)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 #### Defined in
 
-[class.ts:5](https://github.com/linbudu599/morpher/blob/fad7f99/packages/types/src/class.ts#L5)
+[class.ts:5](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/class.ts#L5)

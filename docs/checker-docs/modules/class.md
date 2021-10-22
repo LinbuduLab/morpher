@@ -37,7 +37,7 @@ Check does class declaration exist in source file by class identifier.
 
 #### Defined in
 
-[class.ts:29](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L29)
+[class.ts:29](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L29)
 
 ___
 
@@ -60,7 +60,7 @@ Check class has decorator defined.
 
 #### Defined in
 
-[class.ts:112](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L112)
+[class.ts:112](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L112)
 
 ___
 
@@ -83,7 +83,7 @@ Check does class has method defined.
 
 #### Defined in
 
-[class.ts:89](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L89)
+[class.ts:89](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L89)
 
 ___
 
@@ -106,7 +106,7 @@ Check class has prop defined.
 
 #### Defined in
 
-[class.ts:102](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L102)
+[class.ts:102](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L102)
 
 ___
 
@@ -130,7 +130,7 @@ Check does decorator exist in class.
 
 #### Defined in
 
-[class.ts:73](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L73)
+[class.ts:73](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L73)
 
 ___
 
@@ -154,7 +154,7 @@ Check is a decorator factory (`@Foo()`)
 
 #### Defined in
 
-[class.ts:126](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L126)
+[class.ts:126](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L126)
 
 ___
 
@@ -178,7 +178,7 @@ Check does method exist in class declaration.
 
 #### Defined in
 
-[class.ts:43](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L43)
+[class.ts:43](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L43)
 
 ___
 
@@ -202,7 +202,7 @@ Check does prop exist in class.
 
 #### Defined in
 
-[class.ts:58](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L58)
+[class.ts:58](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L58)
 
 ___
 
@@ -224,4 +224,4 @@ Check source file has class declarations exist.
 
 #### Defined in
 
-[class.ts:19](https://github.com/linbudu599/morpher/blob/fad7f99/packages/checker/src/class.ts#L19)
+[class.ts:19](https://github.com/linbudu599/morpher/blob/387f7fa/packages/checker/src/class.ts#L19)
