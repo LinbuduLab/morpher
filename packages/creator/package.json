@@ -8,6 +8,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "description": "Creator package of ts-morpher, dead simple TypeScript AST tool built on top of ts-morph.",
+  "keywords": [
+    "AST",
+    "TypeScript",
+    "ts-morph",
+    "ts-morpher",
+    "AST Operations"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/linbudu599/morpher.git"
