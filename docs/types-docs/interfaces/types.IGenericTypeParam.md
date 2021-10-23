@@ -20,9 +20,11 @@ Shared type parameter structure
 
 • `Optional` **constraint**: `string` \| `WriterFunction`
 
+Default in `T extends Condition = Default`
+
 #### Defined in
 
-[types.ts:8](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L8)
+[types.ts:17](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L17)
 
 ___
 
@@ -30,9 +32,11 @@ ___
 
 • `Optional` **default**: `string` \| `WriterFunction`
 
+Condition in `T extends Condition = Default`
+
 #### Defined in
 
-[types.ts:7](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L7)
+[types.ts:13](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L13)
 
 ___
 
@@ -40,6 +44,8 @@ ___
 
 • **name**: `string`
 
+T in `T extends Condition = Default`
+
 #### Defined in
 
-[types.ts:6](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L6)
+[types.ts:9](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L9)

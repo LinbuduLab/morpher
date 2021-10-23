@@ -21,6 +21,7 @@ Class method declaration structure
 - [parameters](types.IBaseMethodStruct.md#parameters)
 - [returnType](types.IBaseMethodStruct.md#returntype)
 - [scope](types.IBaseMethodStruct.md#scope)
+- [statements](types.IBaseMethodStruct.md#statements)
 - [typeParameters](types.IBaseMethodStruct.md#typeparameters)
 
 ## Properties
@@ -33,7 +34,7 @@ Class method declaration structure
 
 #### Defined in
 
-[types.ts:105](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L105)
+[types.ts:129](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L129)
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 #### Defined in
 
-[types.ts:91](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L91)
+[types.ts:114](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L114)
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 #### Defined in
 
-[types.ts:90](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L90)
+[types.ts:113](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L113)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[types.ts:86](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L86)
+[types.ts:109](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L109)
 
 ___
 
@@ -73,7 +74,7 @@ ___
 
 #### Defined in
 
-[types.ts:87](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L87)
+[types.ts:110](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L110)
 
 ___
 
@@ -83,7 +84,7 @@ ___
 
 #### Defined in
 
-[types.ts:88](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L88)
+[types.ts:111](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L111)
 
 ___
 
@@ -93,7 +94,7 @@ ___
 
 #### Defined in
 
-[types.ts:89](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L89)
+[types.ts:112](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L112)
 
 ___
 
@@ -103,7 +104,7 @@ ___
 
 #### Defined in
 
-[types.ts:85](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L85)
+[types.ts:108](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L108)
 
 ___
 
@@ -115,7 +116,7 @@ ___
 
 #### Defined in
 
-[types.ts:95](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L95)
+[types.ts:118](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L118)
 
 ___
 
@@ -125,7 +126,7 @@ ___
 
 #### Defined in
 
-[types.ts:100](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L100)
+[types.ts:124](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L124)
 
 ___
 
@@ -135,7 +136,17 @@ ___
 
 #### Defined in
 
-[types.ts:101](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L101)
+[types.ts:125](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L125)
+
+___
+
+### statements
+
+• `Optional` **statements**: `string` \| `WriterFunction` \| (`string` \| `WriterFunction`)[]
+
+#### Defined in
+
+[types.ts:123](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L123)
 
 ___
 
@@ -147,4 +158,4 @@ ___
 
 #### Defined in
 
-[types.ts:99](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L99)
+[types.ts:122](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L122)

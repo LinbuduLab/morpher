@@ -20,9 +20,11 @@
 
 • **DEFAULT\_IMPORT** = `"DEFAULT_IMPORT"`
 
+e.g. import path from "path"；
+
 #### Defined in
 
-[import.ts:7](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L7)
+[import.ts:16](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L16)
 
 ___
 
@@ -30,9 +32,11 @@ ___
 
 • **DEFAULT\_WITH\_NAMED\_IMPORT** = `"DEFAULT_WITH_NAMED_IMPORT"`
 
+e.g. import ts, { transpileModule } from "typescript";
+
 #### Defined in
 
-[import.ts:8](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L8)
+[import.ts:20](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L20)
 
 ___
 
@@ -40,9 +44,11 @@ ___
 
 • **DIRECTLY\_IMPORT** = `"DIRECTLY_IMPORT"`
 
+e.g. import "ui-library/dist/index.css"
+
 #### Defined in
 
-[import.ts:9](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L9)
+[import.ts:24](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L24)
 
 ___
 
@@ -50,9 +56,11 @@ ___
 
 • **NAMED\_IMPORT** = `"NAMED_IMPORT"`
 
+e.g. import { exec } from "child_process";
+
 #### Defined in
 
-[import.ts:6](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L6)
+[import.ts:12](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L12)
 
 ___
 
@@ -60,6 +68,8 @@ ___
 
 • **NAMESPACE\_IMPORT** = `"NAMESPACE_IMPORT"`
 
+e.g. import * as fs from "fs";
+
 #### Defined in
 
-[import.ts:5](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/import.ts#L5)
+[import.ts:8](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L8)

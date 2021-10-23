@@ -23,7 +23,7 @@ Interface index signature structure
 
 #### Defined in
 
-[types.ts:17](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L17)
+[types.ts:35](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L35)
 
 ___
 
@@ -31,9 +31,11 @@ ___
 
 • **keyName**: `string`
 
+key in `[key: string]: any`
+
 #### Defined in
 
-[types.ts:14](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L14)
+[types.ts:26](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L26)
 
 ___
 
@@ -41,9 +43,11 @@ ___
 
 • **keyType**: `string`
 
+string in `[key: string]: any`
+
 #### Defined in
 
-[types.ts:15](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L15)
+[types.ts:30](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L30)
 
 ___
 
@@ -51,6 +55,8 @@ ___
 
 • **returnType**: `string` \| `WriterFunction`
 
+any in `[key: string]: any`
+
 #### Defined in
 
-[types.ts:16](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L16)
+[types.ts:34](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L34)

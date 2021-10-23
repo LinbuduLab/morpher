@@ -8,23 +8,25 @@ That's what an AST operation should follow, **get a declaration, see if it's the
 
 `ts-morpher` aims to provide a series of intuitive imperative APIs to further reduce the cost of using AST operations on top of `ts-morph`. It spreads out different types of operations under different npm packages, such as `checker`, `creator`, etc. If you want to see exactly how it further reduces the mental burden, check out the examples below.
 
+**This project currently only supports a few common syntax types, such as `Import` / `Export` / `Class`, support for `Function` and `TSX` is difficult to predict when it will be available, if you are interested, welcome to submit PR to make this project better, so that more people can enjoy low-cost AST operations.**
+
 ## Installation
 
 ```bash
-# ts-morph should be installed as peer dependencies to keep it singleton
+# ts-morph should be installed as peer dependence to keep it singleton
 yarn add ts-morph
 # install specific package in need
-yarn add @ts-morpher/checker @ts-morpher/helper
+yarn add @ts-morpher/checker @ts-morpher/helper @ts-morpher/creator @ts-morpher/creator @ts-morpher/modifier @ts-morpher/types
 ```
 
 Avaliable Packages:
 
-- `helper`: Get `AST node declaration` or `identifier`, and pass it to consumer like `checker` package.
-- `checker`: Check `declaration type` or `does declaration exist` by `identifier`/`declaration`.
-- `cleaner`: Remove `AST declaration`.
-- `creator`: Create `AST declaration` from simplified structure info.
-- `modifier`: Update `AST declaration` structure, or just update `identifier`、`declare kind`.
-- `types`: Essential types utilities shared by packages above.
+- `helper`: Get `AST declaration` or `identifier`, and pass it to consumer like `checker` package. **e.g. Get all import declarations exist in current source file.**
+- `checker`: Check `declaration type` / `declaration existence` by `identifier` or `declaration`. **e.g. Check does import exist by module specifier.**
+- `cleaner`: Remove `AST declaration` by `identifier`. **e.g. Remove all type-only import declarations from current source file.**
+- `creator`: Create `AST declaration` from simplified structure info. **e.g. Create import declarations for polyfill, `import 'reflect-metadata'`.**
+- `modifier`: Update `AST declaration` structure, or just update `identifier`、`declare kind`. **e.g. Update class identifier.**
+- `types`: Essential types utilities shared by packages above, in most cases you will need install it. **e.g. [ImportType](types-docs/enums/import.ImportType.md), which describes possbile import type in ES Module.**
 
 ## Examples
 

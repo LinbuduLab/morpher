@@ -30,7 +30,7 @@ Basic interface structure.
 
 #### Defined in
 
-[modifier/src/export.ts:150](https://github.com/linbudu599/morpher/blob/387f7fa/packages/modifier/src/export.ts#L150)
+[modifier/src/export.ts:150](https://github.com/linbudu599/morpher/blob/43a898f/packages/modifier/src/export.ts#L150)
 
 ___
 
@@ -44,7 +44,7 @@ ISharedTypeStructure.hasDeclareKeyword
 
 #### Defined in
 
-types/dist/types.d.ts:37
+types/dist/types.d.ts:55
 
 ___
 
@@ -58,7 +58,7 @@ ISharedTypeStructure.isExported
 
 #### Defined in
 
-types/dist/types.d.ts:36
+types/dist/types.d.ts:54
 
 ___
 
@@ -72,7 +72,7 @@ ISharedTypeStructure.name
 
 #### Defined in
 
-types/dist/types.d.ts:31
+types/dist/types.d.ts:49
 
 ___
 
@@ -88,4 +88,4 @@ ISharedTypeStructure.typeParameters
 
 #### Defined in
 
-types/dist/types.d.ts:35
+types/dist/types.d.ts:53

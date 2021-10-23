@@ -3,16 +3,34 @@ import { Scope, WriterFunction } from "ts-morph";
  * Shared type parameter structure
  */
 export interface IGenericTypeParam {
+  /**
+   * T in `T extends Condition = Default`
+   */
   name: string;
+  /**
+   * Condition in `T extends Condition = Default`
+   */
   default?: string | WriterFunction;
+  /**
+   * Default in `T extends Condition = Default`
+   */
   constraint?: string | WriterFunction;
 }
 /**
  * Interface index signature structure
  */
 export interface IInterfaceIndexSignature {
+  /**
+   * key in `[key: string]: any`
+   */
   keyName: string;
+  /**
+   * string in `[key: string]: any`
+   */
   keyType: string;
+  /**
+   * any in `[key: string]: any`
+   */
   returnType: string | WriterFunction;
   isReadonly?: boolean;
 }
@@ -65,13 +83,18 @@ export interface IBaseDecoratorStruct {
  */
 export interface IBaseMethodParamStruct {
   name: string;
+  /**
+   * string in `method(arg1: string){}`
+   */
   type?: string | WriterFunction;
   isReadonly?: boolean;
   hasQuestionToken?: boolean;
   hasOverrideKeyword?: boolean;
+  /**
+   * e.g. foo in `method(arg1 = 'foo'){}`
+   */
   initializer?: string | WriterFunction;
   isRestParameter?: boolean;
-  statements?: string | WriterFunction | (string | WriterFunction)[];
   scope?: Scope;
   /**
    * {@link IBaseDecoratorStruct}
@@ -97,6 +120,7 @@ export interface IBaseMethodStruct {
    * {@link IGenericTypeParam}
    */
   typeParameters?: (IGenericTypeParam | string)[];
+  statements?: string | WriterFunction | (string | WriterFunction)[];
   returnType?: string | WriterFunction;
   scope?: Scope;
   /**

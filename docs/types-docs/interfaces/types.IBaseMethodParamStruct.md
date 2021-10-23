@@ -18,7 +18,6 @@ Class method param declaration structure
 - [isRestParameter](types.IBaseMethodParamStruct.md#isrestparameter)
 - [name](types.IBaseMethodParamStruct.md#name)
 - [scope](types.IBaseMethodParamStruct.md#scope)
-- [statements](types.IBaseMethodParamStruct.md#statements)
 - [type](types.IBaseMethodParamStruct.md#type)
 
 ## Properties
@@ -31,7 +30,7 @@ Class method param declaration structure
 
 #### Defined in
 
-[types.ts:79](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L79)
+[types.ts:102](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L102)
 
 ___
 
@@ -41,7 +40,7 @@ ___
 
 #### Defined in
 
-[types.ts:71](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L71)
+[types.ts:92](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L92)
 
 ___
 
@@ -51,7 +50,7 @@ ___
 
 #### Defined in
 
-[types.ts:70](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L70)
+[types.ts:91](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L91)
 
 ___
 
@@ -59,9 +58,11 @@ ___
 
 • `Optional` **initializer**: `string` \| `WriterFunction`
 
+e.g. foo in `method(arg1 = 'foo'){}`
+
 #### Defined in
 
-[types.ts:72](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L72)
+[types.ts:96](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L96)
 
 ___
 
@@ -71,7 +72,7 @@ ___
 
 #### Defined in
 
-[types.ts:69](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L69)
+[types.ts:90](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L90)
 
 ___
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[types.ts:73](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L73)
+[types.ts:97](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L97)
 
 ___
 
@@ -91,7 +92,7 @@ ___
 
 #### Defined in
 
-[types.ts:67](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L67)
+[types.ts:85](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L85)
 
 ___
 
@@ -101,17 +102,7 @@ ___
 
 #### Defined in
 
-[types.ts:75](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L75)
-
-___
-
-### statements
-
-• `Optional` **statements**: `string` \| `WriterFunction` \| (`string` \| `WriterFunction`)[]
-
-#### Defined in
-
-[types.ts:74](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L74)
+[types.ts:98](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L98)
 
 ___
 
@@ -119,6 +110,8 @@ ___
 
 • `Optional` **type**: `string` \| `WriterFunction`
 
+string in `method(arg1: string){}`
+
 #### Defined in
 
-[types.ts:68](https://github.com/linbudu599/morpher/blob/387f7fa/packages/types/src/types.ts#L68)
+[types.ts:89](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L89)
