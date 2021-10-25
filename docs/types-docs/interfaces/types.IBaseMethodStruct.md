@@ -34,7 +34,7 @@ Class method declaration structure
 
 #### Defined in
 
-[types.ts:129](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L129)
+[types.ts:129](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L129)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[types.ts:114](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L114)
+[types.ts:114](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L114)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[types.ts:113](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L113)
+[types.ts:113](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L113)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[types.ts:109](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L109)
+[types.ts:109](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L109)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[types.ts:110](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L110)
+[types.ts:110](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L110)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[types.ts:111](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L111)
+[types.ts:111](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L111)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[types.ts:112](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L112)
+[types.ts:112](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L112)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[types.ts:108](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L108)
+[types.ts:108](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L108)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[types.ts:118](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L118)
+[types.ts:118](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L118)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[types.ts:124](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L124)
+[types.ts:124](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L124)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[types.ts:125](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L125)
+[types.ts:125](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L125)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[types.ts:123](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L123)
+[types.ts:123](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L123)
 
 ___
 
@@ -158,4 +158,4 @@ ___
 
 #### Defined in
 
-[types.ts:122](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L122)
+[types.ts:122](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L122)

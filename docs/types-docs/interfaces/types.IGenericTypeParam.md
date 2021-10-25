@@ -24,7 +24,7 @@ Default in `T extends Condition = Default`
 
 #### Defined in
 
-[types.ts:17](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L17)
+[types.ts:17](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L17)
 
 ___
 
@@ -36,7 +36,7 @@ Condition in `T extends Condition = Default`
 
 #### Defined in
 
-[types.ts:13](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L13)
+[types.ts:13](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L13)
 
 ___
 
@@ -48,4 +48,4 @@ T in `T extends Condition = Default`
 
 #### Defined in
 
-[types.ts:9](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L9)
+[types.ts:9](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L9)

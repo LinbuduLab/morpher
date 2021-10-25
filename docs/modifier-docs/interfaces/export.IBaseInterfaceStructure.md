@@ -30,7 +30,7 @@ Basic interface structure.
 
 #### Defined in
 
-[modifier/src/export.ts:150](https://github.com/linbudu599/morpher/blob/43a898f/packages/modifier/src/export.ts#L150)
+[modifier/src/export.ts:150](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/modifier/src/export.ts#L150)
 
 ___
 

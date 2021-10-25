@@ -24,7 +24,7 @@ e.g. import path from "path"；
 
 #### Defined in
 
-[import.ts:16](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L16)
+[import.ts:16](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/import.ts#L16)
 
 ___
 
@@ -36,7 +36,7 @@ e.g. import ts, { transpileModule } from "typescript";
 
 #### Defined in
 
-[import.ts:20](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L20)
+[import.ts:20](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/import.ts#L20)
 
 ___
 
@@ -48,7 +48,7 @@ e.g. import "ui-library/dist/index.css"
 
 #### Defined in
 
-[import.ts:24](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L24)
+[import.ts:24](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/import.ts#L24)
 
 ___
 
@@ -60,7 +60,7 @@ e.g. import { exec } from "child_process";
 
 #### Defined in
 
-[import.ts:12](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L12)
+[import.ts:12](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/import.ts#L12)
 
 ___
 
@@ -72,4 +72,4 @@ e.g. import * as fs from "fs";
 
 #### Defined in
 
-[import.ts:8](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/import.ts#L8)
+[import.ts:8](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/import.ts#L8)

@@ -23,7 +23,7 @@ Basic variable declaration structure.
 
 #### Defined in
 
-[modifier/src/export.ts:69](https://github.com/linbudu599/morpher/blob/43a898f/packages/modifier/src/export.ts#L69)
+[modifier/src/export.ts:69](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/modifier/src/export.ts#L69)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[modifier/src/export.ts:70](https://github.com/linbudu599/morpher/blob/43a898f/packages/modifier/src/export.ts#L70)
+[modifier/src/export.ts:70](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/modifier/src/export.ts#L70)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[modifier/src/export.ts:68](https://github.com/linbudu599/morpher/blob/43a898f/packages/modifier/src/export.ts#L68)
+[modifier/src/export.ts:68](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/modifier/src/export.ts#L68)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[modifier/src/export.ts:71](https://github.com/linbudu599/morpher/blob/43a898f/packages/modifier/src/export.ts#L71)
+[modifier/src/export.ts:71](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/modifier/src/export.ts#L71)

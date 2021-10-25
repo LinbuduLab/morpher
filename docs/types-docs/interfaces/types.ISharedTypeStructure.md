@@ -23,7 +23,7 @@ Type alias structure
 
 #### Defined in
 
-[types.ts:55](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L55)
+[types.ts:55](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L55)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[types.ts:54](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L54)
+[types.ts:54](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L54)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[types.ts:49](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L49)
+[types.ts:49](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L49)
 
 ___
 
@@ -55,4 +55,4 @@ ___
 
 #### Defined in
 
-[types.ts:53](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L53)
+[types.ts:53](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L53)

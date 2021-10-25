@@ -33,7 +33,7 @@ Create class declaration from base structure.
 
 #### Defined in
 
-[class.ts:24](https://github.com/linbudu599/morpher/blob/43a898f/packages/creator/src/class.ts#L24)
+[class.ts:24](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/creator/src/class.ts#L24)
 
 ___
 
@@ -58,7 +58,7 @@ Create decorator declaration for target class, from base structure.
 
 #### Defined in
 
-[class.ts:109](https://github.com/linbudu599/morpher/blob/43a898f/packages/creator/src/class.ts#L109)
+[class.ts:109](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/creator/src/class.ts#L109)
 
 ___
 
@@ -83,7 +83,7 @@ Create method declaration for target class, from base structure.
 
 #### Defined in
 
-[class.ts:51](https://github.com/linbudu599/morpher/blob/43a898f/packages/creator/src/class.ts#L51)
+[class.ts:51](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/creator/src/class.ts#L51)
 
 ___
 
@@ -108,4 +108,4 @@ Create prop declaration for target class, from base structure.
 
 #### Defined in
 
-[class.ts:80](https://github.com/linbudu599/morpher/blob/43a898f/packages/creator/src/class.ts#L80)
+[class.ts:80](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/creator/src/class.ts#L80)

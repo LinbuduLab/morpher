@@ -30,7 +30,7 @@ Class method param declaration structure
 
 #### Defined in
 
-[types.ts:102](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L102)
+[types.ts:102](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L102)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[types.ts:92](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L92)
+[types.ts:92](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L92)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[types.ts:91](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L91)
+[types.ts:91](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L91)
 
 ___
 
@@ -62,7 +62,7 @@ e.g. foo in `method(arg1 = 'foo'){}`
 
 #### Defined in
 
-[types.ts:96](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L96)
+[types.ts:96](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L96)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[types.ts:90](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L90)
+[types.ts:90](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L90)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[types.ts:97](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L97)
+[types.ts:97](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L97)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[types.ts:85](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L85)
+[types.ts:85](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L85)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[types.ts:98](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L98)
+[types.ts:98](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L98)
 
 ___
 
@@ -114,4 +114,4 @@ string in `method(arg1: string){}`
 
 #### Defined in
 
-[types.ts:89](https://github.com/linbudu599/morpher/blob/43a898f/packages/types/src/types.ts#L89)
+[types.ts:89](https://github.com/linbudu599/morpher/blob/2a43a9a/packages/types/src/types.ts#L89)
